@@ -1,0 +1,20 @@
+== Open Chemistry Superbuild ==
+
+This repository provides a git repository that will clone other Open Chemistry
+projects on demand, and build them all using the CMake external project
+functionality. All Open Chemistry libraries and applications are provided at
+the top level, and third party libraries are contained within the TPL
+directory.
+
+This superbuild project is provided as a convenience for developers. The
+individual projects can be built on their own once all dependencies are
+satisfied.
+
+== Building ==
+
+Create a build directory, cd into the build directory and run,
+
+ cmake path/to/openchemistry
+ make
+
+
