@@ -39,6 +39,8 @@ ExternalProject_Add(boost
 )
 
 ExternalProject_Get_Property(boost install_dir)
-set(Boost_INCLUDE_DIR "${install_dir}/${boost_include_suffix}")
+set(BOOST_ROOT "${install_dir}")
+#set(Boost_INCLUDE_DIR "${install_dir}/${boost_include_suffix}")
 
-message("Boost_INCLUDE_DIR='${Boost_INCLUDE_DIR}'")
+message("BOOST_ROOT='${BOOST_ROOT}'")
+#message("Boost_INCLUDE_DIR='${Boost_INCLUDE_DIR}'")

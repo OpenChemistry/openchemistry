@@ -2,7 +2,12 @@ file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/MongoCxxLib.CMakeLists.txt" "
 cmake_minimum_required(VERSION 2.8.7)
 project(mongoclient)
 
-find_package(Boost)
+set(Boost_USE_STATIC_LIBS ON)
+find_package(Boost COMPONENTS filesystem system thread)
+# program_options
+message(\"BOOST_ROOT='\${BOOST_ROOT}'\")
+message(\"Boost_INCLUDE_DIR='\${Boost_INCLUDE_DIR}'\")
+message(\"Boost_LIBRARIES='\${Boost_LIBRARIES}'\")
 
 include_directories(\${Boost_INCLUDE_DIR})
 include_directories(\${PCRE_INCLUDE_DIR})
@@ -11,6 +16,7 @@ include_directories(\${CMAKE_CURRENT_SOURCE_DIR})
 add_definitions(
   \"/D_CRT_SECURE_NO_WARNINGS\"
   \"/D_UNICODE\"
+  \"/DBOOST_ALL_NO_LIB\"
   )
 
 add_library(mongoclient
@@ -38,7 +44,7 @@ ExternalProject_Add(MongoCxxLib
     "<SOURCE_DIR>/util/text.cpp"
   CMAKE_ARGS
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
-    -DBoost_INCLUDE_DIR:PATH=${Boost_INCLUDE_DIR}
+    -DBOOST_ROOT:PATH=${BOOST_ROOT}
     -DPCRE_INCLUDE_DIR:PATH=${PCRE_INCLUDE_DIR}
   DEPENDS
     boost

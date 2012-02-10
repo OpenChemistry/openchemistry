@@ -5,6 +5,8 @@ project(mongotest)
 set(Boost_USE_STATIC_LIBS ON)
 find_package(Boost COMPONENTS filesystem system thread)
 # program_options
+message(\"BOOST_ROOT='\${BOOST_ROOT}'\")
+message(\"Boost_INCLUDE_DIR='\${Boost_INCLUDE_DIR}'\")
 message(\"Boost_LIBRARIES='\${Boost_LIBRARIES}'\")
 
 include_directories(\${Boost_INCLUDE_DIR})
@@ -14,9 +16,15 @@ include_directories(\${MongoDB_INCLUDE_DIR})
 add_definitions(
   \"/D_CRT_SECURE_NO_WARNINGS\"
   \"/D_UNICODE\"
+  \"/DBOOST_ALL_NO_LIB\"
   )
 
 find_library(MongoDB_LIBRARY mongoclient)
+
+if(WIN32)
+  set(platform_libs ws2_32.lib)
+  # psapi.lib
+endif()
 
 add_executable(mongotest
   \${CMAKE_CURRENT_SOURCE_DIR}/mongotest.cpp
@@ -24,6 +32,7 @@ add_executable(mongotest
 target_link_libraries(mongotest
   \${MongoDB_LIBRARY}
   \${Boost_LIBRARIES}
+  \${platform_libs}
   )
 install(TARGETS mongotest
   DESTINATION bin)
@@ -59,7 +68,8 @@ ExternalProject_Add(MongoTest
     "<SOURCE_DIR>/mongotest.cpp"
   CMAKE_ARGS
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
-    -DBoost_INCLUDE_DIR:PATH=${Boost_INCLUDE_DIR}
+    -DBOOST_ROOT:PATH=${BOOST_ROOT}
+    #-DBoost_INCLUDE_DIR:PATH=${Boost_INCLUDE_DIR}
     -DMongoDB_INCLUDE_DIR:PATH=${MongoDB_INCLUDE_DIR}
     -DMongoDB_LIBRARY:FILEPATH=${MongoDB_LIBRARY}
     #-DPCRE_INCLUDE_DIR:PATH=${PCRE_INCLUDE_DIR}
