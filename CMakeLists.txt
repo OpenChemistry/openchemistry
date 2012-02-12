@@ -13,3 +13,6 @@ set(OpenChemistry_INSTALL_PREFIX "${OpenChemistry_BINARY_DIR}/prefix")
 add_subdirectory(tpl)
 
 include(TestExternal_mongodb)
+
+# Now for the actual open chemistry projects!
+include(External_openqube)
