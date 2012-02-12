@@ -54,8 +54,8 @@ ExternalProject_Add(MongoCxxLib
 )
 
 ExternalProject_Get_Property(MongoCxxLib install_dir source_dir)
-set(MongoDB_INCLUDE_DIR "${source_dir}")
-set(MongoDB_LIBRARY "${install_dir}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}mongoclient${CMAKE_STATIC_LIBRARY_SUFFIX}")
+set(MongoDB_INCLUDE_DIR "${source_dir}" CACHE INTERNAL "")
+set(MongoDB_LIBRARY "${install_dir}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}mongoclient${CMAKE_STATIC_LIBRARY_SUFFIX}" CACHE INTERNAL "")
 
 message("MongoDB_INCLUDE_DIR='${MongoDB_INCLUDE_DIR}'")
 message("MongoDB_LIBRARY='${MongoDB_LIBRARY}'")

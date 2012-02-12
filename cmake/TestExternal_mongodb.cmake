@@ -60,6 +60,8 @@ int main(const int argc, const char* argv[]) {
 
 ExternalProject_Add(MongoTest
   DOWNLOAD_COMMAND ""
+  # SOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/mongotest-src"
+  BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/mongotest"
   PATCH_COMMAND ${CMAKE_COMMAND} -E copy_if_different
     "${CMAKE_CURRENT_BINARY_DIR}/MongoTest.CMakeLists.txt"
     "<SOURCE_DIR>/CMakeLists.txt"

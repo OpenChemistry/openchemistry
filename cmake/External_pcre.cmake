@@ -9,6 +9,6 @@ ExternalProject_Add(pcre
 )
 
 ExternalProject_Get_Property(pcre install_dir)
-set(PCRE_INCLUDE_DIR "${install_dir}/include")
+set(PCRE_INCLUDE_DIR "${install_dir}/include" CACHE INTERNAL "")
 
 message("PCRE_INCLUDE_DIR='${PCRE_INCLUDE_DIR}'")

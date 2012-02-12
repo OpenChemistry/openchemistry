@@ -41,7 +41,7 @@ ExternalProject_Add(boost
 )
 
 ExternalProject_Get_Property(boost install_dir)
-set(BOOST_ROOT "${install_dir}")
+set(BOOST_ROOT "${install_dir}" CACHE INTERNAL "")
 #set(Boost_INCLUDE_DIR "${install_dir}/${boost_include_suffix}")
 
 message("BOOST_ROOT='${BOOST_ROOT}'")
