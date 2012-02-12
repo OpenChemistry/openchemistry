@@ -35,7 +35,7 @@ ExternalProject_Add(boost
   URL ${boost_url}
   URL_MD5 ${boost_md5}
   SOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}/boost"
-  INSTALL_DIR "${CMAKE_CURRENT_BINARY_DIR}/prefix"
+  INSTALL_DIR "${OpenChemistry_INSTALL_PREFIX}"
   ${boost_cmds}
   BUILD_IN_SOURCE 1
 )

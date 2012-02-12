@@ -3,7 +3,7 @@ ExternalProject_Add(pcre
   URL ${pcre_url}
   URL_MD5 ${pcre_md5}
   BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/pcre"
-  INSTALL_DIR "${CMAKE_CURRENT_BINARY_DIR}/prefix"
+  INSTALL_DIR "${OpenChemistry_INSTALL_PREFIX}"
   CMAKE_ARGS
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
 )

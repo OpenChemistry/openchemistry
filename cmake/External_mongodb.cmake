@@ -34,7 +34,7 @@ ExternalProject_Add(MongoCxxLib
   URL ${mongodb_url}
   URL_MD5 ${mongodb_md5}
   BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/mongoclient"
-  INSTALL_DIR "${CMAKE_CURRENT_BINARY_DIR}/prefix"
+  INSTALL_DIR "${OpenChemistry_INSTALL_PREFIX}"
   PATCH_COMMAND ${CMAKE_COMMAND} -E copy_if_different
     "${CMAKE_CURRENT_BINARY_DIR}/MongoCxxLib.CMakeLists.txt"
     "<SOURCE_DIR>/CMakeLists.txt"
