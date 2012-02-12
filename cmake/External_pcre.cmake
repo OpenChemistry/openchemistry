@@ -2,6 +2,8 @@ ExternalProject_Add(pcre
   DOWNLOAD_DIR ${download_dir}
   URL ${pcre_url}
   URL_MD5 ${pcre_md5}
+  BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/pcre"
+  INSTALL_DIR "${CMAKE_CURRENT_BINARY_DIR}/prefix"
   CMAKE_ARGS
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
 )
