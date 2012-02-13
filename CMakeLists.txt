@@ -8,7 +8,11 @@ include(ExternalProject)
 include(projects)
 include(download_dir)
 
+# Set up a few default arguments for all projects
 set(OpenChemistry_INSTALL_PREFIX "${OpenChemistry_BINARY_DIR}/prefix")
+set(OpenChemistry_DEFAULT_ARGS
+  "-DCMAKE_PREFIX_PATH:PATH=${OpenChemistry_INSTALL_PREFIX}"
+  "-DCMAKE_INSTALL_PREFIX:PATH=${OpenChemistry_INSTALL_PREFIX}")
 
 add_subdirectory(tpl)
 

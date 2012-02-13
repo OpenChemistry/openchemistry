@@ -5,9 +5,11 @@ ExternalProject_Add(openqube
   SOURCE_DIR ${openqube_source}
   BINARY_DIR ${openqube_build}
   CMAKE_ARGS
-    -DCMAKE_INSTALL_PREFIX:PATH=${OpenChemistry_INSTALL_PREFIX}
+    ${OpenChemistry_DEFAULT_ARGS}
     ${avogadro_build_vars}
-    -DENABLE_TESTS:BOOL=OFF)
+    -DENABLE_TESTS:BOOL=OFF
+  DEPENDS
+    eigen)
 
 ExternalProject_Add_Step(openqube forcebuild
   COMMAND ${CMAKE_COMMAND} -E remove
