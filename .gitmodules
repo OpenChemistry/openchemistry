@@ -7,3 +7,6 @@
 [submodule "openqube"]
 	path = openqube
 	url = git://source.openchemistry.org/openqube.git
+[submodule "tpl/eigen"]
+	path = tpl/eigen
+	url = git://github.com/cryos/eigen.git
