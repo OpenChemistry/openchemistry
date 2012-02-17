@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.7)
+cmake_minimum_required(VERSION 2.8.5)
 project(OpenChemistry CXX)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake"
@@ -21,7 +21,7 @@ add_subdirectory(tpl)
 # Now for the actual open chemistry projects!
 
 # First the Qt dependent components.
-find_package(Qt4 4.8 REQUIRED)
+find_package(Qt4 4.7 REQUIRED)
 list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DQMAKE_EXECUTABLE:PATH=${QMAKE_EXECUTABLE}")
 include(External_openqube)
