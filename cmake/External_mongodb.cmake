@@ -25,6 +25,26 @@ add_library(mongoclient
 # target_link_libraries(mongoclient)
 install(TARGETS mongoclient
   DESTINATION lib)
+
+# Minimum set of headers needed for the MongoDB client.
+install(FILES \${CMAKE_CURRENT_SOURCE_DIR}/pch.h DESTINATION "include/mongo")
+install(FILES \${CMAKE_CURRENT_SOURCE_DIR}/targetver.h DESTINATION "include/mongo")
+file(GLOB mongo_headers "\${CMAKE_CURRENT_SOURCE_DIR}/client/*.h")
+install(FILES \${mongo_headers} DESTINATION "include/mongo/client")
+file(GLOB mongo_headers "\${CMAKE_CURRENT_SOURCE_DIR}/bson/*.h")
+install(FILES \${mongo_headers} DESTINATION "include/mongo/bson")
+file(GLOB mongo_headers "\${CMAKE_CURRENT_SOURCE_DIR}/bson/util/*.h")
+install(FILES \${mongo_headers} DESTINATION "include/mongo/bson/util")
+file(GLOB mongo_headers "\${CMAKE_CURRENT_SOURCE_DIR}/db/*.h")
+install(FILES \${mongo_headers} DESTINATION "include/mongo/db")
+file(GLOB mongo_headers "\${CMAKE_CURRENT_SOURCE_DIR}/util/*.h")
+install(FILES \${mongo_headers} DESTINATION "include/mongo/util")
+file(GLOB mongo_headers "\${CMAKE_CURRENT_SOURCE_DIR}/util/net/*.h")
+install(FILES \${mongo_headers} DESTINATION "include/mongo/util/net")
+file(GLOB mongo_headers "\${CMAKE_CURRENT_SOURCE_DIR}/util/mongoutils/*.h")
+install(FILES \${mongo_headers} DESTINATION "include/mongo/util/mongoutils")
+file(GLOB mongo_headers "\${CMAKE_CURRENT_SOURCE_DIR}/util/concurrency/*.h")
+install(FILES \${mongo_headers} DESTINATION "include/mongo/util/concurrency")
 ")
 
 get_filename_component(_self_dir ${CMAKE_CURRENT_LIST_FILE} PATH)
