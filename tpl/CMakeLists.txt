@@ -1,7 +1,14 @@
+# use system libxml2 by default on unix
+if(UNIX)
+  set(DEFAULT_USE_SYSTEM_LIBXML2 ON)
+else()
+  set(DEFAULT_USE_SYSTEM_LIBXML2 OFF)
+endif()
+
 option(USE_SYSTEM_BOOST "Should we use the system Boost?" OFF)
 option(USE_SYSTEM_MONGODB "Should we use the system mongoDB?" OFF)
 option(USE_SYSTEM_PCRE "Should we use the system PCRE?" OFF)
-option(USE_SYSTEM_LIBXML2 "Should we use the system libxml2?" OFF)
+option(USE_SYSTEM_LIBXML2 "Should we use the system libxml2?" ${DEFAULT_USE_SYSTEM_LIBXML2})
 option(USE_SYSTEM_ZLIB "Should we use the system zlib?" OFF)
 option(USE_SYSTEM_EIGEN "Should we use the system Eigen?" OFF)
 
@@ -30,7 +37,7 @@ else()
 endif()
 
 if(USE_SYSTEM_LIBXML2)
-  find_package(LibXML2 REQUIRED)
+  find_package(LibXml2 REQUIRED)
 else()
   include(External_libxml2)
 endif()
