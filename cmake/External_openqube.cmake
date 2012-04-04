@@ -6,7 +6,6 @@ ExternalProject_Add(openqube
   BINARY_DIR ${openqube_build}
   CMAKE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
-    ${avogadro_build_vars}
     -DENABLE_TESTS:BOOL=OFF
   DEPENDS
     eigen)

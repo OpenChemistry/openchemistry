@@ -5,6 +5,5 @@ ExternalProject_Add(molequeue
   SOURCE_DIR ${molequeue_source}
   BINARY_DIR ${molequeue_build}
   CMAKE_ARGS
-    -DCMAKE_INSTALL_PREFIX:PATH=${OpenChemistry_INSTALL_PREFIX}
-    ${avogadro_build_vars}
+    ${OpenChemistry_DEFAULT_ARGS}
     -DENABLE_TESTS:BOOL=OFF)
