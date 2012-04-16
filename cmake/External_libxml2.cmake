@@ -1,9 +1,11 @@
-# An external project for zlib
+# An external project for libxml2
 set(libxml2_source  "${CMAKE_CURRENT_BINARY_DIR}/libxml2")
 set(libxml2_install "${OpenChemistry_INSTALL_PREFIX}")
 
-# If Windows we use CMake, otherwise ./configure
+# If Windows we use configure.js and nmake, otherwise ./configure and make
 if(WIN32)
+  get_filename_component(_self_dir ${CMAKE_CURRENT_LIST_FILE} PATH)
+
   file(TO_NATIVE_PATH ${libxml2_install} libxml2_install_win)
   file(TO_NATIVE_PATH ${ZLIB_INCLUDE_DIR} ZLIB_INCLUDE_DIR_win)
   file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/libxml2_config.cmake "
@@ -21,16 +23,18 @@ execute_process(
   COMMAND nmake /f Makefile.msvc install
   WORKING_DIRECTORY \"${libxml2_source}/win32\"
   )")
-  set(libxml2_config_command ${CMAKE_COMMAND} -P
-    ${CMAKE_CURRENT_BINARY_DIR}/libxml2_config.cmake)
-  set(libxml2_build_command ${CMAKE_COMMAND} -P
-    ${CMAKE_CURRENT_BINARY_DIR}/libxml2_build.cmake)
-  set(libxml2_install_command ${CMAKE_COMMAND} -P
-    ${CMAKE_CURRENT_BINARY_DIR}/libxml2_install.cmake)
 
-  set(libxml2_patch ${CMAKE_COMMAND} -E copy_if_different ${AvogadroSquared_SOURCE_DIR}/cmake/libxml2_Makefile.msvc ${libxml2_source}/win32/Makefile.msvc)
+  set(libxml2_patch_command PATCH_COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    ${_self_dir}/libxml2_Makefile.msvc ${libxml2_source}/win32/Makefile.msvc)
+  set(libxml2_config_command CONFIGURE_COMMAND ${CMAKE_COMMAND} -P
+    ${CMAKE_CURRENT_BINARY_DIR}/libxml2_config.cmake)
+  set(libxml2_build_command BUILD_COMMAND ${CMAKE_COMMAND} -P
+    ${CMAKE_CURRENT_BINARY_DIR}/libxml2_build.cmake)
+  set(libxml2_install_command INSTALL_COMMAND ${CMAKE_COMMAND} -P
+    ${CMAKE_CURRENT_BINARY_DIR}/libxml2_install.cmake)
 else()
-  set(libxml2_config_command ./configure --prefix=${libxml2_install})
+  set(libxml2_patch_command "")
+  set(libxml2_config_command CONFIGURE_COMMAND ./configure --prefix=${libxml2_install})
   set(libxml2_build_command "")
   set(libxml2_install_command "")
 endif()
@@ -42,10 +46,10 @@ ExternalProject_Add(libxml2
   URL ${libxml2_url}
   URL_MD5 ${libxml2_md5}
   BUILD_IN_SOURCE 1
-  PATCH_COMMAND "${libxml2_patch}"
-  CONFIGURE_COMMAND "${libxml2_config_command}"
-  BUILD_COMMAND ${libxml2_build_command}
-  INSTALL_COMMAND ${libxml2_install_command}
+  ${libxml2_patch_command}
+  ${libxml2_config_command}
+  ${libxml2_build_command}
+  ${libxml2_install_command}
   DEPENDS zlib)
 
 set(LIBXML2_INCLUDE_DIR "${libxml2_install}/include" CACHE INTERNAL "")
