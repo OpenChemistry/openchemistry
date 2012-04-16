@@ -5,6 +5,8 @@ set(zlib_install "${OpenChemistry_INSTALL_PREFIX}")
 
 # If Windows we use CMake, otherwise ./configure
 if(WIN32)
+  get_filename_component(_self_dir ${CMAKE_CURRENT_LIST_FILE} PATH)
+
   ExternalProject_Add(zlib
     DOWNLOAD_DIR ${CMAKE_CURRENT_BINARY_DIR}
     SOURCE_DIR ${zlib_source}
@@ -13,6 +15,12 @@ if(WIN32)
     URL ${zlib_url}
     URL_MD5 ${zlib_md5}
     PATCH_COMMAND ${CMAKE_COMMAND} -E remove <SOURCE_DIR>/zconf.h
+      COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${_self_dir}/zlib.CMakeLists.txt"
+        "<SOURCE_DIR>/CMakeLists.txt"
+      COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${_self_dir}/zlib.gzguts.h"
+        "<SOURCE_DIR>/gzguts.h"
     CMAKE_CACHE_ARGS
       -DCMAKE_CXX_FLAGS:STRING=${pv_tpl_cxx_flags}
       -DCMAKE_C_FLAGS:STRING=${pv_tpl_c_flags}
