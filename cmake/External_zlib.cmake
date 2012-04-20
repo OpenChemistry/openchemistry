@@ -8,7 +8,7 @@ if(WIN32)
   get_filename_component(_self_dir ${CMAKE_CURRENT_LIST_FILE} PATH)
 
   ExternalProject_Add(zlib
-    DOWNLOAD_DIR ${CMAKE_CURRENT_BINARY_DIR}
+    DOWNLOAD_DIR ${download_dir}
     SOURCE_DIR ${zlib_source}
     BINARY_DIR ${zlib_build}
     INSTALL_DIR ${zlib_install}
@@ -42,9 +42,7 @@ else()
     INSTALL_DIR ${zlib_install}
     URL ${zlib_url}
     URL_MD5 ${zlib_md5}
-    PATCH_COMMAND ${CMAKE_COMMAND} -E remove <SOURCE_DIR>/zconf.h
     BUILD_IN_SOURCE 1
-    PATCH_COMMAND ""
     CONFIGURE_COMMAND <SOURCE_DIR>/configure --prefix=<INSTALL_DIR>)
 endif()
 
