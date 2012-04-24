@@ -2,10 +2,10 @@ unset(projects)
 
 # Boost
 list(APPEND projects boost)
-set(_v 48)
+set(_v 49)
 set(boost_version 1.${_v}.0)
 set(boost_url "http://sourceforge.net/projects/boost/files/boost/1.${_v}.0/boost_1_${_v}_0.tar.gz/download")
-set(boost_md5 "313a11e97eb56eb7efd18325354631be")
+set(boost_md5 "e0defc8c818e4f1c5bbb29d0292b76ca")
 
 # mongodb
 list(APPEND projects mongodb)

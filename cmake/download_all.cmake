@@ -21,10 +21,10 @@ endfunction()
 
 # Download each file in turn. If it exists and the md5 matches, it will not be
 # downloaded again. If the md5 differs, it will be deleted and downloaded.
-message(STATUS "Downlading source tarballs to '${download_dir}'...")
+message(STATUS "Downloading source tarballs to '${download_dir}'...")
 foreach(proj ${projects})
-  message(STATUS "Downlading ${proj} source tarball...")
   compute_filename_from_url(${${proj}_url} filename)
+  message(STATUS "Downloading ${proj} source tarball '${filename}'...")
   file(DOWNLOAD
     ${${proj}_url}
     ${download_dir}/${filename}
@@ -42,5 +42,4 @@ foreach(proj ${projects})
   log: ${log}
 ")
   endif()
-  #message(STATUS "  status='${status}' log='${log}'")
 endforeach()
