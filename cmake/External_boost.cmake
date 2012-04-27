@@ -14,20 +14,35 @@ if(NOT DEFINED use_bat)
   endif()
 endif()
 
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+  set(am 64)
+else()
+  set(am 32)
+endif()
+
+set(boost_with_args
+  --with-date_time
+  --with-filesystem
+  --with-iostreams
+  --with-program_options
+  --with-system
+  --with-thread
+)
+
 if(use_bat)
   set(boost_cmds
     CONFIGURE_COMMAND bootstrap.bat
-    BUILD_COMMAND b2
-    INSTALL_COMMAND b2 --prefix=<INSTALL_DIR> install
+    BUILD_COMMAND b2 address-model=${am} ${boost_with_args}
+    INSTALL_COMMAND b2 address-model=${am} ${boost_with_args}
+      --prefix=<INSTALL_DIR> install
   )
-  set(boost_include_suffix "include/boost-1_48")
 else()
   set(boost_cmds
     CONFIGURE_COMMAND ./bootstrap.sh --prefix=<INSTALL_DIR>
-    BUILD_COMMAND ./b2
-    INSTALL_COMMAND ./b2 install
+    BUILD_COMMAND ./b2 address-model=${am} ${boost_with_args}
+    INSTALL_COMMAND ./b2 address-model=${am} ${boost_with_args}
+      install
   )
-  set(boost_include_suffix "include")
 endif()
 
 ExternalProject_Add(boost
@@ -42,7 +57,3 @@ ExternalProject_Add(boost
 
 ExternalProject_Get_Property(boost install_dir)
 set(BOOST_ROOT "${install_dir}" CACHE INTERNAL "")
-#set(Boost_INCLUDE_DIR "${install_dir}/${boost_include_suffix}")
-
-message("BOOST_ROOT='${BOOST_ROOT}'")
-#message("Boost_INCLUDE_DIR='${Boost_INCLUDE_DIR}'")
