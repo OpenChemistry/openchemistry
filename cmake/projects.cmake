@@ -9,15 +9,15 @@ set(boost_md5 "e0defc8c818e4f1c5bbb29d0292b76ca")
 
 # mongodb
 list(APPEND projects mongodb)
-set(mongodb_version 2.0.2)
-set(mongodb_url "http://downloads.mongodb.org/src/mongodb-src-r2.0.2.tar.gz")
-set(mongodb_md5 "5dcf819249955a3e9cc61a341e45403a")
+set(mongodb_version 2.0.4)
+set(mongodb_url "http://downloads.mongodb.org/src/mongodb-src-r${mongodb_version}.tar.gz")
+set(mongodb_md5 "099bc701a3d190a040123c58958e8f67")
 
 # PCRE
 list(APPEND projects pcre)
-set(pcre_version 8.21)
-set(pcre_url "ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.21.tar.gz")
-set(pcre_md5 "b8c9469717262a1e486cffc288b28283")
+set(pcre_version 8.30)
+set(pcre_url "ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-${pcre_version}.tar.gz")
+set(pcre_md5 "d5ee0d9f6d2f0b7489331d04b6c182ef")
 
 # libxml2
 list(APPEND projects libxml2)
