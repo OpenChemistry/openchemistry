@@ -1,0 +1,7 @@
+if(MongoDB_INCLUDE_DIR AND MongoDB_LIBRARIES)
+  set(MongoDB_FOUND TRUE)
+else()
+  find_path(MongoDB_INCLUDE_DIR NAMES mongo/client/dbclient.h)
+  find_library(MongoDB_LIBRARIES mongoclient)
+  mark_as_advanced(MongoDB_INCLUDE_DIR Mongo_LIBRARIES)
+endif()
