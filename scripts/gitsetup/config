@@ -1,0 +1,6 @@
+[hooks]
+	url = git://source.openchemistry.org/openchemistry.git
+[gerrit]
+	project = openchemistry
+	site = http://review.source.kitware.com
+	pushurl = $username@review.source.kitware.com:openchemistry
