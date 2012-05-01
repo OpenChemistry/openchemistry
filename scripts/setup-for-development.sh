@@ -11,7 +11,6 @@ echo "Checking basic user information..."
 scripts/gitsetup/setup-user
 echo
 
-echo "Setting up git hooks..."
 scripts/gitsetup/setup-hooks
 echo
 
