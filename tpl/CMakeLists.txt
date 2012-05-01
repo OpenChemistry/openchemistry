@@ -25,7 +25,7 @@ else()
 endif()
 
 if(USE_SYSTEM_MONGODB)
-  message(FATAL_ERROR "find_package(mongoDB) is not yet implemented")
+  find_package(MongoDB REQUIRED)
 else()
   include(External_mongodb)
 endif()
