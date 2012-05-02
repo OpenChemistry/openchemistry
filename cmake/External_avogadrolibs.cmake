@@ -12,7 +12,6 @@ endif()
 ExternalProject_Add(avogadrolibs
   SOURCE_DIR ${_source}
   BINARY_DIR ${_build}
-  INSTALL_COMMAND ""
   CMAKE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
   DEPENDS
