@@ -38,6 +38,7 @@ add_subdirectory(tpl)
 find_package(Qt4 4.7 REQUIRED)
 list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DQT_QMAKE_EXECUTABLE:PATH=${QT_QMAKE_EXECUTABLE}")
+include(External_avogadrolibs)
 include(External_openqube)
 include(External_molequeue)
 include(External_chemkit)

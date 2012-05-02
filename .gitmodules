@@ -16,3 +16,9 @@
 [submodule "chemdata"]
 	path = chemdata
 	url = git://source.openchemistry.org/chemdata.git
+[submodule "avogadrolibs"]
+	path = avogadrolibs
+	url = git://github.com/OpenChemistry/avogadrolibs.git
+[submodule "avogadrodata"]
+	path = avogadrodata
+	url = git://github.com/OpenChemistry/avogadrodata.git
