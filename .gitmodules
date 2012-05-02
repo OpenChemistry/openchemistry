@@ -12,7 +12,7 @@
 	url = git://github.com/cryos/eigen.git
 [submodule "chemkit"]
 	path = chemkit
-	url = git://github.com/kylelutz/chemkit.git
+	url = git://github.com/OpenChemistry/chemkit.git
 [submodule "chemdata"]
 	path = chemdata
 	url = git://source.openchemistry.org/chemdata.git
