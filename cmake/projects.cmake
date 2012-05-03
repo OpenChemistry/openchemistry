@@ -27,6 +27,6 @@ set(libxml2_md5 "8127a65e8c3b08856093099b52599c86")
 
 # Zlib
 list(APPEND projects zlib)
-set(zlib_version 1.2.6)
+set(zlib_version 1.2.7)
 set(zlib_url "http://zlib.net/zlib-${zlib_version}.tar.gz")
-set(zlib_md5 "618e944d7c7cd6521551e30b32322f4a")
+set(zlib_md5 "60df6a37c56e7c1366cca812414f7b85")
