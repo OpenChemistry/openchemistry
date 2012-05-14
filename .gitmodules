@@ -1,6 +1,3 @@
-[submodule "molcore"]
-	path = molcore
-	url = git://source.openchemistry.org/molcore.git
 [submodule "molequeue"]
 	path = molequeue
 	url = git://source.openchemistry.org/molequeue.git
