@@ -14,3 +14,10 @@ ExternalProject_Add(chemdata
   DEPENDS
     ${_deps}
     chemkit)
+
+if(FORCE_STEP)
+  ExternalProject_Add_Step(chemdata forcebuild
+    COMMAND ${CMAKE_COMMAND} -E echo "Force build of chemdata"
+    ${FORCE_STEP_ARGS}
+    ALWAYS 1)
+endif()

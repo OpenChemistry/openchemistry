@@ -17,3 +17,10 @@ ExternalProject_Add(avogadrolibs
   DEPENDS
     ${_deps}
     )
+
+if(FORCE_STEP)
+  ExternalProject_Add_Step(avogadrolibs forcebuild
+    COMMAND ${CMAKE_COMMAND} -E echo "Force build of avogadrolibs"
+    ${FORCE_STEP_ARGS}
+    ALWAYS 1)
+endif()
