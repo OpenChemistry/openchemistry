@@ -22,3 +22,10 @@ ExternalProject_Add(chemkit
   DEPENDS
     ${_deps}
   )
+
+if(FORCE_BUILD)
+  ExternalProject_Add_Step(chemkit forcebuild
+    COMMAND ${CMAKE_COMMAND} -E echo "Force build of chemkit"
+    DEPENDERS build
+    ALWAYS 1)
+endif()

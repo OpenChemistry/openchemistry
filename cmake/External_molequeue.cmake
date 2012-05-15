@@ -7,3 +7,10 @@ ExternalProject_Add(molequeue
   CMAKE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
     -DENABLE_TESTS:BOOL=OFF)
+
+if(FORCE_BUILD)
+  ExternalProject_Add_Step(molequeue forcebuild
+    COMMAND ${CMAKE_COMMAND} -E echo "Force build of molequeue"
+    DEPENDERS build
+    ALWAYS 1)
+endif()

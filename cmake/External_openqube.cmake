@@ -10,10 +10,9 @@ ExternalProject_Add(openqube
   DEPENDS
     eigen)
 
-ExternalProject_Add_Step(openqube forcebuild
-  COMMAND ${CMAKE_COMMAND} -E remove
-    ${CMAKE_CURRENT_BUILD_DIR}/openqube-prefix/src/openqube-stamp/openqube-build
-  DEPENDEES configure
-  DEPENDERS build
-  ALWAYS 1
-  )
+if(FORCE_BUILD)
+  ExternalProject_Add_Step(openqube forcebuild
+    COMMAND ${CMAKE_COMMAND} -E echo "Force build of openqube"
+    DEPENDERS build
+    ALWAYS 1)
+endif()

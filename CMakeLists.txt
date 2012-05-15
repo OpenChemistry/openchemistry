@@ -30,6 +30,8 @@ endif()
 
 add_subdirectory(tpl)
 
+option(FORCE_BUILD "Should the top level projects force build each make" ON)
+
 #include(TestExternal_mongodb)
 
 # Now for the actual open chemistry projects!
