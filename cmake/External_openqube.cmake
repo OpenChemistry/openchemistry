@@ -8,6 +8,7 @@ ExternalProject_Add(openqube
     ${OpenChemistry_DEFAULT_ARGS}
     -DENABLE_TESTS:BOOL=OFF
   DEPENDS
+    avogadrolibs
     eigen)
 
 ExternalProject_Add_Step(openqube forcebuild
