@@ -30,6 +30,28 @@ endif()
 
 add_subdirectory(tpl)
 
+set(FORCE_STEP_DEFAULT "build")
+if(CMAKE_CONFIGURATION_TYPES)
+  set(FORCE_STEP_DEFAULT "configure")
+endif()
+
+set(FORCE_STEP ${FORCE_STEP_DEFAULT} CACHE STRING
+  "Should the top level projects force configure/build/install each make")
+set_property(CACHE FORCE_STEP PROPERTY STRINGS OFF configure build install)
+
+if(FORCE_STEP STREQUAL configure)
+  set(dependee "update")
+elseif(FORCE_STEP STREQUAL build)
+  set(dependee "configure")
+elseif(FORCE_STEP STREQUAL install)
+  set(dependee "build")
+endif()
+
+set(FORCE_STEP_ARGS
+  DEPENDEES ${dependee}
+  DEPENDERS ${FORCE_STEP}
+)
+
 #include(TestExternal_mongodb)
 
 # Now for the actual open chemistry projects!
