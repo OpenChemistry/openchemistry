@@ -70,3 +70,5 @@ find_package(VTK REQUIRED)
 list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DVTK_DIR:PATH=${VTK_DIR}")
 include(External_chemdata)
+
+include(External_avogadroapp)
