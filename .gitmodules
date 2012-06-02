@@ -19,3 +19,6 @@
 [submodule "avogadrodata"]
 	path = avogadrodata
 	url = git://github.com/OpenChemistry/avogadrodata.git
+[submodule "avogadroapp"]
+	path = avogadroapp
+	url = git://source.openchemistry.org/avogadroapp.git
