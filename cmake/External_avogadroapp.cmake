@@ -1,7 +1,7 @@
 set(_source "${CMAKE_CURRENT_SOURCE_DIR}/avogadroapp")
 set(_build "${CMAKE_CURRENT_BINARY_DIR}/avogadroapp")
 
-unset(_deps)
+set(_deps avogadrolibs)
 if(NOT USE_SYSTEM_BOOST)
   list(APPEND _deps boost)
 endif()
