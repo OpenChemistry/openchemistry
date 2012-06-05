@@ -57,7 +57,7 @@ set(FORCE_STEP_ARGS
 # Now for the actual open chemistry projects!
 
 # First the Qt dependent components.
-find_package(Qt4 4.7 REQUIRED)
+find_package(Qt4 4.8 REQUIRED)
 list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DQT_QMAKE_EXECUTABLE:PATH=${QT_QMAKE_EXECUTABLE}")
 include(External_avogadrolibs)
