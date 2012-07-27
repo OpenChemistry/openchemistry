@@ -7,6 +7,12 @@ set(boost_version 1.${_v}.0)
 set(boost_url "http://sourceforge.net/projects/boost/files/boost/1.${_v}.0/boost_1_${_v}_0.tar.gz/download")
 set(boost_md5 "e0defc8c818e4f1c5bbb29d0292b76ca")
 
+# glew
+list(APPEND projects glew)
+set(glew_version 1.7.0)
+set(glew_url "http://sourceforge.net/projects/glew/files/glew/1.7.0/glew-1.7.0.tgz/download")
+set(glew_md5 "fb7a8bb79187ac98a90b57f0f27a3e84")
+
 # mongodb
 list(APPEND projects mongodb)
 set(mongodb_version 2.0.4)
