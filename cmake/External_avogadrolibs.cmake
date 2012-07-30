@@ -8,6 +8,9 @@ endif()
 if(NOT USE_SYSTEM_EIGEN)
   list(APPEND _deps eigen)
 endif()
+if(NOT USE_SYSTEM_GLEW)
+  list(APPEND _deps glew)
+endif()
 
 ExternalProject_Add(avogadrolibs
   SOURCE_DIR ${_source}
