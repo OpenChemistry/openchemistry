@@ -32,7 +32,7 @@ else()
 endif()
 
 if(USE_SYSTEM_ZLIB)
-  find_package(ZLib REQUIRED)
+  find_package(ZLIB REQUIRED)
 else()
   include(External_zlib)
 endif()
