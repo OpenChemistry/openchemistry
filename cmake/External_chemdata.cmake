@@ -13,7 +13,8 @@ ExternalProject_Add(chemdata
     ${OpenChemistry_DEFAULT_ARGS}
   DEPENDS
     ${_deps}
-    chemkit)
+    chemkit
+    molequeue)
 
 if(FORCE_STEP)
   ExternalProject_Add_Step(chemdata forcebuild
