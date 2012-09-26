@@ -11,6 +11,9 @@ endif()
 if(NOT USE_SYSTEM_GLEW)
   list(APPEND _deps glew)
 endif()
+if(NOT USE_SYSTEM_HDF5)
+  list(APPEND _deps hdf5)
+endif()
 
 ExternalProject_Add(avogadrolibs
   SOURCE_DIR ${_source}

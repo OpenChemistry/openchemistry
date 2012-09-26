@@ -12,6 +12,7 @@ option(USE_SYSTEM_LIBXML2 "Should we use the system libxml2?" ${DEFAULT_USE_SYST
 option(USE_SYSTEM_ZLIB "Should we use the system zlib?" OFF)
 option(USE_SYSTEM_EIGEN "Should we use the system Eigen?" OFF)
 option(USE_SYSTEM_GLEW "Should we use the system GLEW?" OFF)
+option(USE_SYSTEM_HDF5 "Should we use the system HDF5?" OFF)
 
 if(USE_SYSTEM_BOOST)
   find_package(Boost REQUIRED)
@@ -53,4 +54,10 @@ if(USE_SYSTEM_GLEW)
   find_package(GLEW REQUIRED)
 else()
   include(External_glew)
+endif()
+
+if(USE_SYSTEM_HDF5)
+  find_package(HDF5 REQUIRED)
+else()
+  include(External_hdf5)
 endif()
