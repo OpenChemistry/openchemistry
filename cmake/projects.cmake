@@ -13,6 +13,12 @@ set(glew_version 1.7.0)
 set(glew_url "http://sourceforge.net/projects/glew/files/glew/1.7.0/glew-1.7.0.tgz/download")
 set(glew_md5 "fb7a8bb79187ac98a90b57f0f27a3e84")
 
+# hdf5
+list(APPEND projects hdf5)
+set(hdf5_version 1.8.9)
+set(hdf5_url "http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-${hdf5_version}.tar.gz")
+set(hdf5_md5 "d1266bb7416ef089400a15cc7c963218")
+
 # mongodb
 list(APPEND projects mongodb)
 set(mongodb_version 2.0.4)
