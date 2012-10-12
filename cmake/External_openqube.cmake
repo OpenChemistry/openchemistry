@@ -1,6 +1,11 @@
 set(openqube_source "${CMAKE_CURRENT_SOURCE_DIR}/openqube")
 set(openqube_build "${CMAKE_CURRENT_BINARY_DIR}/openqube")
 
+unset(_deps)
+if(NOT USE_SYSTEM_EIGEN)
+  list(APPEND _deps eigen)
+endif()
+
 ExternalProject_Add(openqube
   SOURCE_DIR ${openqube_source}
   BINARY_DIR ${openqube_build}
@@ -9,7 +14,7 @@ ExternalProject_Add(openqube
     -DENABLE_TESTS:BOOL=OFF
   DEPENDS
     avogadrolibs
-    eigen)
+    ${_deps})
 
 if(FORCE_STEP)
   ExternalProject_Add_Step(openqube forcebuild

@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.8.5)
 project(OpenChemistry CXX)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake"
+  "${CMAKE_CURRENT_SOURCE_DIR}/tpl/eigen/cmake" # For FindEigen3
   ${CMAKE_MODULE_PATH})
 
 # Set up some standard defaults, these will be passed down into external the
