@@ -45,7 +45,7 @@ else()
 endif()
 
 if(USE_SYSTEM_EIGEN)
-  message(FATAL_ERROR "Need to add the find Eigen module...")
+  find_package(Eigen3 REQUIRED)
 else()
   include(External_eigen)
 endif()
