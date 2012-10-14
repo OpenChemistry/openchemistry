@@ -6,5 +6,4 @@ ExternalProject_Add(eigen
   BINARY_DIR ${eigen_build}
   CMAKE_ARGS
     -DCMAKE_INSTALL_PREFIX:PATH=${OpenChemistry_INSTALL_PREFIX}
-    -DBUILD_TESTING:BOOL=FALSE
   )
