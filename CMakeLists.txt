@@ -16,8 +16,10 @@ include(download_dir)
 
 # Set up a few default arguments for all projects, such as the install prefix,
 # CMake prefix path and the runtime/library output directories.
+option(BUILD_SHARED_LIBS "Build libraries as SHARED" ON)
 set(OpenChemistry_INSTALL_PREFIX "${OpenChemistry_BINARY_DIR}/prefix")
 set(OpenChemistry_DEFAULT_ARGS
+  "-DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS}"
   "-DCMAKE_PREFIX_PATH:PATH=${OpenChemistry_INSTALL_PREFIX}"
   "-DCMAKE_INSTALL_PREFIX:PATH=${OpenChemistry_INSTALL_PREFIX}"
   "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY:PATH=${CMAKE_RUNTIME_OUTPUT_DIRECTORY}"

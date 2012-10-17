@@ -21,5 +21,6 @@ ExternalProject_Add(glew
     "${CMAKE_CURRENT_BINARY_DIR}/glew.CMakeLists.txt"
     "<SOURCE_DIR>/CMakeLists.txt"
   CMAKE_ARGS
+    -DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS}
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
   )

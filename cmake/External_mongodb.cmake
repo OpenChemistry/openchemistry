@@ -2,7 +2,9 @@ file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/MongoCxxLib.CMakeLists.txt" "
 cmake_minimum_required(VERSION 2.8.7)
 project(mongoclient)
 
-set(Boost_USE_STATIC_LIBS ON)
+if(NOT BUILD_SHARED_LIBS)
+  set(Boost_USE_STATIC_LIBS ON)
+endif()
 find_package(Boost COMPONENTS filesystem system thread)
 # program_options
 message(\"BOOST_ROOT='\${BOOST_ROOT}'\")
@@ -22,7 +24,7 @@ add_definitions(
 add_library(mongoclient
   \${CMAKE_CURRENT_SOURCE_DIR}/client/mongo_client_lib.cpp
   )
-# target_link_libraries(mongoclient)
+target_link_libraries(mongoclient \${Boost_LIBRARIES})
 install(TARGETS mongoclient
   DESTINATION lib)
 
@@ -71,15 +73,9 @@ ExternalProject_Add(MongoCxxLib
   CMAKE_ARGS
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
     -DBOOST_ROOT:PATH=${BOOST_ROOT}
+    -DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS}
     -DPCRE_INCLUDE_DIR:PATH=${PCRE_INCLUDE_DIR}
   DEPENDS
     boost
     pcre
 )
-
-ExternalProject_Get_Property(MongoCxxLib install_dir source_dir)
-set(MongoDB_INCLUDE_DIR "${source_dir}" CACHE INTERNAL "")
-set(MongoDB_LIBRARY "${install_dir}/lib/${CMAKE_STATIC_LIBRARY_PREFIX}mongoclient${CMAKE_STATIC_LIBRARY_SUFFIX}" CACHE INTERNAL "")
-
-message("MongoDB_INCLUDE_DIR='${MongoDB_INCLUDE_DIR}'")
-message("MongoDB_LIBRARY='${MongoDB_LIBRARY}'")
