@@ -53,8 +53,6 @@ set(FORCE_STEP_ARGS
   DEPENDERS ${FORCE_STEP}
 )
 
-#include(TestExternal_mongodb)
-
 # Now for the actual open chemistry projects!
 
 # First the Qt dependent components.
