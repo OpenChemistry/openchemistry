@@ -5,10 +5,6 @@ ExternalProject_Add(pcre
   BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/pcre"
   INSTALL_DIR "${OpenChemistry_INSTALL_PREFIX}"
   CMAKE_ARGS
+    -DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS}
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
 )
-
-ExternalProject_Get_Property(pcre install_dir)
-set(PCRE_INCLUDE_DIR "${install_dir}/include" CACHE INTERNAL "")
-
-message("PCRE_INCLUDE_DIR='${PCRE_INCLUDE_DIR}'")
