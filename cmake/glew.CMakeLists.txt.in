@@ -17,7 +17,8 @@ elseif(WIN32)
   set(platform_libs glu32 opengl32)
 else()
   # any platform_libs required on Linux or other platforms?
-  set(platform_libs)
+  find_package(OpenGL REQUIRED)
+  set(platform_libs ${OPENGL_LIBRARIES})
 endif()
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
