@@ -2,10 +2,10 @@ unset(projects)
 
 # Boost
 list(APPEND projects boost)
-set(_v 49)
+set(_v 51)
 set(boost_version 1.${_v}.0)
 set(boost_url "http://sourceforge.net/projects/boost/files/boost/1.${_v}.0/boost_1_${_v}_0.tar.gz/download")
-set(boost_md5 "e0defc8c818e4f1c5bbb29d0292b76ca")
+set(boost_md5 "6a1f32d902203ac70fbec78af95b3cf8")
 
 # glew
 list(APPEND projects glew)
@@ -21,9 +21,10 @@ set(hdf5_md5 "d1266bb7416ef089400a15cc7c963218")
 
 # mongodb
 list(APPEND projects mongodb)
-set(mongodb_version 2.0.4)
-set(mongodb_url "http://downloads.mongodb.org/src/mongodb-src-r${mongodb_version}.tar.gz")
-set(mongodb_md5 "099bc701a3d190a040123c58958e8f67")
+set(mongodb_version 2.3.0)
+#set(mongodb_url "http://downloads.mongodb.org/src/mongodb-src-r${mongodb_version}.tar.gz")
+set(mongodb_url "http://www.openchemistry.org/files/tpl/mongodb-mongo-r${mongodb_version}-75-g5cbd476.tar.gz")
+set(mongodb_md5 "6123ff30262dbac822bad27f447dc9a6")
 
 # PCRE
 list(APPEND projects pcre)
