@@ -3,7 +3,7 @@ set(_build "${CMAKE_CURRENT_BINARY_DIR}/chemdata")
 
 unset(_deps)
 if(NOT USE_SYSTEM_MONGODB)
-  list(APPEND _deps MongoCxxLib)
+  list(APPEND _deps mongodb)
 endif()
 
 ExternalProject_Add(chemdata
