@@ -36,7 +36,7 @@ foreach(proj ${projects})
   list(GET status 0 status_code)
   list(GET status 1 status_string)
   if(NOT status_code EQUAL 0)
-    message(SEND_ERROR "error: downloading '${${${proj}_url}}' failed
+    message(SEND_ERROR "error: downloading '${${proj}_url}' failed
   status_code: ${status_code}
   status_string: ${status_string}
   log: ${log}
