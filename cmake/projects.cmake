@@ -13,6 +13,12 @@ set(glew_version 1.7.0)
 set(glew_url "http://sourceforge.net/projects/glew/files/glew/1.7.0/glew-1.7.0.tgz/download")
 set(glew_md5 "fb7a8bb79187ac98a90b57f0f27a3e84")
 
+# gtest
+list(APPEND projects gtest)
+set(gtest_version 1.6.0)
+set(gtest_url "http://googletest.googlecode.com/files/gtest-1.6.0.zip")
+set(gtest_md5 "4577b49f2973c90bf9ba69aa8166b786")
+
 # hdf5
 list(APPEND projects hdf5)
 set(hdf5_version 1.8.9)
