@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8.7)
 project(mongotest)
 
 set(Boost_USE_STATIC_LIBS ON)
-find_package(Boost COMPONENTS filesystem system thread)
+find_package(Boost COMPONENTS filesystem system thread chrono)
 # program_options
 message(\"BOOST_ROOT='\${BOOST_ROOT}'\")
 message(\"Boost_INCLUDE_DIR='\${Boost_INCLUDE_DIR}'\")
