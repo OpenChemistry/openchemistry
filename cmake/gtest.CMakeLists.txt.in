@@ -239,6 +239,11 @@ if (gtest_build_tests)
   py_test(gtest_xml_output_unittest)
 endif()
 
+# From here to the end are the patched bits:
+
+set_property(TARGET gtest gtest_main
+  PROPERTY INSTALL_NAME_DIR ${CMAKE_INSTALL_PREFIX}/lib)
+
 install(TARGETS gtest gtest_main
   RUNTIME DESTINATION bin
   LIBRARY DESTINATION lib
