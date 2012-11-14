@@ -18,4 +18,5 @@ ExternalProject_Add(gtest
   CMAKE_ARGS
     -DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS}
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
+    -Dgtest_force_shared_crt:BOOL=ON
     )
