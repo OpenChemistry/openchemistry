@@ -61,8 +61,6 @@ set(FORCE_STEP_ARGS
 find_package(Qt4 4.8 REQUIRED)
 list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DQT_QMAKE_EXECUTABLE:PATH=${QT_QMAKE_EXECUTABLE}")
-include(External_avogadrolibs)
-include(External_openqube)
 include(External_molequeue)
 include(External_chemkit)
 
@@ -70,6 +68,8 @@ include(External_chemkit)
 find_package(VTK REQUIRED)
 list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DVTK_DIR:PATH=${VTK_DIR}")
+include(External_avogadrolibs)
+include(External_openqube)
 include(External_chemdata)
 
 include(External_avogadroapp)
