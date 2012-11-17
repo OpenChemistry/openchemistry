@@ -24,6 +24,7 @@ ExternalProject_Add(avogadrolibs
   CMAKE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
   DEPENDS
+    molequeue
     ${_deps}
     )
 
