@@ -22,7 +22,7 @@ set(gtest_md5 "4577b49f2973c90bf9ba69aa8166b786")
 # hdf5
 list(APPEND projects hdf5)
 set(hdf5_version 1.8.9)
-set(hdf5_url "http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-${hdf5_version}.tar.gz")
+set(hdf5_url "http://www.hdfgroup.org/ftp/HDF5/releases/hdf5-${hdf5_version}/src/hdf5-${hdf5_version}.tar.gz")
 set(hdf5_md5 "d1266bb7416ef089400a15cc7c963218")
 
 # mongodb
