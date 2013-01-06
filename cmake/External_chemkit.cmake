@@ -10,8 +10,11 @@ if(NOT USE_SYSTEM_EIGEN)
 endif()
 
 ExternalProject_Add(chemkit
+  DOWNLOAD_DIR ${download_dir}
   SOURCE_DIR ${_source}
   BINARY_DIR ${_build}
+  URL ${chemkit_url}
+  URL_MD5 ${chemkit_md5}
   CMAKE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
     -DENABLE_TESTS:BOOL=OFF
@@ -22,10 +25,3 @@ ExternalProject_Add(chemkit
   DEPENDS
     ${_deps}
   )
-
-if(FORCE_STEP)
-  ExternalProject_Add_Step(chemkit forcebuild
-    COMMAND ${CMAKE_COMMAND} -E echo "Force build of chemkit"
-    ${FORCE_STEP_ARGS}
-    ALWAYS 1)
-endif()
