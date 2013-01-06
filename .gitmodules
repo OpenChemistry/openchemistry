@@ -1,18 +1,6 @@
 [submodule "molequeue"]
 	path = molequeue
-	url = git://source.openchemistry.org/molequeue.git
-[submodule "openqube"]
-	path = openqube
-	url = git://source.openchemistry.org/openqube.git
-[submodule "tpl/eigen"]
-	path = tpl/eigen
-	url = git://github.com/cryos/eigen.git
-[submodule "chemkit"]
-	path = chemkit
-	url = git://github.com/OpenChemistry/chemkit.git
-[submodule "chemdata"]
-	path = chemdata
-	url = git://source.openchemistry.org/chemdata.git
+	url = git://github.com/OpenChemistry/molequeue.git
 [submodule "avogadrolibs"]
 	path = avogadrolibs
 	url = git://github.com/OpenChemistry/avogadrolibs.git
@@ -21,4 +9,10 @@
 	url = git://github.com/OpenChemistry/avogadrodata.git
 [submodule "avogadroapp"]
 	path = avogadroapp
-	url = git://source.openchemistry.org/avogadroapp.git
+	url = git://github.com/OpenChemistry/avogadroapp.git
+[submodule "mongochem"]
+	path = mongochem
+	url = git://github.com/OpenChemistry/mongochem.git
+[submodule "thirdparty/VTK"]
+	path = thirdparty/VTK
+	url = git://github.com/Kitware/VTK.git

@@ -21,6 +21,7 @@ else()
   include(External_boost)
 endif()
 
+# FIXME: Add system options, test them and expose the CMake options.
 if(USE_SYSTEM_PCRE)
   message(FATAL_ERROR "find_package(PCRE) is not yet implemented")
 else()
@@ -45,8 +46,9 @@ else()
   include(External_libxml2)
 endif()
 
+# FIXME: Add FindEigen3.cmake to superbuild
 if(USE_SYSTEM_EIGEN)
-  find_package(Eigen3 REQUIRED)
+  message(FATAL_ERROR "find_package(Eigen3) is not yet implemented")
 else()
   include(External_eigen)
 endif()
@@ -67,4 +69,24 @@ if(USE_SYSTEM_HDF5)
   find_package(HDF5 REQUIRED)
 else()
   include(External_hdf5)
+endif()
+
+# FIXME: Add system options, test them and expose the CMake options.
+if(USE_SYSTEM_OPENBABEL)
+  message(FATAL_ERROR "find_package(OpenBabel2) is not yet implemented")
+else()
+  include(External_openbabel)
+endif()
+
+# FIXME: Add system options, test them and expose the CMake options.
+if(USE_SYSTEM_CHEMKIT)
+  message(FATAL_ERROR "find_package(Chemkit) is not yet implemented")
+else()
+  include(External_chemkit)
+endif()
+
+if(USE_SYSTEM_VTK)
+  find_package(VTK REQUIRED)
+else()
+  include(External_VTK)
 endif()
