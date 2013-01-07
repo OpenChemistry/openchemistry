@@ -52,22 +52,16 @@ set(FORCE_STEP_ARGS
   DEPENDERS ${FORCE_STEP}
 )
 
+# First the third party applications, some of which use Qt.
+find_package(Qt4 4.8 REQUIRED)
+list(APPEND OpenChemistry_DEFAULT_ARGS
+  "-DQT_QMAKE_EXECUTABLE:PATH=${QT_QMAKE_EXECUTABLE}")
+
 # Add the third party dependencies first
 add_subdirectory(thirdparty)
 
 # Now for the actual open chemistry projects!
-
-# First the Qt dependent components.
-find_package(Qt4 4.8 REQUIRED)
-list(APPEND OpenChemistry_DEFAULT_ARGS
-  "-DQT_QMAKE_EXECUTABLE:PATH=${QT_QMAKE_EXECUTABLE}")
 include(External_molequeue)
-
-# These things are dependent on VTK and Qt.
-#find_package(VTK REQUIRED)
-#list(APPEND OpenChemistry_DEFAULT_ARGS
-#  "-DVTK_DIR:PATH=${VTK_DIR}")
 include(External_avogadrolibs)
-include(External_mongochem)
-
 include(External_avogadroapp)
+include(External_mongochem)
