@@ -9,9 +9,12 @@ endif()
 if(NOT USE_SYSTEM_VTK)
   list(APPEND _deps VTK)
 endif()
+# FIXME: When chemkit moves to being an optional dependency remove this.
+set(USE_CHEMKIT TRUE)
 if(USE_CHEMKIT AND NOT USE_SYSTEM_CHEMKIT)
   list(APPEND _deps chemkit)
 endif()
+# FIXME: Once Open Babel functionality is added, this can ensure optional build.
 if(USE_OPENBABEL AND NOT USE_SYSTEM_OPENBABEL)
   list(APPEND _deps openbabel)
 endif()
