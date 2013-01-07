@@ -16,7 +16,7 @@ set(chemkit_md5 "d34856b8c21c93365ee73113c2425db5")
 # Eigen
 list(APPEND projects eigen)
 set(eigen_version "3.1.2")
-set(eigen_url "http://bitbucket.org/eigen/eigen/get/${eigen_version}.tar.gz")
+set(eigen_url "http://openchemistry.org/files/tpl/eigen-${eigen_version}.tar.gz")
 set(eigen_md5 "bb639388192cb80f1ee797f5dbdbe74f")
 
 # glew
@@ -41,7 +41,7 @@ set(hdf5_md5 "d1266bb7416ef089400a15cc7c963218")
 list(APPEND projects mongodb)
 set(mongodb_version "2.3.0")
 #set(mongodb_url "http://downloads.mongodb.org/src/mongodb-src-r${mongodb_version}.tar.gz")
-set(mongodb_url "http://www.openchemistry.org/files/tpl/mongodb-mongo-r${mongodb_version}-75-g5cbd476.tar.gz")
+set(mongodb_url "http://openchemistry.org/files/tpl/mongodb-mongo-r${mongodb_version}-75-g5cbd476.tar.gz")
 set(mongodb_md5 "6123ff30262dbac822bad27f447dc9a6")
 
 # Open Babel
