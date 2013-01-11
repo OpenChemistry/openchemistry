@@ -16,3 +16,6 @@
 [submodule "thirdparty/VTK"]
 	path = thirdparty/VTK
 	url = git://github.com/Kitware/VTK.git
+[submodule "thirdparty/qttesting"]
+	path = thirdparty/qttesting
+	url = git://paraview.org/QtTesting.git

@@ -48,7 +48,7 @@ endif()
 
 # FIXME: Add FindEigen3.cmake to superbuild
 if(USE_SYSTEM_EIGEN)
-  message(FATAL_ERROR "find_package(Eigen3) is not yet implemented")
+  find_package(Eigen3 REQUIRED)
 else()
   include(External_eigen)
 endif()
@@ -90,3 +90,5 @@ if(USE_SYSTEM_VTK)
 else()
   include(External_VTK)
 endif()
+
+include(External_qttesting)
