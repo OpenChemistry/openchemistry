@@ -6,9 +6,7 @@ ExternalProject_Add(VTK
   SOURCE_DIR ${_source}
   BINARY_DIR ${_build}
   CMAKE_ARGS
-    -DCMAKE_INSTALL_PREFIX:PATH=${OpenChemistry_INSTALL_PREFIX}
-    -DBUILD_SHARED_LIBS:BOOL=ON
-    -DBUILD_TESTING:BOOL=OFF
+    ${OpenChemistry_DEFAULT_ARGS}
     -DVTK_Group_Rendering:BOOL=OFF
     -DVTK_Group_StandAlone:BOOL=OFF
     -DModule_vtkDomainsChemistry:BOOL=ON
