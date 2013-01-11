@@ -16,13 +16,12 @@ include(download_dir)
 # Set up a few default arguments for all projects, such as the install prefix,
 # CMake prefix path and the runtime/library output directories.
 option(BUILD_SHARED_LIBS "Build libraries as SHARED" ON)
+
 set(OpenChemistry_INSTALL_PREFIX "${OpenChemistry_BINARY_DIR}/prefix")
 set(OpenChemistry_DEFAULT_ARGS
   "-DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS}"
   "-DCMAKE_PREFIX_PATH:PATH=${OpenChemistry_INSTALL_PREFIX}"
-  "-DCMAKE_INSTALL_PREFIX:PATH=${OpenChemistry_INSTALL_PREFIX}"
-  "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY:PATH=${CMAKE_RUNTIME_OUTPUT_DIRECTORY}"
-  "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY:PATH=${CMAKE_LIBRARY_OUTPUT_DIRECTORY}")
+  "-DCMAKE_INSTALL_PREFIX:PATH=${OpenChemistry_INSTALL_PREFIX}")
 
 # If there is a CMAKE_BUILD_TYPE it is important to ensure it is passed down.
 if(CMAKE_BUILD_TYPE)
@@ -59,6 +58,12 @@ list(APPEND OpenChemistry_DEFAULT_ARGS
 
 # Add the third party dependencies first
 add_subdirectory(thirdparty)
+
+option(BUILD_DOCUMENTATION "Build documentation (Doxygen)" ON)
+option(ENABLE_TESTING "Enable testing for Open Chemistry projects" ON)
+list(APPEND OpenChemistry_DEFAULT_ARGS
+  "-DBUILD_DOCUMENTATION:BOOL=${BUILD_DOCUMENTATION}"
+  "-DENABLE_TESTING:BOOL=${ENABLE_TESTING}")
 
 # Now for the actual open chemistry projects!
 include(External_molequeue)
