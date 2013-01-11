@@ -90,3 +90,5 @@ if(USE_SYSTEM_VTK)
 else()
   include(External_VTK)
 endif()
+
+include(External_qttesting)
