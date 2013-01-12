@@ -51,6 +51,19 @@ set(FORCE_STEP_ARGS
   DEPENDERS ${FORCE_STEP}
 )
 
+# Convenience macro for adding dependencies optionally if not using system
+# copies. This function takes the external project target name, looks for a
+# variable of the form USE_SYSTEM_TARGETNAME, if this does not exist or is set
+# to false the supplied taget name will be added to dep_var.
+macro(add_optional_deps dep_var)
+  foreach(_dependency ${ARGN})
+    string(TOUPPER "${_dependency}" _uDependency)
+    if(NOT USE_SYSTEM_${_uDependency})
+      list(APPEND ${dep_var} ${_dependency})
+    endif()
+  endforeach()
+endmacro()
+
 # First the third party applications, some of which use Qt.
 find_package(Qt4 4.8 REQUIRED)
 list(APPEND OpenChemistry_DEFAULT_ARGS
@@ -59,8 +72,8 @@ list(APPEND OpenChemistry_DEFAULT_ARGS
 # Add the third party dependencies first
 add_subdirectory(thirdparty)
 
-option(BUILD_DOCUMENTATION "Build documentation (Doxygen)" ON)
-option(ENABLE_TESTING "Enable testing for Open Chemistry projects" ON)
+option(BUILD_DOCUMENTATION "Build documentation (Doxygen)" OFF)
+option(ENABLE_TESTING "Enable testing for Open Chemistry projects" OFF)
 list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DBUILD_DOCUMENTATION:BOOL=${BUILD_DOCUMENTATION}"
   "-DENABLE_TESTING:BOOL=${ENABLE_TESTING}")

@@ -5,6 +5,6 @@ ExternalProject_Add(eigen
   BINARY_DIR ${eigen_build}
   URL ${eigen_url}
   URL_MD5 ${eigen_md5}
-  CMAKE_ARGS
-    -DCMAKE_INSTALL_PREFIX:PATH=${OpenChemistry_INSTALL_PREFIX}
+  CMAKE_CACHE_ARGS
+    ${OpenChemistry_DEFAULT_ARGS}
   )

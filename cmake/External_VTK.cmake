@@ -2,11 +2,15 @@
 set(_source "${CMAKE_CURRENT_SOURCE_DIR}/VTK")
 set(_build "${CMAKE_CURRENT_BINARY_DIR}/VTK")
 
+unset(_deps)
+add_optional_deps(_deps "zlib")
+
 ExternalProject_Add(VTK
   SOURCE_DIR ${_source}
   BINARY_DIR ${_build}
-  CMAKE_ARGS
+  CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
+    -DBUILD_TESTING:BOOL=OFF
     -DVTK_Group_Rendering:BOOL=OFF
     -DVTK_Group_StandAlone:BOOL=OFF
     -DModule_vtkDomainsChemistry:BOOL=ON
@@ -17,4 +21,8 @@ ExternalProject_Add(VTK
     -DModule_vtkRenderingQt:BOOL=ON
     -DModule_vtkViewsInfovis:BOOL=ON
     -DModule_vtkRenderingFreeTypeOpenGL:BOOL=ON
+    ${OpenChemistry_THIRDPARTYLIBS_ARGS}
+    -DVTK_USE_SYSTEM_ZLIB:BOOL=ON
+  DEPENDS
+    ${_deps}
   )

@@ -1,32 +1,21 @@
 set(_source "${CMAKE_CURRENT_SOURCE_DIR}/avogadrolibs")
 set(_build "${CMAKE_CURRENT_BINARY_DIR}/avogadrolibs")
 
-unset(_deps)
-if(NOT USE_SYSTEM_BOOST)
-  list(APPEND _deps boost)
-endif()
-if(NOT USE_SYSTEM_EIGEN)
-  list(APPEND _deps eigen)
-endif()
-if(NOT USE_SYSTEM_GLEW)
-  list(APPEND _deps glew)
-endif()
-if(NOT USE_SYSTEM_GTEST)
-  list(APPEND _deps gtest)
-endif()
-if(NOT USE_SYSTEM_HDF5)
-  list(APPEND _deps hdf5)
+set(_deps "molequeue")
+add_optional_deps(_deps "boost" "eigen" "glew" "hdf5" "VTK")
+if(ENABLE_TESTING)
+  add_optional_deps(_deps "gtest")
 endif()
 
 ExternalProject_Add(avogadrolibs
   SOURCE_DIR ${_source}
   BINARY_DIR ${_build}
-  CMAKE_ARGS
+  CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
+    ${OpenChemistry_THIRDPARTYLIBS_ARGS}
   DEPENDS
-    molequeue
     ${_deps}
-    )
+  )
 
 if(FORCE_STEP)
   ExternalProject_Add_Step(avogadrolibs forcebuild

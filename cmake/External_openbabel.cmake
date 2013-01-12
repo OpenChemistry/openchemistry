@@ -6,11 +6,19 @@
 # process.
 set(_build "${CMAKE_CURRENT_BINARY_DIR}/openbabel")
 
+unset(_deps)
+add_optional_deps(_deps "zlib" "libxml2")
+
 ExternalProject_Add(openbabel
   DOWNLOAD_DIR ${download_dir}
   BINARY_DIR ${_build}
   URL ${openbabel_url}
   URL_MD5 ${openbabel_md5}
-  CMAKE_ARGS
+  CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
+    -DENABLE_TESTS:BOOL=OFF
+    -DOB_USE_PREBUILD_BINARIES:BOOL=OFF
+    ${OpenChemistry_THIRDPARTYLIBS_ARGS}
+  DEPENDS
+    ${_deps}
   )

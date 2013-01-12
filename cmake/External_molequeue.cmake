@@ -4,9 +4,10 @@ set(molequeue_build "${CMAKE_CURRENT_BINARY_DIR}/molequeue")
 ExternalProject_Add(molequeue
   SOURCE_DIR ${molequeue_source}
   BINARY_DIR ${molequeue_build}
-  CMAKE_ARGS
+  CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
-    -DENABLE_TESTS:BOOL=OFF)
+    ${OpenChemistry_THIRDPARTYLIBS_ARGS}
+  )
 
 if(FORCE_STEP)
   ExternalProject_Add_Step(molequeue forcebuild
