@@ -59,8 +59,8 @@ list(APPEND OpenChemistry_DEFAULT_ARGS
 # Add the third party dependencies first
 add_subdirectory(thirdparty)
 
-option(BUILD_DOCUMENTATION "Build documentation (Doxygen)" ON)
-option(ENABLE_TESTING "Enable testing for Open Chemistry projects" ON)
+option(BUILD_DOCUMENTATION "Build documentation (Doxygen)" OFF)
+option(ENABLE_TESTING "Enable testing for Open Chemistry projects" OFF)
 list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DBUILD_DOCUMENTATION:BOOL=${BUILD_DOCUMENTATION}"
   "-DENABLE_TESTING:BOOL=${ENABLE_TESTING}")
