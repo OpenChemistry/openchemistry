@@ -15,8 +15,20 @@ option(USE_SYSTEM_GLEW "Should we use the system GLEW?" OFF)
 option(USE_SYSTEM_GTEST "Should we use the system GTest?" OFF)
 option(USE_SYSTEM_HDF5 "Should we use the system HDF5?" OFF)
 
+if(USE_SYSTEM_ZLIB)
+  find_package(ZLIB REQUIRED)
+  list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
+    "-DZLIB_INCLUDE_DIRS:PATH=${ZLIB_INCLUDE_DIRS}"
+    "-DZLIB_LIBRARIES:FILEPATH=${ZLIB_LIBRARIES}")
+else()
+  include(External_zlib)
+endif()
+
 if(USE_SYSTEM_BOOST)
   find_package(Boost REQUIRED)
+  list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
+    "-DBoost_INCLUDE_DIR:PATH=${Boost_INCLUDE_DIR}"
+    "-DBOOST_LIBRARYDIR:PATH=${BOOST_LIBRARYDIR}")
 else()
   include(External_boost)
 endif()
@@ -30,14 +42,11 @@ endif()
 
 if(USE_SYSTEM_MONGODB)
   find_package(MongoDB REQUIRED)
+  list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
+    "-DMongoDB_INCLUDE_DIR:PATH=${MongoDB_INCLUDE_DIR}"
+    "-DMongoDB_LIBRARIES:FILEPATH=${MongoDB_LIBRARIES}")
 else()
   include(External_mongodb)
-endif()
-
-if(USE_SYSTEM_ZLIB)
-  find_package(ZLIB REQUIRED)
-else()
-  include(External_zlib)
 endif()
 
 if(USE_SYSTEM_LIBXML2)
@@ -46,15 +55,19 @@ else()
   include(External_libxml2)
 endif()
 
-# FIXME: Add FindEigen3.cmake to superbuild
 if(USE_SYSTEM_EIGEN)
   find_package(Eigen3 REQUIRED)
+  list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
+    "-DEIGEN3_INCLUDE_DIR:PATH=${EIGEN3_INCLUDE_DIR}")
 else()
   include(External_eigen)
 endif()
 
 if(USE_SYSTEM_GLEW)
   find_package(GLEW REQUIRED)
+  list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
+    "-DGLEW_INCLUDE_DIRS:PATH=${GLEW_INCLUDE_DIRS}"
+    "-DGLEW_LIBRARY:FILEPATH=${GLEW_LIBRARY}")
 else()
   include(External_glew)
 endif()
@@ -92,3 +105,6 @@ else()
 endif()
 
 include(External_qttesting)
+
+set(OpenChemistry_THIRDPARTYLIBS_ARGS "${OpenChemistry_THIRDPARTYLIBS_ARGS}"
+  CACHE INTERNAL "Third party library cache arguments")
