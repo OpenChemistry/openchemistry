@@ -67,3 +67,9 @@ list(APPEND projects zlib)
 set(zlib_version "1.2.7")
 set(zlib_url "http://zlib.net/zlib-${zlib_version}.tar.gz")
 set(zlib_md5 "60df6a37c56e7c1366cca812414f7b85")
+
+# KDSoap
+list(APPEND projects kdsoap)
+set(kdsoap_version "cmake-updates")
+set(kdsoap_url "http://openchemistry.org/files/tpl/kdsoap-${kdsoap_version}.tar.gz")
+set(kdsoap_md5 "919661300a3d1f933ca56c7db355e90c")
