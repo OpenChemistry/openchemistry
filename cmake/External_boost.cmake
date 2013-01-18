@@ -57,3 +57,12 @@ ExternalProject_Add(boost
 
 ExternalProject_Get_Property(boost install_dir)
 set(BOOST_ROOT "${install_dir}" CACHE INTERNAL "")
+
+# Make sure subproject look for the non thread safe version as that is
+# what we build in the superbuild.
+list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
+  "-DBoost_USE_MULTITHREADED:BOOL=OFF"
+# Add Boost properties so correct version of Boost is found.
+  "-DBOOST_ROOT:PATH=${BOOST_ROOT}"
+  "-DBoost_INCLUDE_DIR:PATH=${BOOST_ROOT}/include"
+  "-DBOOST_LIBRARYDIR:PATH=${BOOST_LIBRARYDIR}/lib")
