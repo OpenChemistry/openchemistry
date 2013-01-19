@@ -88,7 +88,7 @@ endif()
 if(USE_SYSTEM_OPENBABEL)
   message(FATAL_ERROR "find_package(OpenBabel2) is not yet implemented")
 else()
-  include(External_openbabel)
+#  include(External_openbabel)
 endif()
 
 # FIXME: Add system options, test them and expose the CMake options.
