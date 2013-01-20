@@ -65,4 +65,4 @@ list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
 # Add Boost properties so correct version of Boost is found.
   "-DBOOST_ROOT:PATH=${BOOST_ROOT}"
   "-DBoost_INCLUDE_DIR:PATH=${BOOST_ROOT}/include"
-  "-DBOOST_LIBRARYDIR:PATH=${BOOST_LIBRARYDIR}/lib")
+  "-DBOOST_LIBRARYDIR:PATH=${BOOST_ROOT}/lib")
