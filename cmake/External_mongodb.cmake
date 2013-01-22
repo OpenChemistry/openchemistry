@@ -29,6 +29,11 @@ add_library(mongoclient
   \${mongo_src_dir}/client/mongo_client_lib.cpp
   )
 target_link_libraries(mongoclient \${Boost_LIBRARIES})
+
+if(WIN32)
+  target_link_libraries(mongoclient ws2_32)
+endif()
+
 install(TARGETS mongoclient
   DESTINATION lib)
 
