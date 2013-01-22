@@ -9,9 +9,9 @@ set(boost_md5 "6a1f32d902203ac70fbec78af95b3cf8")
 
 # Chemkit
 list(APPEND projects chemkit)
-set(chemkit_version "0.1")
-set(chemkit_url "http://sourceforge.net/projects/chemkit/files/chemkit-${chemkit_version}.tar.gz/download")
-set(chemkit_md5 "d34856b8c21c93365ee73113c2425db5")
+set(chemkit_version "0.1-d42dd8d7")
+set(chemkit_url "http://openchemistry.org/files/tpl/chemkit-${chemkit_version}.tar.gz")
+set(chemkit_md5 "0bae7c476637ef732b38b28ca51a193e")
 
 # Eigen
 list(APPEND projects eigen)
