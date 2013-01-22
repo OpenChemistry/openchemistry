@@ -27,9 +27,21 @@ set(boost_with_args
   --with-program_options
   --with-system
   --with-thread
+  --layout=system
 )
 
 if(use_bat)
+  if(MSVC90)
+    set(_toolset "msvc-9.0")
+  elseif(MSVC10)
+    set(_toolset "msvc-10.0")
+  elseif(MSVC11)
+    set(_toolset "msvc-11.0")
+  endif()
+
+  string(TOLOWER ${CMAKE_BUILD_TYPE} _variant)
+  list(APPEND boost_with_args "variant=${_variant}" "toolset=${_toolset}")
+
   set(boost_cmds
     CONFIGURE_COMMAND bootstrap.bat
     BUILD_COMMAND b2 address-model=${am} ${boost_with_args}
@@ -58,10 +70,7 @@ ExternalProject_Add(boost
 ExternalProject_Get_Property(boost install_dir)
 set(BOOST_ROOT "${install_dir}" CACHE INTERNAL "")
 
-# Make sure subproject look for the non thread safe version as that is
-# what we build in the superbuild.
 list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
-  "-DBoost_USE_MULTITHREADED:BOOL=OFF"
 # Add Boost properties so correct version of Boost is found.
   "-DBOOST_ROOT:PATH=${BOOST_ROOT}"
   "-DBoost_INCLUDE_DIR:PATH=${BOOST_ROOT}/include"
