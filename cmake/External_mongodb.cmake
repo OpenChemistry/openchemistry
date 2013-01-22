@@ -2,7 +2,8 @@ file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/mongodb.CMakeLists.txt" "
 cmake_minimum_required(VERSION 2.8.7)
 project(mongoclient)
 
-if(NOT BUILD_SHARED_LIBS)
+# On Windows we always need this set other FindBoost will fail!
+if(NOT BUILD_SHARED_LIBS OR WIN32)
   set(Boost_USE_STATIC_LIBS ON)
 endif()
 find_package(Boost COMPONENTS filesystem system thread chrono)
