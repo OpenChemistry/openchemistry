@@ -2,7 +2,8 @@ file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/mongodb.CMakeLists.txt" "
 cmake_minimum_required(VERSION 2.8.7)
 project(mongoclient)
 
-if(NOT BUILD_SHARED_LIBS)
+# On Windows we always need this set other FindBoost will fail!
+if(NOT BUILD_SHARED_LIBS OR WIN32)
   set(Boost_USE_STATIC_LIBS ON)
 endif()
 find_package(Boost COMPONENTS filesystem system thread chrono)
@@ -24,10 +25,25 @@ add_definitions(
   \"/DBOOST_ALL_NO_LIB\"
   )
 
-add_library(mongoclient
-  \${mongo_src_dir}/client/mongo_client_lib.cpp
-  )
+set(_client_lib_src "\${mongo_src_dir}/client/mongo_client_lib.cpp")
+
+# Build static on Windows
+if(WIN32)
+  add_library(mongoclient STATIC
+    \${_client_lib_src}
+    )
+else()
+  add_library(mongoclient
+    \${_client_lib_src}
+    )
+endif()
+
 target_link_libraries(mongoclient \${Boost_LIBRARIES})
+
+if(WIN32)
+  target_link_libraries(mongoclient ws2_32)
+endif()
+
 install(TARGETS mongoclient
   DESTINATION lib)
 
