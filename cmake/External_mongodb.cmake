@@ -25,9 +25,19 @@ add_definitions(
   \"/DBOOST_ALL_NO_LIB\"
   )
 
-add_library(mongoclient
-  \${mongo_src_dir}/client/mongo_client_lib.cpp
-  )
+set(_client_lib_src "\${mongo_src_dir}/client/mongo_client_lib.cpp")
+
+# Build static on Windows
+if(WIN32)
+  add_library(mongoclient STATIC
+    \${_client_lib_src}
+    )
+else()
+  add_library(mongoclient
+    \${_client_lib_src}
+    )
+endif()
+
 target_link_libraries(mongoclient \${Boost_LIBRARIES})
 
 if(WIN32)
