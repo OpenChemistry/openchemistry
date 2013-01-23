@@ -5,7 +5,7 @@ set(_build "${CMAKE_CURRENT_BINARY_DIR}/qttesting")
 ExternalProject_Add(qttesting
   SOURCE_DIR ${_source}
   BINARY_DIR ${_build}
-  CMAKE_ARGS
+  CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
     -DQT_TESTING_INSTALL_DEVELOPMENT:BOOL=ON
   )
