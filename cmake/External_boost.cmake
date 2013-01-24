@@ -27,7 +27,6 @@ set(boost_with_args
   --with-program_options
   --with-system
   --with-thread
-  --layout=system
 )
 
 if(use_bat)
@@ -39,8 +38,8 @@ if(use_bat)
     set(_toolset "msvc-11.0")
   endif()
 
-  string(TOLOWER ${CMAKE_BUILD_TYPE} _variant)
-  list(APPEND boost_with_args "variant=${_variant}" "toolset=${_toolset}")
+  list(APPEND boost_with_args
+    "--layout=tagged" "toolset=${_toolset}")
 
   set(boost_cmds
     CONFIGURE_COMMAND bootstrap.bat
