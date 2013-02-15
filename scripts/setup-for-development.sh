@@ -33,7 +33,7 @@ git config hooks.setup ${setup_version}
 
 read -ep "Set up submodules for development? [Y/n]: " r
 if [ "$r" == "Y" ] || [ "$r" == "y" ] || [ "$r" == "" ]; then
-  submodules=(avogadrolibs avogadrodata chemdata openqube chemkit molequeue)
+  submodules=(avogadrolibs avogadroapp avogadrodata mongochem molequeue)
   for module in ${submodules[@]};
   do
     cd $module
