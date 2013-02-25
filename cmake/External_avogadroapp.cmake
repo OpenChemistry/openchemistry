@@ -1,7 +1,7 @@
 set(_source "${CMAKE_CURRENT_SOURCE_DIR}/avogadroapp")
 set(_build "${CMAKE_CURRENT_BINARY_DIR}/avogadroapp")
 
-set(_deps "avogadrolibs")
+set(_deps "avogadrolibs" "qttesting")
 
 ExternalProject_Add(avogadroapp
   SOURCE_DIR ${_source}
