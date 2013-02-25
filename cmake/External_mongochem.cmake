@@ -1,7 +1,7 @@
 set(_source "${CMAKE_CURRENT_SOURCE_DIR}/mongochem")
 set(_build "${CMAKE_CURRENT_BINARY_DIR}/mongochem")
 
-set(_deps "molequeue")
+set(_deps "molequeue" "avogadrolibs" "qttesting")
 add_optional_deps(_deps "mongodb" "VTK" "chemkit")
 if(USE_OPENBABEL)
   add_optional_deps(_deps "openbabel")
