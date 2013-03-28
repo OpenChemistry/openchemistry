@@ -17,7 +17,7 @@ ExternalProject_Add(openbabel
   CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
     -DENABLE_TESTS:BOOL=OFF
-    -DOB_USE_PREBUILD_BINARIES:BOOL=OFF
+    -DOB_USE_PREBUILT_BINARIES:BOOL=OFF
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
   DEPENDS
     ${_deps}
