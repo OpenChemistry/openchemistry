@@ -21,6 +21,7 @@ ExternalProject_Add(VTK
     -DModule_vtkRenderingQt:BOOL=ON
     -DModule_vtkViewsInfovis:BOOL=ON
     -DModule_vtkRenderingFreeTypeOpenGL:BOOL=ON
+    -DModule_vtkParallelCore:BOOL=ON
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
     -DVTK_USE_SYSTEM_ZLIB:BOOL=ON
   DEPENDS
