@@ -106,6 +106,8 @@ endif()
 
 include(External_qttesting)
 include(External_kdsoap)
+include(External_protobuf)
+include(External_protocall)
 
 set(OpenChemistry_THIRDPARTYLIBS_ARGS "${OpenChemistry_THIRDPARTYLIBS_ARGS}"
   CACHE INTERNAL "Third party library cache arguments")
