@@ -22,3 +22,6 @@
 [submodule "thirdparty/protobuf"]
 	path = thirdparty/protobuf
 	url = git://github.com/OpenChemistry/protobuf.git
+[submodule "thirdparty/protocall"]
+	path = thirdparty/protocall
+	url = git://github.com/OpenChemistry/protocall.git
