@@ -6,4 +6,5 @@ ExternalProject_Add(protocall
   BINARY_DIR ${_build}
   CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
+  DEPENDS protobuf
   )
