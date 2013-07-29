@@ -46,10 +46,10 @@ set(mongodb_md5 "6123ff30262dbac822bad27f447dc9a6")
 
 # Open Babel
 list(APPEND projects openbabel)
-set(openbabel_version "d6c04d1")
+set(openbabel_version "7f4db407")
 #set(openbabel_url "http://sourceforge.net/projects/openbabel/files/openbabel/${openbabel_version}/openbabel-${openbabel_version}.tar.gz/download")
 set(openbabel_url "http://openchemistry.org/files/tpl/openbabel-${openbabel_version}.tar.gz")
-set(openbabel_md5 "4f448f39bcc3a501de36e788fe7812b7")
+set(openbabel_md5 "7ef5e32b21ace203ff62c6fecd882dc6")
 
 # PCRE
 list(APPEND projects pcre)
