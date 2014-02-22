@@ -11,8 +11,8 @@ message(\"BOOST_ROOT='\${BOOST_ROOT}'\")
 message(\"Boost_INCLUDE_DIR='\${Boost_INCLUDE_DIR}'\")
 message(\"Boost_LIBRARIES='\${Boost_LIBRARIES}'\")
 
-set(mongo_root_dir "\${CMAKE_CURRENT_SOURCE_DIR}/src")
-set(mongo_src_dir "\${mongo_root_dir}/mongo")
+set(mongo_root_dir \"\${CMAKE_CURRENT_SOURCE_DIR}/src\")
+set(mongo_src_dir \"\${mongo_root_dir}/mongo\")
 
 include_directories(\${Boost_INCLUDE_DIR})
 include_directories(\${PCRE_INCLUDE_DIR})
@@ -25,7 +25,7 @@ add_definitions(
   \"/DBOOST_ALL_NO_LIB\"
   )
 
-set(_client_lib_src "\${mongo_src_dir}/client/mongo_client_lib.cpp")
+set(_client_lib_src \"\${mongo_src_dir}/client/mongo_client_lib.cpp\")
 
 # Build static on Windows
 if(WIN32)
