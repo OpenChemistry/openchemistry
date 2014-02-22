@@ -8,4 +8,5 @@ ExternalProject_Add(qttesting
   CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
     -DQT_TESTING_INSTALL_DEVELOPMENT:BOOL=ON
+    -DQtTesting_QT_VERSION:STRING=5
   )
