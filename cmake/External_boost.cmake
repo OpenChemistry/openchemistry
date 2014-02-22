@@ -27,6 +27,7 @@ set(boost_with_args
   --with-program_options
   --with-system
   --with-thread
+  --with-chrono
 )
 
 if(use_bat)
