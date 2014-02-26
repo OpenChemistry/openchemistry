@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.5)
+cmake_minimum_required(VERSION 2.8.8)
 project(OpenChemistry CXX)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake"
@@ -65,9 +65,11 @@ macro(add_optional_deps dep_var)
 endmacro()
 
 # First the third party applications, some of which use Qt.
-find_package(Qt4 4.8 REQUIRED)
+find_package(Qt5Widgets REQUIRED)
 list(APPEND OpenChemistry_DEFAULT_ARGS
-  "-DQT_QMAKE_EXECUTABLE:PATH=${QT_QMAKE_EXECUTABLE}")
+  "-DQt5Core_DIR:PATH=${Qt5Core_DIR}"
+  "-DQt5Gui_DIR:PATH=${Qt5Gui_DIR}"
+  "-DQt5Widgets_DIR:PATH=${Qt5Widgets_DIR}")
 
 # Add the third party dependencies first
 add_subdirectory(thirdparty)

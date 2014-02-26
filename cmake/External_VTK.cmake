@@ -24,6 +24,7 @@ ExternalProject_Add(VTK
     -DModule_vtkParallelCore:BOOL=ON
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
     -DVTK_USE_SYSTEM_ZLIB:BOOL=ON
+    -DVTK_QT_VERSION:STRING=5
   DEPENDS
     ${_deps}
   )

@@ -34,7 +34,7 @@ execute_process(
     ${CMAKE_CURRENT_BINARY_DIR}/libxml2_install.cmake)
 else()
   set(libxml2_patch_command "")
-  set(libxml2_config_command CONFIGURE_COMMAND ./configure --prefix=${libxml2_install})
+  set(libxml2_config_command CONFIGURE_COMMAND ./configure --prefix=${libxml2_install} --without-python )
   set(libxml2_build_command "")
   set(libxml2_install_command "")
 endif()
