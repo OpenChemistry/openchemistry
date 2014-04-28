@@ -70,6 +70,9 @@ endforeach()
 
 get_filename_component(_self_dir ${CMAKE_CURRENT_LIST_FILE} PATH)
 
+set(_deps "pcre")
+add_optional_deps(_deps "boost")
+
 ExternalProject_Add(mongodb
   DOWNLOAD_DIR ${download_dir}
   URL ${mongodb_url}
@@ -85,6 +88,5 @@ ExternalProject_Add(mongodb
     -DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS}
     -DPCRE_INCLUDE_DIR:PATH=${PCRE_INCLUDE_DIR}
   DEPENDS
-    boost
-    pcre
+    ${_deps}
 )
