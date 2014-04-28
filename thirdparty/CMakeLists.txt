@@ -25,10 +25,10 @@ else()
 endif()
 
 if(USE_SYSTEM_BOOST)
-  find_package(Boost REQUIRED)
+  find_package(Boost COMPONENTS filesystem REQUIRED)
   list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
     "-DBoost_INCLUDE_DIR:PATH=${Boost_INCLUDE_DIR}"
-    "-DBOOST_LIBRARYDIR:PATH=${BOOST_LIBRARYDIR}")
+    "-DBOOST_LIBRARYDIR:PATH=${Boost_LIBRARY_DIR}")
 else()
   include(External_boost)
 endif()
@@ -110,4 +110,4 @@ include(External_protobuf)
 include(External_protocall)
 
 set(OpenChemistry_THIRDPARTYLIBS_ARGS "${OpenChemistry_THIRDPARTYLIBS_ARGS}"
-  CACHE INTERNAL "Third party library cache arguments")
+  PARENT_SCOPE)
