@@ -20,7 +20,7 @@ option(BUILD_SHARED_LIBS "Build libraries as SHARED" ON)
 set(OpenChemistry_INSTALL_PREFIX "${OpenChemistry_BINARY_DIR}/prefix")
 set(OpenChemistry_DEFAULT_ARGS
   "-DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS}"
-  "-DCMAKE_PREFIX_PATH:PATH=${OpenChemistry_INSTALL_PREFIX}"
+  "-DCMAKE_PREFIX_PATH:PATH=${OpenChemistry_INSTALL_PREFIX};${CMAKE_PREFIX_PATH}"
   "-DCMAKE_INSTALL_PREFIX:PATH=${OpenChemistry_INSTALL_PREFIX}")
 
 # If there is a CMAKE_BUILD_TYPE it is important to ensure it is passed down.
