@@ -1,5 +1,12 @@
 unset(projects)
 
+# The base URL for all hosted files to use when downloading
+if(DEFINED OpenChemistry_DOWNLOAD_BASE_URL)
+  set(oc_download_base ${OpenChemistry_DOWNLOAD_BASE_URL})
+else()
+  set(oc_download_base "http://www.openchemistry.org/files")
+endif()
+
 # Boost
 list(APPEND projects boost)
 set(_v 55)
@@ -10,13 +17,14 @@ set(boost_md5 "93780777cfbf999a600f62883bd54b17")
 # Chemkit
 list(APPEND projects chemkit)
 set(chemkit_version "0.1-d42dd8d7")
-set(chemkit_url "http://openchemistry.org/files/tpl/chemkit-${chemkit_version}.tar.gz")
+set(chemkit_url "${oc_download_base}/tpl/chemkit-${chemkit_version}.tar.gz")
 set(chemkit_md5 "0bae7c476637ef732b38b28ca51a193e")
 
 # Eigen
 list(APPEND projects eigen)
 set(eigen_version "3.2.1")
-set(eigen_url "http://openchemistry.org/files/tpl/eigen-${eigen_version}.tar.gz")
+set(eigen_url "${oc_download_base}/tpl/eigen-${eigen_version}.tar.gz")
+message("Eigen: ${eigen_url}")
 set(eigen_md5 "a0e0a32d62028218b1c1848ad7121476")
 
 # glew
@@ -41,36 +49,36 @@ set(hdf5_md5 "d804802feb99b87fc668a90e6fa34411")
 list(APPEND projects mongodb)
 set(mongodb_version "2.3.0")
 #set(mongodb_url "http://downloads.mongodb.org/src/mongodb-src-r${mongodb_version}.tar.gz")
-set(mongodb_url "http://openchemistry.org/files/tpl/mongodb-mongo-r${mongodb_version}-75-g5cbd476.tar.gz")
+set(mongodb_url "${oc_download_base}/tpl/mongodb-mongo-r${mongodb_version}-75-g5cbd476.tar.gz")
 set(mongodb_md5 "6123ff30262dbac822bad27f447dc9a6")
 
 # Open Babel
 list(APPEND projects openbabel)
 set(openbabel_version "5a69e10e")
 #set(openbabel_url "http://sourceforge.net/projects/openbabel/files/openbabel/${openbabel_version}/openbabel-${openbabel_version}.tar.gz/download")
-set(openbabel_url "http://openchemistry.org/files/tpl/openbabel-${openbabel_version}.tar.gz")
+set(openbabel_url "${oc_download_base}/tpl/openbabel-${openbabel_version}.tar.gz")
 set(openbabel_md5 "b8ee545ddd9ab0387eda9107df692bd4")
 
 # PCRE
 list(APPEND projects pcre)
 set(pcre_version "8.34")
-set(pcre_url "http://openchemistry.org/files/tpl/pcre-${pcre_version}.tar.gz")
+set(pcre_url "${oc_download_base}/tpl/pcre-${pcre_version}.tar.gz")
 set(pcre_md5 "eb34b2c9c727fd64940d6fd9a00995eb")
 
 # libxml2
 list(APPEND projects libxml2)
 set(libxml2_version "2.9.1")
-set(libxml2_url "http://openchemistry.org/files/tpl/libxml2-${libxml2_version}.tar.gz")
+set(libxml2_url "${oc_download_base}/tpl/libxml2-${libxml2_version}.tar.gz")
 set(libxml2_md5 "9c0cfef285d5c4a5c80d00904ddab380")
 
 # Zlib
 list(APPEND projects zlib)
 set(zlib_version "1.2.8")
-set(zlib_url "http://openchemistry.org/files/tpl/zlib-${zlib_version}.tar.gz")
+set(zlib_url "${oc_download_base}/tpl/zlib-${zlib_version}.tar.gz")
 set(zlib_md5 "44d667c142d7cda120332623eab69f40")
 
 # KDSoap
 list(APPEND projects kdsoap)
 set(kdsoap_version "f3bbcf1e")
-set(kdsoap_url "http://openchemistry.org/files/tpl/kdsoap-${kdsoap_version}.tar.gz")
+set(kdsoap_url "${oc_download_base}/tpl/kdsoap-${kdsoap_version}.tar.gz")
 set(kdsoap_md5 "d2dcf62844d9e5919ba21788a375feca")
