@@ -33,20 +33,22 @@ else()
   include(External_boost)
 endif()
 
-# FIXME: Add system options, test them and expose the CMake options.
-if(USE_SYSTEM_PCRE)
-  message(FATAL_ERROR "find_package(PCRE) is not yet implemented")
-else()
-  include(External_pcre)
-endif()
+if(BUILD_MONGOCHEM)
+  # FIXME: Add system options, test them and expose the CMake options.
+  if(USE_SYSTEM_PCRE)
+    message(FATAL_ERROR "find_package(PCRE) is not yet implemented")
+  else()
+    include(External_pcre)
+  endif()
 
-if(USE_SYSTEM_MONGODB)
-  find_package(MongoDB REQUIRED)
-  list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
-    "-DMongoDB_INCLUDE_DIR:PATH=${MongoDB_INCLUDE_DIR}"
-    "-DMongoDB_LIBRARIES:FILEPATH=${MongoDB_LIBRARIES}")
-else()
-  include(External_mongodb)
+  if(USE_SYSTEM_MONGODB)
+    find_package(MongoDB REQUIRED)
+    list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
+      "-DMongoDB_INCLUDE_DIR:PATH=${MongoDB_INCLUDE_DIR}"
+      "-DMongoDB_LIBRARIES:FILEPATH=${MongoDB_LIBRARIES}")
+  else()
+    include(External_mongodb)
+  endif()
 endif()
 
 if(USE_SYSTEM_LIBXML2)
@@ -63,25 +65,29 @@ else()
   include(External_eigen)
 endif()
 
-if(USE_SYSTEM_GLEW)
-  find_package(GLEW REQUIRED)
-  list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
-    "-DGLEW_INCLUDE_DIRS:PATH=${GLEW_INCLUDE_DIRS}"
-    "-DGLEW_LIBRARY:FILEPATH=${GLEW_LIBRARY}")
-else()
-  include(External_glew)
+if(BUILD_AVOGADRO OR BUILD_MONGOCHEM)
+  if(USE_SYSTEM_GLEW)
+    find_package(GLEW REQUIRED)
+    list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
+      "-DGLEW_INCLUDE_DIRS:PATH=${GLEW_INCLUDE_DIRS}"
+      "-DGLEW_LIBRARY:FILEPATH=${GLEW_LIBRARY}")
+  else()
+    include(External_glew)
+  endif()
+  if(USE_SYSTEM_HDF5)
+    find_package(HDF5 REQUIRED)
+  else()
+    include(External_hdf5)
+  endif()
 endif()
 
-if(USE_SYSTEM_GTEST)
-  find_package(GTest REQUIRED)
-else()
-  include(External_gtest)
-endif()
-
-if(USE_SYSTEM_HDF5)
-  find_package(HDF5 REQUIRED)
-else()
-  include(External_hdf5)
+if(ENABLE_TESTING)
+  if(USE_SYSTEM_GTEST)
+    find_package(GTest REQUIRED)
+  else()
+    include(External_gtest)
+  endif()
+  include(External_qttesting)
 endif()
 
 # FIXME: Add system options, test them and expose the CMake options.
@@ -91,23 +97,26 @@ else()
   include(External_openbabel)
 endif()
 
-# FIXME: Add system options, test them and expose the CMake options.
-if(USE_SYSTEM_CHEMKIT)
-  message(FATAL_ERROR "find_package(Chemkit) is not yet implemented")
-else()
-  include(External_chemkit)
+if(BUILD_MONGOCHEM)
+  # FIXME: Add system options, test them and expose the CMake options.
+  if(USE_SYSTEM_CHEMKIT)
+    message(FATAL_ERROR "find_package(Chemkit) is not yet implemented")
+  else()
+    include(External_chemkit)
+  endif()
 endif()
 
-if(USE_SYSTEM_VTK)
-  find_package(VTK REQUIRED)
-else()
-  include(External_VTK)
-endif()
+if(BUILD_AVOGADRO OR BUILD_MONGOCHEM)
+  if(USE_SYSTEM_VTK)
+    find_package(VTK REQUIRED)
+  else()
+    include(External_VTK)
+  endif()
 
-include(External_qttesting)
-include(External_kdsoap)
-include(External_protobuf)
-include(External_protocall)
+  include(External_kdsoap)
+  include(External_protobuf)
+  include(External_protocall)
+endif()
 
 set(OpenChemistry_THIRDPARTYLIBS_ARGS "${OpenChemistry_THIRDPARTYLIBS_ARGS}"
   PARENT_SCOPE)

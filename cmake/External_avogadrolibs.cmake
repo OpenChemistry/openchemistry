@@ -1,7 +1,13 @@
 set(_source "${CMAKE_CURRENT_SOURCE_DIR}/avogadrolibs")
 set(_build "${CMAKE_CURRENT_BINARY_DIR}/avogadrolibs")
 
-set(_deps "molequeue")
+unset(_deps)
+if(BUILD_MOLEQUEUE)
+  list(APPEND _deps "molequeue")
+  set(_molequeue "ON")
+else()
+  set(_molequeue "OFF")
+endif()
 add_optional_deps(_deps "boost" "eigen" "glew" "hdf5" "VTK")
 if(ENABLE_TESTING)
   add_optional_deps(_deps "gtest")
@@ -13,6 +19,7 @@ ExternalProject_Add(avogadrolibs
   CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
+    -DUSE_MOLEQUEUE:BOOL=${_molequeue}
   DEPENDS
     ${_deps}
   )
