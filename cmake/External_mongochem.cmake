@@ -1,10 +1,13 @@
 set(_source "${CMAKE_CURRENT_SOURCE_DIR}/mongochem")
 set(_build "${CMAKE_CURRENT_BINARY_DIR}/mongochem")
 
-set(_deps "molequeue" "avogadrolibs" "qttesting")
+set(_deps "molequeue" "avogadrolibs")
 add_optional_deps(_deps "mongodb" "VTK" "chemkit")
 if(USE_OPENBABEL)
   add_optional_deps(_deps "openbabel")
+endif()
+if(ENABLE_TESTING)
+  add_optional_deps(_deps "qttesting")
 endif()
 
 ExternalProject_Add(mongochem
