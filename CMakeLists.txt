@@ -71,6 +71,10 @@ list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DQt5Gui_DIR:PATH=${Qt5Gui_DIR}"
   "-DQt5Widgets_DIR:PATH=${Qt5Widgets_DIR}")
 
+option(BUILD_MOLEQUEUE "Build the MoleQueue application" ON)
+option(BUILD_AVOGADRO "Build the Avogadro 2 application" ON)
+option(BUILD_MONGOCHEM "Build the MongoChem application" ON)
+
 # Add the third party dependencies first
 add_subdirectory(thirdparty)
 
@@ -81,7 +85,15 @@ list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DENABLE_TESTING:BOOL=${ENABLE_TESTING}")
 
 # Now for the actual open chemistry projects!
-include(External_molequeue)
-include(External_avogadrolibs)
-include(External_avogadroapp)
-include(External_mongochem)
+if(BUILD_MOLEQUEUE)
+  include(External_molequeue)
+endif()
+if(BUILD_AVOGADRO OR BUILD_MONGOCHEM)
+  include(External_avogadrolibs)
+endif()
+if(BUILD_AVOGADRO)
+  include(External_avogadroapp)
+endif()
+if(BUILD_MONGOCHEM)
+  include(External_mongochem)
+endif()
