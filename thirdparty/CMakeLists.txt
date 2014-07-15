@@ -112,8 +112,13 @@ if(BUILD_AVOGADRO OR BUILD_MONGOCHEM)
   else()
     include(External_VTK)
   endif()
+endif()
 
+if(BUILD_MOLEQUEUE)
   include(External_kdsoap)
+endif()
+
+if(BUILD_AVOGADRO AND BUILD_AVOGADRO_CLIENT_SERVER)
   include(External_protobuf)
   include(External_protocall)
 endif()
