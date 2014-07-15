@@ -72,7 +72,10 @@ list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DQt5Widgets_DIR:PATH=${Qt5Widgets_DIR}")
 
 option(BUILD_MOLEQUEUE "Build the MoleQueue application" ON)
+option(BUILD_MOLEQUEUE_UIT "Built the UIT/ezHPC integration for MoleQueue" OFF)
 option(BUILD_AVOGADRO "Build the Avogadro 2 application" ON)
+option(BUILD_AVOGADRO_CLIENT_SERVER
+  "Build the client-server components for Avogadro" OFF)
 option(BUILD_MONGOCHEM "Build the MongoChem application" ON)
 
 # Add the third party dependencies first
