@@ -114,7 +114,7 @@ if(BUILD_AVOGADRO OR BUILD_MONGOCHEM)
   endif()
 endif()
 
-if(BUILD_MOLEQUEUE)
+if(BUILD_MOLEQUEUE AND BUILD_MOLEQUEUE_UIT)
   include(External_kdsoap)
 endif()
 
