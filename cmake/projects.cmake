@@ -53,10 +53,10 @@ set(mongodb_md5 "6123ff30262dbac822bad27f447dc9a6")
 
 # Open Babel
 list(APPEND projects openbabel)
-set(openbabel_version "5a69e10e")
+set(openbabel_version "ca45cc9a")
 #set(openbabel_url "http://sourceforge.net/projects/openbabel/files/openbabel/${openbabel_version}/openbabel-${openbabel_version}.tar.gz/download")
 set(openbabel_url "${oc_download_base}/tpl/openbabel-${openbabel_version}.tar.gz")
-set(openbabel_md5 "b8ee545ddd9ab0387eda9107df692bd4")
+set(openbabel_md5 "d1d50c39562b38432f3b49268cc96209")
 
 # PCRE
 list(APPEND projects pcre)
