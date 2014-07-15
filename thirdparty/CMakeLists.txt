@@ -14,6 +14,7 @@ option(USE_SYSTEM_EIGEN "Should we use the system Eigen?" OFF)
 option(USE_SYSTEM_GLEW "Should we use the system GLEW?" OFF)
 option(USE_SYSTEM_GTEST "Should we use the system GTest?" OFF)
 option(USE_SYSTEM_HDF5 "Should we use the system HDF5?" OFF)
+option(USE_SYSTEM_OPENBABEL "Should we use the system Open Babel?" OFF)
 
 if(USE_SYSTEM_ZLIB)
   find_package(ZLIB REQUIRED)
@@ -92,7 +93,7 @@ endif()
 
 # FIXME: Add system options, test them and expose the CMake options.
 if(USE_SYSTEM_OPENBABEL)
-  message(FATAL_ERROR "find_package(OpenBabel2) is not yet implemented")
+  message(STATUS "Using system Open Babel")
 else()
   include(External_openbabel)
 endif()
