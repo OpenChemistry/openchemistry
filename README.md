@@ -50,4 +50,4 @@ to coordinate development and to provide support.
   [Build]: http://wiki.openchemistry.org/Build "Building Open Chemistry"
   [Development]: http://wiki.openchemistry.org/Development "Development guide"
   [Wiki]: http://wiki.openchemistry.org/ "Open Chemistry wiki"
-  [MailingLists]: http://openchemistry.org/OpenChemistry/help/mailing.html
+  [MailingLists]: http://openchemistry.org/mailing-lists "Mailing Lists"
