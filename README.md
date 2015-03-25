@@ -21,10 +21,6 @@ see the documentation in the submodules for more details about each project.
 
 ![Kitware, Inc.][KitwareLogo]
 
-MongoChem is being developed as part of the [Open Chemistry][OpenChemistry]
-project at [Kitware][Kitware], along with companion tools and libraries to
-support the work.
-
 Installing
 ----------
 
