@@ -3,7 +3,6 @@ project(GLEW C)
 
 include(CTest)
 
-
 set(GLEW_NAME "GLEW")
 set(GLEW_VERSION "@glew_version@")
 string(REGEX REPLACE "^([0-9]+\\.[0-9]+)\\.[0-9]+$" "\\1"
@@ -18,7 +17,9 @@ elseif(WIN32)
 else()
   # any platform_libs required on Linux or other platforms?
   find_package(OpenGL REQUIRED)
-  set(platform_libs ${OPENGL_LIBRARIES})
+  find_package(X11 REQUIRED)
+  include_directories(${OPENGL_INCLUDE_DIR} ${X11_X11_INCLUDE_PATH})
+  set(platform_libs ${OPENGL_LIBRARIES} ${X11_X11_LIB})
 endif()
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
