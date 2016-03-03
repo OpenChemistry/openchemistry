@@ -9,10 +9,10 @@ endif()
 
 # Boost
 list(APPEND projects boost)
-set(_v 55)
+set(_v 60)
 set(boost_version 1.${_v}.0)
 set(boost_url "http://sourceforge.net/projects/boost/files/boost/1.${_v}.0/boost_1_${_v}_0.tar.gz/download")
-set(boost_md5 "93780777cfbf999a600f62883bd54b17")
+set(boost_md5 "28f58b9a33469388302110562bdf6188")
 
 # Chemkit
 list(APPEND projects chemkit)
