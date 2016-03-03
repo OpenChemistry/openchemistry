@@ -22,9 +22,9 @@ set(chemkit_md5 "0bae7c476637ef732b38b28ca51a193e")
 
 # Eigen
 list(APPEND projects eigen)
-set(eigen_version "3.2.1")
+set(eigen_version "3.2.8")
 set(eigen_url "${oc_download_base}/tpl/eigen-${eigen_version}.tar.gz")
-set(eigen_md5 "a0e0a32d62028218b1c1848ad7121476")
+set(eigen_md5 "135d8d43aaee5fb54cf5f3e981b1a6db")
 
 # glew
 list(APPEND projects glew)
