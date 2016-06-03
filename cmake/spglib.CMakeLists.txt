@@ -1,0 +1,64 @@
+cmake_minimum_required(VERSION 2.4.4)
+
+project(spglib C)
+
+set(SPGLIB_SRCS
+  src/arithmetic.c
+  src/cell.c
+  src/debug.c
+  src/delaunay.c
+  src/hall_symbol.c
+  src/kgrid.c
+  src/kpoint.c
+  src/mathfunc.c
+  src/niggli.c
+  src/pointgroup.c
+  src/primitive.c
+  src/refinement.c
+  src/sitesym_database.c
+  src/site_symmetry.c
+  src/spacegroup.c
+  src/spg_database.c
+  src/spglib.c
+  src/spin.c
+  src/symmetry.c
+)
+
+set(SPGLIB_PUBLIC_HDRS
+  src/spglib.h
+)
+
+set(SPGLIB_PRIVATE_HDRS
+  src/arithmetic.h
+  src/cell.h
+  src/debug.h
+  src/delaunay.h
+  src/hall_symbol.h
+  src/kgrid.h
+  src/kpoint.h
+  src/mathfunc.h
+  src/niggli.h
+  src/pointgroup.h
+  src/primitive.h
+  src/refinement.h
+  src/sitesym_database.h
+  src/site_symmetry.h
+  src/spacegroup.h
+  src/spg_database.h
+  src/spin.h
+  src/symmetry.h
+)
+
+add_library(spglib STATIC ${SPGLIB_SRCS} ${SPGLIB_PUBLIC_HDRS}
+            ${SPGLIB_PRIVATE_HDRS})
+
+# Suppress spglib warnings
+set_target_properties(spglib PROPERTIES COMPILE_FLAGS "-w")
+
+# Set PIC flag
+set_target_properties(spglib PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
+
+if(NOT SKIP_INSTALL_LIBRARIES AND NOT SKIP_INSTALL_ALL)
+  install(TARGETS spglib ARCHIVE DESTINATION lib)
+  install(FILES ${SPGLIB_PUBLIC_HDRS} DESTINATION include/spglib)
+endif()
