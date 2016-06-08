@@ -76,7 +76,7 @@ option(BUILD_MOLEQUEUE_UIT "Built the UIT/ezHPC integration for MoleQueue" OFF)
 option(BUILD_AVOGADRO "Build the Avogadro 2 application" ON)
 option(BUILD_AVOGADRO_CLIENT_SERVER
   "Build the client-server components for Avogadro" OFF)
-option(BUILD_MONGOCHEM "Build the MongoChem application" ON)
+option(BUILD_MONGOCHEM "Build the MongoChem application" OFF)
 
 # Add the third party dependencies first
 add_subdirectory(thirdparty)
