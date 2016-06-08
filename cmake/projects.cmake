@@ -9,10 +9,10 @@ endif()
 
 # Boost
 list(APPEND projects boost)
-set(_v 55)
+set(_v 60)
 set(boost_version 1.${_v}.0)
 set(boost_url "http://sourceforge.net/projects/boost/files/boost/1.${_v}.0/boost_1_${_v}_0.tar.gz/download")
-set(boost_md5 "93780777cfbf999a600f62883bd54b17")
+set(boost_md5 "28f58b9a33469388302110562bdf6188")
 
 # Chemkit
 list(APPEND projects chemkit)
@@ -22,15 +22,15 @@ set(chemkit_md5 "0bae7c476637ef732b38b28ca51a193e")
 
 # Eigen
 list(APPEND projects eigen)
-set(eigen_version "3.2.1")
+set(eigen_version "3.2.8")
 set(eigen_url "${oc_download_base}/tpl/eigen-${eigen_version}.tar.gz")
-set(eigen_md5 "a0e0a32d62028218b1c1848ad7121476")
+set(eigen_md5 "135d8d43aaee5fb54cf5f3e981b1a6db")
 
 # glew
 list(APPEND projects glew)
-set(glew_version "1.10.0")
-set(glew_url "http://sourceforge.net/projects/glew/files/glew/${glew_version}/glew-${glew_version}.tgz/download")
-set(glew_md5 "2f09e5e6cb1b9f3611bcac79bc9c2d5d")
+set(glew_version "1.13.0")
+set(glew_url "https://sourceforge.net/projects/glew/files/glew/${glew_version}/glew-${glew_version}.tgz/download")
+set(glew_md5 "7cbada3166d2aadfc4169c4283701066")
 
 # gtest
 list(APPEND projects gtest)
