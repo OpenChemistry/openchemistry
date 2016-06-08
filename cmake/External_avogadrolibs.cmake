@@ -2,16 +2,23 @@ set(_source "${CMAKE_CURRENT_SOURCE_DIR}/avogadrolibs")
 set(_build "${CMAKE_CURRENT_BINARY_DIR}/avogadrolibs")
 
 unset(_deps)
+
 if(BUILD_MOLEQUEUE)
   list(APPEND _deps "molequeue")
   set(_molequeue "ON")
 else()
   set(_molequeue "OFF")
 endif()
-add_optional_deps(_deps "boost" "eigen" "glew" "hdf5" "VTK")
+add_optional_deps(_deps "boost" "eigen" "glew" "hdf5")
+
+if(USE_VTK)
+  add_optional_deps(_deps "VTK")
+endif()
+
 if(ENABLE_TESTING)
   add_optional_deps(_deps "gtest")
 endif()
+
 if(BUILD_AVOGADRO_CLIENT_SERVER)
   add_optional_deps(_deps "protobuf" "protocall")
   set(_protocall "ON")
