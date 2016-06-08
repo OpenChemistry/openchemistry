@@ -124,5 +124,9 @@ if(BUILD_AVOGADRO AND BUILD_AVOGADRO_CLIENT_SERVER)
   include(External_protocall)
 endif()
 
+if(BUILD_AVOGADRO)
+  include(External_libmsym)
+endif()
+
 set(OpenChemistry_THIRDPARTYLIBS_ARGS "${OpenChemistry_THIRDPARTYLIBS_ARGS}"
   PARENT_SCOPE)
