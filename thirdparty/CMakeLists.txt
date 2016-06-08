@@ -82,6 +82,10 @@ if(BUILD_AVOGADRO OR BUILD_MONGOCHEM)
   endif()
 endif()
 
+if(BUILD_AVOGADRO)
+  include(External_spglib)
+endif()
+
 if(ENABLE_TESTING)
   if(USE_SYSTEM_GTEST)
     find_package(GTest REQUIRED)

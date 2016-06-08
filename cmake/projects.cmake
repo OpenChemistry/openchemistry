@@ -81,3 +81,10 @@ list(APPEND projects kdsoap)
 set(kdsoap_version "f3bbcf1e")
 set(kdsoap_url "${oc_download_base}/tpl/kdsoap-${kdsoap_version}.tar.gz")
 set(kdsoap_md5 "d2dcf62844d9e5919ba21788a375feca")
+
+# spglib
+list(APPEND projects spglib)
+set(spglib_version "1.9")
+set(spglib_version_micro "4")
+set(spglib_url "https://sourceforge.net/projects/spglib/files/spglib/spglib-${spglib_version}/spglib-${spglib_version}.${spglib_version_micro}.tar.gz/download")
+set(spglib_md5 "49efe9b583f799533108c027557557a3")
