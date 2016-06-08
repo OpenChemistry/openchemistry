@@ -79,13 +79,15 @@ option(BUILD_AVOGADRO_CLIENT_SERVER
 option(BUILD_MONGOCHEM "Build the MongoChem application" ON)
 
 # Add the third party dependencies first
+option(USE_VTK "Enable libraries that use VTK in Avogadro" OFF)
 add_subdirectory(thirdparty)
 
 option(BUILD_DOCUMENTATION "Build documentation (Doxygen)" OFF)
 option(ENABLE_TESTING "Enable testing for Open Chemistry projects" OFF)
 list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DBUILD_DOCUMENTATION:BOOL=${BUILD_DOCUMENTATION}"
-  "-DENABLE_TESTING:BOOL=${ENABLE_TESTING}")
+  "-DENABLE_TESTING:BOOL=${ENABLE_TESTING}"
+  "-DUSE_VTK:BOOL=${USE_VTK}")
 
 # Now for the actual open chemistry projects!
 if(BUILD_MOLEQUEUE)
