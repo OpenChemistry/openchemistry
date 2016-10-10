@@ -65,11 +65,8 @@ macro(add_optional_deps dep_var)
 endmacro()
 
 # First the third party applications, some of which use Qt.
-find_package(Qt5Widgets REQUIRED)
-list(APPEND OpenChemistry_DEFAULT_ARGS
-  "-DQt5Core_DIR:PATH=${Qt5Core_DIR}"
-  "-DQt5Gui_DIR:PATH=${Qt5Gui_DIR}"
-  "-DQt5Widgets_DIR:PATH=${Qt5Widgets_DIR}")
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
+list(APPEND OpenChemistry_DEFAULT_ARGS "-DQt5_DIR:PATH=${Qt5_DIR}")
 
 option(BUILD_MOLEQUEUE "Build the MoleQueue application" ON)
 option(BUILD_MOLEQUEUE_UIT "Built the UIT/ezHPC integration for MoleQueue" OFF)
