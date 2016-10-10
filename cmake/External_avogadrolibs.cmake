@@ -3,6 +3,8 @@ set(_build "${CMAKE_CURRENT_BINARY_DIR}/avogadrolibs")
 
 unset(_deps)
 
+list(APPEND _deps "spglib")
+
 if(BUILD_MOLEQUEUE)
   list(APPEND _deps "molequeue")
   set(_molequeue "ON")
