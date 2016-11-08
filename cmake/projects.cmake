@@ -35,8 +35,9 @@ set(glew_md5 "7cbada3166d2aadfc4169c4283701066")
 # gtest
 list(APPEND projects gtest)
 set(gtest_version "1.7.0")
-set(gtest_url "http://googletest.googlecode.com/files/gtest-${gtest_version}.zip")
-set(gtest_md5 "2d6ec8ccdf5c46b05ba54a9fd1d130d7")
+set(gtest_url "https://github.com/google/googletest/archive/release-${gtest_version}.tar.gz")
+set(gtest_md5 "4ff6353b2560df0afecfbda3b2763847")
+#set(gtest_md5 "16877098823401d1bf2ed7891d7dce36")
 
 # hdf5
 list(APPEND projects hdf5)
