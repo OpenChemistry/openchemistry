@@ -11,10 +11,18 @@ if(BUILD_MOLEQUEUE)
 else()
   set(_molequeue "OFF")
 endif()
-add_optional_deps(_deps "boost" "eigen" "glew" "hdf5")
+add_optional_deps(_deps "eigen" "glew")
 
 if(USE_VTK)
   add_optional_deps(_deps "VTK")
+endif()
+
+if(USE_HDF5)
+  add_optional_deps(_deps "hdf5")
+endif()
+
+if(USE_BOOST_FALLBACK)
+  add_optional_deps(_deps "boost")
 endif()
 
 if(ENABLE_TESTING)
@@ -36,6 +44,8 @@ ExternalProject_Add(avogadrolibs
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
     -DUSE_MOLEQUEUE:BOOL=${_molequeue}
     -DUSE_PROTOCALL:BOOL=${_protocall}
+    -DUSE_VTK:BOOL=${USE_VTK}
+    -DUSE_HDF5:BOOL=${USE_HDF5}
   DEPENDS
     ${_deps}
   )
