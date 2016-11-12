@@ -54,10 +54,10 @@ set(mongodb_md5 "6123ff30262dbac822bad27f447dc9a6")
 
 # Open Babel
 list(APPEND projects openbabel)
-set(openbabel_version "4f26f1bd")
-#set(openbabel_url "http://sourceforge.net/projects/openbabel/files/openbabel/${openbabel_version}/openbabel-${openbabel_version}.tar.gz/download")
-set(openbabel_url "${oc_download_base}/tpl/openbabel-${openbabel_version}.tar.gz")
-set(openbabel_md5 "d0b4bc3841d413e577b54ae59debad82")
+set(openbabel_version "2.4.1")
+set(openbabel_url "http://sourceforge.net/projects/openbabel/files/openbabel/${openbabel_version}/openbabel-${openbabel_version}.tar.gz/download")
+#set(openbabel_url "${oc_download_base}/tpl/openbabel-${openbabel_version}.tar.gz")
+set(openbabel_md5 "d9defcd7830b0592fece4fe54a137b99")
 
 # PCRE
 list(APPEND projects pcre)
@@ -67,9 +67,9 @@ set(pcre_md5 "eb34b2c9c727fd64940d6fd9a00995eb")
 
 # libxml2
 list(APPEND projects libxml2)
-set(libxml2_version "2.9.1")
+set(libxml2_version "2.9.4")
 set(libxml2_url "${oc_download_base}/tpl/libxml2-${libxml2_version}.tar.gz")
-set(libxml2_md5 "9c0cfef285d5c4a5c80d00904ddab380")
+set(libxml2_md5 "ae249165c173b1ff386ee8ad676815f5")
 
 # Zlib
 list(APPEND projects zlib)

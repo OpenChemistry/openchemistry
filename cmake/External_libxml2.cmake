@@ -24,8 +24,8 @@ execute_process(
   WORKING_DIRECTORY \"${libxml2_source}/win32\"
   )")
 
-  set(libxml2_patch_command PATCH_COMMAND ${CMAKE_COMMAND} -E copy_if_different
-    ${_self_dir}/libxml2_Makefile.msvc ${libxml2_source}/win32/Makefile.msvc)
+#  set(libxml2_patch_command PATCH_COMMAND ${CMAKE_COMMAND} -E copy_if_different
+#    ${_self_dir}/libxml2_Makefile.msvc ${libxml2_source}/win32/Makefile.msvc)
   set(libxml2_config_command CONFIGURE_COMMAND ${CMAKE_COMMAND} -P
     ${CMAKE_CURRENT_BINARY_DIR}/libxml2_config.cmake)
   set(libxml2_build_command BUILD_COMMAND ${CMAKE_COMMAND} -P
