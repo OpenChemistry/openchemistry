@@ -79,9 +79,10 @@ set(zlib_md5 "44d667c142d7cda120332623eab69f40")
 
 # KDSoap
 list(APPEND projects kdsoap)
-set(kdsoap_version "f3bbcf1e")
-set(kdsoap_url "${oc_download_base}/tpl/kdsoap-${kdsoap_version}.tar.gz")
-set(kdsoap_md5 "d2dcf62844d9e5919ba21788a375feca")
+set(kdsoap_version "1.5.1")
+set(kdsoap_url "https://github.com/KDAB/KDSoap/releases/download/kdsoap-${kdsoap_version}/kdsoap-${kdsoap_version}.tar.gz")
+#set(kdsoap_url "${oc_download_base}/tpl/kdsoap-${kdsoap_version}.tar.gz")
+set(kdsoap_md5 "216c0351e6be995032a497c04f01b2ce")
 
 # spglib
 list(APPEND projects spglib)
