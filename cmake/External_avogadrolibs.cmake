@@ -11,7 +11,7 @@ if(BUILD_MOLEQUEUE)
 else()
   set(_molequeue "OFF")
 endif()
-add_optional_deps(_deps "eigen" "glew")
+add_optional_deps(_deps "eigen" "glew" "libmsym")
 
 if(USE_VTK)
   add_optional_deps(_deps "VTK")

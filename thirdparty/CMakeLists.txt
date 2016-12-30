@@ -84,6 +84,7 @@ endif()
 
 if(BUILD_AVOGADRO)
   include(External_spglib)
+  include(External_libmsym)
 endif()
 
 if(ENABLE_TESTING)
