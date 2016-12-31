@@ -1,8 +1,8 @@
 set(_build "${CMAKE_CURRENT_BINARY_DIR}/libmsym")
 
 ExternalProject_Add(libmsym
-  GIT_REPOSITORY "https://github.com/mcodev31/libmsym"
-  GIT_TAG "0c47befe4a1cd05cbba1aa561b914be926e5ced7"
+  GIT_REPOSITORY "https://github.com/ghutchis/libmsym"
+  GIT_TAG "43d48f1476f0e73563e0b16a7f153c61d08dedc7"
   DOWNLOAD_DIR ${download_dir}
   BINARY_DIR ${_build}
   CMAKE_CACHE_ARGS
