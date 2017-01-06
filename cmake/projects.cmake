@@ -90,3 +90,9 @@ set(spglib_version "1.9")
 set(spglib_version_micro "4")
 set(spglib_url "https://sourceforge.net/projects/spglib/files/spglib/spglib-${spglib_version}/spglib-${spglib_version}.${spglib_version_micro}.tar.gz/download")
 set(spglib_md5 "49efe9b583f799533108c027557557a3")
+
+# libarchive
+list(APPEND projects libarchive)
+set(libarchive_version "3.2.2")
+set(libarchive_url "https://github.com/libarchive/libarchive/archive/v${libarchive_version}.tar.gz")
+set(libarchive_md5 "eb7774849c5db9cde9eaa56892197aa3")
