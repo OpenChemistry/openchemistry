@@ -15,6 +15,16 @@ option(USE_SYSTEM_GLEW "Should we use the system GLEW?" OFF)
 option(USE_SYSTEM_GTEST "Should we use the system GTest?" OFF)
 option(USE_SYSTEM_HDF5 "Should we use the system HDF5?" OFF)
 option(USE_SYSTEM_OPENBABEL "Should we use the system Open Babel?" OFF)
+option(USE_SYSTEM_LIBARCHIVE "Should we use the system Libarchive?" OFF)
+
+if(USE_SYSTEM_LIBARCHIVE)
+  find_package(LIBARCHIVE REQUIRED)
+  list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
+    "-DLIBARCHIVE_INCLUDE_DIRS:PATH=${LIBARCHIVE_INCLUDE_DIRS}"
+    "-DLIBARCHIVE_LIBRARIES:FILEPATH=${LIBARCHIVE_LIBRARIES}")
+else()
+  include(External_libarchive)
+endif()
 
 if(USE_SYSTEM_ZLIB)
   find_package(ZLIB REQUIRED)
