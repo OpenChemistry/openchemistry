@@ -22,10 +22,6 @@ if(USE_HDF5)
   add_optional_deps(_deps "hdf5")
 endif()
 
-if(USE_BOOST_FALLBACK)
-  add_optional_deps(_deps "boost")
-endif()
-
 if(ENABLE_TESTING)
   add_optional_deps(_deps "gtest")
 endif()

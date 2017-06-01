@@ -5,7 +5,6 @@ else()
   set(DEFAULT_USE_SYSTEM_LIBXML2 OFF)
 endif()
 
-option(USE_SYSTEM_BOOST "Should we use the system Boost?" OFF)
 option(USE_SYSTEM_MONGODB "Should we use the system mongoDB?" OFF)
 option(USE_SYSTEM_PCRE "Should we use the system PCRE?" OFF)
 option(USE_SYSTEM_LIBXML2 "Should we use the system libxml2?" ${DEFAULT_USE_SYSTEM_LIBXML2})
@@ -33,15 +32,6 @@ if(USE_SYSTEM_ZLIB)
     "-DZLIB_LIBRARIES:FILEPATH=${ZLIB_LIBRARIES}")
 else()
   include(External_zlib)
-endif()
-
-if(USE_BOOST_FALLBACK AND USE_SYSTEM_BOOST)
-  find_package(Boost COMPONENTS filesystem REQUIRED)
-  list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
-    "-DBoost_INCLUDE_DIR:PATH=${Boost_INCLUDE_DIR}"
-    "-DBOOST_LIBRARYDIR:PATH=${Boost_LIBRARY_DIR}")
-elseif(USE_BOOST_FALLBACK)
-  include(External_boost)
 endif()
 
 if(BUILD_MONGOCHEM)
