@@ -16,12 +16,11 @@ ExternalProject_Add(VTK
     -DModule_vtkDomainsChemistry:BOOL=ON
     -DModule_vtkViewsContext2D:BOOL=ON
     -DModule_vtkChartsCore:BOOL=ON
-    -DModule_vtkRenderingVolumeOpenGL:BOOL=ON
-    -DModule_vtkGUISupportQtOpenGL:BOOL=ON
+    -DModule_vtkRenderingVolumeOpenGL2:BOOL=ON
+    -DModule_vtkGUISupportQt:BOOL=ON
     -DModule_vtkRenderingQt:BOOL=ON
-    -DModule_vtkViewsInfovis:BOOL=ON
-    -DModule_vtkRenderingFreeTypeOpenGL:BOOL=ON
-    -DModule_vtkParallelCore:BOOL=ON
+    -DModule_vtkViewsInfovis:BOOL=OFF
+    -DModule_vtkRenderingFreeTypeOpenGL2:BOOL=ON
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
     -DVTK_USE_SYSTEM_ZLIB:BOOL=ON
     -DVTK_QT_VERSION:STRING=5
