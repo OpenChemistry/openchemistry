@@ -15,9 +15,9 @@ set(eigen_md5 "135d8d43aaee5fb54cf5f3e981b1a6db")
 
 # glew
 list(APPEND projects glew)
-set(glew_version "1.13.0")
+set(glew_version "2.1.0")
 set(glew_url "https://sourceforge.net/projects/glew/files/glew/${glew_version}/glew-${glew_version}.tgz/download")
-set(glew_md5 "7cbada3166d2aadfc4169c4283701066")
+set(glew_md5 "b2ab12331033ddfaa50dc39345343980")
 
 # gtest
 list(APPEND projects gtest)
