@@ -7,19 +7,6 @@ else()
   set(oc_download_base "http://www.openchemistry.org/files")
 endif()
 
-# Boost
-list(APPEND projects boost)
-set(_v 60)
-set(boost_version 1.${_v}.0)
-set(boost_url "http://sourceforge.net/projects/boost/files/boost/1.${_v}.0/boost_1_${_v}_0.tar.gz/download")
-set(boost_md5 "28f58b9a33469388302110562bdf6188")
-
-# Chemkit
-list(APPEND projects chemkit)
-set(chemkit_version "0.1-d42dd8d7")
-set(chemkit_url "${oc_download_base}/tpl/chemkit-${chemkit_version}.tar.gz")
-set(chemkit_md5 "0bae7c476637ef732b38b28ca51a193e")
-
 # Eigen
 list(APPEND projects eigen)
 set(eigen_version "3.2.8")
@@ -44,13 +31,6 @@ list(APPEND projects hdf5)
 set(hdf5_version "1.8.12")
 set(hdf5_url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-${hdf5_version}/src/hdf5-${hdf5_version}.tar.gz")
 set(hdf5_md5 "d804802feb99b87fc668a90e6fa34411")
-
-# mongodb
-list(APPEND projects mongodb)
-set(mongodb_version "2.3.0")
-#set(mongodb_url "http://downloads.mongodb.org/src/mongodb-src-r${mongodb_version}.tar.gz")
-set(mongodb_url "${oc_download_base}/tpl/mongodb-mongo-r${mongodb_version}-75-g5cbd476.tar.gz")
-set(mongodb_md5 "6123ff30262dbac822bad27f447dc9a6")
 
 # Open Babel
 list(APPEND projects openbabel)

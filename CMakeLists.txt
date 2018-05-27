@@ -73,7 +73,6 @@ option(BUILD_MOLEQUEUE_UIT "Built the UIT/ezHPC integration for MoleQueue" OFF)
 option(BUILD_AVOGADRO "Build the Avogadro 2 application" ON)
 option(BUILD_AVOGADRO_CLIENT_SERVER
   "Build the client-server components for Avogadro" OFF)
-option(BUILD_MONGOCHEM "Build the MongoChem application" OFF)
 
 # Add the third party dependencies first
 option(USE_VTK "Enable libraries that use VTK in Avogadro" OFF)
@@ -95,7 +94,4 @@ if(BUILD_AVOGADRO OR BUILD_MONGOCHEM)
 endif()
 if(BUILD_AVOGADRO)
   include(External_avogadroapp)
-endif()
-if(BUILD_MONGOCHEM)
-  include(External_mongochem)
 endif()

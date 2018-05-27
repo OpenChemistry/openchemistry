@@ -10,9 +10,6 @@
 [submodule "avogadroapp"]
 	path = avogadroapp
 	url = git://github.com/OpenChemistry/avogadroapp.git
-[submodule "mongochem"]
-	path = mongochem
-	url = git://github.com/OpenChemistry/mongochem.git
 [submodule "thirdparty/VTK"]
 	path = thirdparty/VTK
 	url = git://github.com/Kitware/VTK.git
