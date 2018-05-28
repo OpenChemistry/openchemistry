@@ -9,9 +9,9 @@ endif()
 
 # Eigen
 list(APPEND projects eigen)
-set(eigen_version "3.2.8")
+set(eigen_version "3.3.4")
 set(eigen_url "${oc_download_base}/tpl/eigen-${eigen_version}.tar.gz")
-set(eigen_md5 "135d8d43aaee5fb54cf5f3e981b1a6db")
+set(eigen_md5 "090d992044f873890211d6410f580fd1")
 
 # glew
 list(APPEND projects glew)
