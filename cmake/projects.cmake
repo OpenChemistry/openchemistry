@@ -53,9 +53,9 @@ set(libxml2_md5 "ae249165c173b1ff386ee8ad676815f5")
 
 # Zlib
 list(APPEND projects zlib)
-set(zlib_version "1.2.8")
+set(zlib_version "1.2.11")
 set(zlib_url "${oc_download_base}/tpl/zlib-${zlib_version}.tar.gz")
-set(zlib_md5 "44d667c142d7cda120332623eab69f40")
+set(zlib_md5 "1c9f62f0778697a09d36121ead88e08e")
 
 # KDSoap
 list(APPEND projects kdsoap)
