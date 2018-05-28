@@ -47,9 +47,9 @@ set(pcre_md5 "eb34b2c9c727fd64940d6fd9a00995eb")
 
 # libxml2
 list(APPEND projects libxml2)
-set(libxml2_version "2.9.4")
+set(libxml2_version "2.9.8")
 set(libxml2_url "${oc_download_base}/tpl/libxml2-${libxml2_version}.tar.gz")
-set(libxml2_md5 "ae249165c173b1ff386ee8ad676815f5")
+set(libxml2_md5 "b786e353e2aa1b872d70d5d1ca0c740d")
 
 # Zlib
 list(APPEND projects zlib)
