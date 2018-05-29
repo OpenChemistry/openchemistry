@@ -76,6 +76,7 @@ option(BUILD_AVOGADRO_CLIENT_SERVER
 
 # Add the third party dependencies first
 option(USE_VTK "Enable libraries that use VTK in Avogadro" OFF)
+option(USE_HDF5 "Enable functionality that requires HDF5" OFF)
 add_subdirectory(thirdparty)
 
 option(BUILD_DOCUMENTATION "Build documentation (Doxygen)" OFF)

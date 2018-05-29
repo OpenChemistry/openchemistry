@@ -28,9 +28,9 @@ set(gtest_md5 "4ff6353b2560df0afecfbda3b2763847")
 
 # hdf5
 list(APPEND projects hdf5)
-set(hdf5_version "1.8.12")
-set(hdf5_url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-${hdf5_version}/src/hdf5-${hdf5_version}.tar.gz")
-set(hdf5_md5 "d804802feb99b87fc668a90e6fa34411")
+set(hdf5_version "1.10.1")
+set(hdf5_url "${oc_download_base}/tpl/hdf5-${hdf5_version}.tar.gz")
+set(hdf5_md5 "43a2f9466702fb1db31df98ae6677f15")
 
 # Open Babel
 list(APPEND projects openbabel)
