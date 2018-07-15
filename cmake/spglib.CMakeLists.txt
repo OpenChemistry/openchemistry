@@ -7,11 +7,13 @@ set(SPGLIB_SRCS
   src/cell.c
   src/debug.c
   src/delaunay.c
+  src/determination.c
   src/hall_symbol.c
   src/kgrid.c
   src/kpoint.c
   src/mathfunc.c
   src/niggli.c
+  src/overlap.c
   src/pointgroup.c
   src/primitive.c
   src/refinement.c
@@ -33,11 +35,13 @@ set(SPGLIB_PRIVATE_HDRS
   src/cell.h
   src/debug.h
   src/delaunay.h
+  src/determination.h
   src/hall_symbol.h
   src/kgrid.h
   src/kpoint.h
   src/mathfunc.h
   src/niggli.h
+  src/overlap.h
   src/pointgroup.h
   src/primitive.h
   src/refinement.h
