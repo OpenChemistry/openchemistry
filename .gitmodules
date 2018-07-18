@@ -22,3 +22,6 @@
 [submodule "thirdparty/protocall"]
 	path = thirdparty/protocall
 	url = git://github.com/OpenChemistry/protocall.git
+[submodule "avogadrogenerators"]
+	path = avogadrogenerators
+	url = git://github.com/openchemistry/avogenerators.git
