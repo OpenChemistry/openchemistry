@@ -22,6 +22,10 @@ if(USE_HDF5)
   add_optional_deps(_deps "hdf5")
 endif()
 
+if(BUILD_YAEHMOP_PLUGIN)
+  add_optional_deps(_deps "yaehmop")
+endif()
+
 if(ENABLE_TESTING)
   add_optional_deps(_deps "gtest")
 endif()

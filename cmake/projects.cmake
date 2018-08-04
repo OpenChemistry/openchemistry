@@ -76,3 +76,23 @@ list(APPEND projects libarchive)
 set(libarchive_version "3.3.2")
 set(libarchive_url "https://github.com/libarchive/libarchive/archive/v${libarchive_version}.tar.gz")
 set(libarchive_md5 "a3acebe237f89d7f31c5bb1da5e843c7")
+
+# yaehmop binary
+set(YAEHMOP_V "3.0.3")
+# Linux
+list(APPEND projects yaehmop)
+if(UNIX AND NOT APPLE)
+  set(yaehmop_binary_url "https://github.com/psavery/yaehmop/releases/download/${YAEHMOP_V}/linux64-yaehmop.tgz")
+  set(yaehmop_binary_md5 "7f3f71c076d8604b98a7e60c351febf2")
+# Apple
+elseif(APPLE)
+  set(yaehmop_binary_url "https://github.com/psavery/yaehmop/releases/download/${YAEHMOP_V}/mac64-yaehmop.tgz")
+  set(yaehmop_binary_md5 "465b8217f5aed9244513dbc00f083133")
+# Windows
+elseif(WIN32)
+  set(yaehmop_binary_url "https://github.com/psavery/yaehmop/releases/download/${YAEHMOP_V}/win32-yaehmop.exe.tgz")
+  set(yaehmop_binary_md5 "89be7c295200f39f5c3b2c99d14ecb1e")
+else()
+  message(FATAL_ERROR
+          "Yaehmop is not supported with the current OS type!")
+endif()

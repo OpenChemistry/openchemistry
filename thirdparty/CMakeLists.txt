@@ -14,6 +14,10 @@ option(USE_SYSTEM_HDF5 "Should we use the system HDF5?" OFF)
 option(USE_SYSTEM_OPENBABEL "Should we use the system Open Babel?" OFF)
 option(USE_SYSTEM_LIBARCHIVE "Should we use the system Libarchive?" OFF)
 
+include(CMakeDependentOption)
+cmake_dependent_option(USE_SYSTEM_YAEHMOP "Should we use the system yaehmop?"
+                       OFF "BUILD_YAEHMOP_PLUGIN" OFF)
+
 if(USE_SYSTEM_LIBARCHIVE)
   find_package(LIBARCHIVE REQUIRED)
   list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
@@ -65,6 +69,9 @@ endif()
 if(BUILD_AVOGADRO)
   include(External_spglib)
   include(External_libmsym)
+  if(BUILD_YAEHMOP_PLUGIN)
+    include(External_yaehmop)
+  endif()
 endif()
 
 if(ENABLE_TESTING)
