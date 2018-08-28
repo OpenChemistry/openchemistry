@@ -66,10 +66,9 @@ set(kdsoap_md5 "f9df9bf9bb3378da10f987f3f3dbcd57")
 
 # spglib
 list(APPEND projects spglib)
-set(spglib_version "1.9")
-set(spglib_version_micro "4")
-set(spglib_url "https://sourceforge.net/projects/spglib/files/spglib/spglib-${spglib_version}/spglib-${spglib_version}.${spglib_version_micro}.tar.gz/download")
-set(spglib_md5 "49efe9b583f799533108c027557557a3")
+set(spglib_version "1.10.3")
+set(spglib_url "https://github.com/atztogo/spglib/archive/v${spglib_version}.tar.gz")
+set(spglib_md5 "f6ef0554fa528ffa49d8eaee18a2b7b9")
 
 # libarchive
 list(APPEND projects libarchive)
