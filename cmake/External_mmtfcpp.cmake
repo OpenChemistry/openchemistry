@@ -1,10 +1,5 @@
-# Note that Open Babel is GPLv2 only licensed, one particular problem this
-# presents is that GPLv2 is incompatible with Apachev2 (MongoDB client lib)
-# along with the standard concern over the viral nature of the license when
-# linked to. Generally aiming to restrict it to calls in a separate process,
-# where linking must take place a utility binary should be used in a separate
-# process.
-
+# mmtf-cpp depends on msgpack-c to be installed
+# Licensed under MIT
 unset(_deps)
 add_optional_deps(_deps "msgpackc")
 

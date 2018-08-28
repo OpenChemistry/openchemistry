@@ -1,4 +1,4 @@
-# An external project for spglib
+# An external project for msgpack. Licensed under Boost
 set(msgpackc_source  "${CMAKE_CURRENT_BINARY_DIR}/msgpack-c-cpp-3.1.0")
 
 get_filename_component(_self_dir ${CMAKE_CURRENT_LIST_FILE} PATH)
