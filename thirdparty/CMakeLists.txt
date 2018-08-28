@@ -65,6 +65,8 @@ endif()
 if(BUILD_AVOGADRO)
   include(External_spglib)
   include(External_libmsym)
+  include(External_msgpackc)
+  include(External_mmtfcpp)
 endif()
 
 if(ENABLE_TESTING)
