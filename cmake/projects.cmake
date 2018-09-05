@@ -66,16 +66,27 @@ set(kdsoap_md5 "f9df9bf9bb3378da10f987f3f3dbcd57")
 
 # spglib
 list(APPEND projects spglib)
-set(spglib_version "1.9")
-set(spglib_version_micro "4")
-set(spglib_url "https://sourceforge.net/projects/spglib/files/spglib/spglib-${spglib_version}/spglib-${spglib_version}.${spglib_version_micro}.tar.gz/download")
-set(spglib_md5 "49efe9b583f799533108c027557557a3")
+set(spglib_version "1.10.4")
+set(spglib_url "https://github.com/atztogo/spglib/archive/v${spglib_version}.tar.gz")
+set(spglib_md5 "df49ddccecfe82e50ade640d6547571b")
 
 # libarchive
 list(APPEND projects libarchive)
 set(libarchive_version "3.3.2")
 set(libarchive_url "https://github.com/libarchive/libarchive/archive/v${libarchive_version}.tar.gz")
 set(libarchive_md5 "a3acebe237f89d7f31c5bb1da5e843c7")
+
+# msgpackc
+list(APPEND projects msgpackc)
+set(msgpackc_version "3.1.0")
+set(msgpackc_url "https://github.com/msgpack/msgpack-c/releases/download/cpp-${msgpackc_version}/msgpack-3.1.0.tar.gz")
+set(msgpackc_md5 "57bdba5ae83831c7c04aad39e479b225")
+
+# mmtf-cpp
+list(APPEND projects mmtf-cpp)
+set(mmtfcpp_version "63e58a9057ee684b5a0a409932e7fc2126894fc0")
+set(mmtfcpp_url "https://github.com/rcsb/mmtf-cpp/archive/${mmtfcpp_version}.tar.gz")
+set(mmtfcpp_md5 "331c5c9c878f650381bcbdeac06dcfbe")
 
 # yaehmop binary
 set(YAEHMOP_V "3.0.3")

@@ -1,0 +1,9 @@
+
+#This is a header-only library, so we only need to copy the header files.
+
+install(
+  DIRECTORY
+    include/
+  DESTINATION
+    ${CMAKE_INSTALL_PREFIX}/include
+)
