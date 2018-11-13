@@ -25,3 +25,6 @@
 [submodule "avogadrogenerators"]
 	path = avogadrogenerators
 	url = git://github.com/openchemistry/avogenerators.git
+[submodule "thirdparty/pybind11"]
+	path = thirdparty/pybind11
+	url = https://github.com/pybind/pybind11.git
