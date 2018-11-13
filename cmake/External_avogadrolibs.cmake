@@ -19,6 +19,10 @@ if(USE_VTK)
   add_optional_deps(_deps "VTK")
 endif()
 
+if(USE_PYTHON)
+  add_optional_deps(_deps "pybind11")
+endif()
+
 if(USE_HDF5)
   add_optional_deps(_deps "hdf5")
 endif()

@@ -77,6 +77,17 @@ option(BUILD_AVOGADRO_CLIENT_SERVER
 # Add the third party dependencies first
 option(USE_VTK "Enable libraries that use VTK in Avogadro" OFF)
 option(USE_HDF5 "Enable functionality that requires HDF5" OFF)
+option(USE_PYTHON "Enable functionality that requires Python" OFF)
+
+if(USE_PYTHON)
+  find_package(PythonInterp 3 REQUIRED)
+  find_package(PythonLibs 3 REQUIRED)
+  list(APPEND OpenChemistry_DEFAULT_ARGS
+    "-DPYTHON_EXECUTABLE:FILEPATH=${PYTHON_EXECUTABLE}"
+    "-DPYTHON_INCLUDE_DIR:PATH=${PYTHON_INCLUDE_DIR}"
+    "-DPYTHON_LIBRARY:FILEPATH=${PYTHON_LIBRARY}")
+endif()
+
 add_subdirectory(thirdparty)
 
 option(BUILD_DOCUMENTATION "Build documentation (Doxygen)" OFF)
@@ -84,6 +95,7 @@ option(ENABLE_TESTING "Enable testing for Open Chemistry projects" OFF)
 list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DBUILD_DOCUMENTATION:BOOL=${BUILD_DOCUMENTATION}"
   "-DENABLE_TESTING:BOOL=${ENABLE_TESTING}"
+  "-DUSE_PYTHON:BOOL=${USE_PYTHON}"
   "-DUSE_VTK:BOOL=${USE_VTK}")
 
 # Now for the actual open chemistry projects!
