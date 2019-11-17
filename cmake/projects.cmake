@@ -9,9 +9,9 @@ endif()
 
 # Eigen
 list(APPEND projects eigen)
-set(eigen_version "3.3.4")
-set(eigen_url "${oc_download_base}/tpl/eigen-${eigen_version}.tar.gz")
-set(eigen_md5 "090d992044f873890211d6410f580fd1")
+set(eigen_version "3.3.7")
+set(eigen_url "http://bitbucket.org/eigen/eigen/get/${eigen_version}.tar.gz")
+set(eigen_md5 "f2a417d083fe8ca4b8ed2bc613d20f07")
 
 # glew
 list(APPEND projects glew)
@@ -34,10 +34,9 @@ set(hdf5_md5 "43a2f9466702fb1db31df98ae6677f15")
 
 # Open Babel
 list(APPEND projects openbabel)
-set(openbabel_version "2.4.1")
-set(openbabel_url "http://sourceforge.net/projects/openbabel/files/openbabel/${openbabel_version}/openbabel-${openbabel_version}.tar.gz/download")
-#set(openbabel_url "${oc_download_base}/tpl/openbabel-${openbabel_version}.tar.gz")
-set(openbabel_md5 "d9defcd7830b0592fece4fe54a137b99")
+set(openbabel_version "3.0.0")
+set(openbabel_url "https://github.com/openbabel/openbabel/archive/openbabel-openbabel-3-0-0.tar.gz")
+set(openbabel_md5 "4c0ba0ce5dac240b51dded72f69edbc0")
 
 # PCRE
 list(APPEND projects pcre)
@@ -78,12 +77,12 @@ set(libarchive_md5 "a3acebe237f89d7f31c5bb1da5e843c7")
 
 # msgpackc
 list(APPEND projects msgpackc)
-set(msgpackc_version "3.1.0")
-set(msgpackc_url "https://github.com/msgpack/msgpack-c/releases/download/cpp-${msgpackc_version}/msgpack-3.1.0.tar.gz")
-set(msgpackc_md5 "57bdba5ae83831c7c04aad39e479b225")
+set(msgpackc_version "3.2.0")
+set(msgpackc_url "https://github.com/msgpack/msgpack-c/releases/download/cpp-${msgpackc_version}/msgpack-${msgpackc_version}.tar.gz")
+set(msgpackc_md5 "53ae37b760690562a1e1cc03d5e1baa4")
 
 # mmtf-cpp
 list(APPEND projects mmtf-cpp)
-set(mmtfcpp_version "63e58a9057ee684b5a0a409932e7fc2126894fc0")
-set(mmtfcpp_url "https://github.com/rcsb/mmtf-cpp/archive/${mmtfcpp_version}.tar.gz")
-set(mmtfcpp_md5 "331c5c9c878f650381bcbdeac06dcfbe")
+set(mmtfcpp_version "1.0.0")
+set(mmtfcpp_url "https://github.com/rcsb/mmtf-cpp/archive/v${mmtfcpp_version}.tar.gz")
+set(mmtfcpp_md5 "553f028a771b9d9f824903a2bf34be51")
