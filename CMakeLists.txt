@@ -78,6 +78,7 @@ option(BUILD_AVOGADRO_CLIENT_SERVER
 option(USE_VTK "Enable libraries that use VTK in Avogadro" OFF)
 option(USE_HDF5 "Enable functionality that requires HDF5" OFF)
 option(USE_PYTHON "Enable functionality that requires Python" OFF)
+option(USE_YAEHMOP "Enable functionality that requires Yaehmop" OFF)
 
 if(USE_PYTHON)
   find_package(PythonInterp 3 REQUIRED)

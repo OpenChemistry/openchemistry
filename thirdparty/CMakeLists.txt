@@ -96,6 +96,10 @@ if(BUILD_AVOGADRO AND USE_VTK)
   endif()
 endif()
 
+if(BUILD_AVOGADRO AND USE_YAEHMOP)
+  include(External_yaehmop)
+endif()
+
 if(BUILD_MOLEQUEUE AND BUILD_MOLEQUEUE_UIT)
   include(External_kdsoap)
 endif()
