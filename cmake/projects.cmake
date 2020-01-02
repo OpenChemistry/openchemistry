@@ -9,9 +9,9 @@ endif()
 
 # Eigen
 list(APPEND projects eigen)
-set(eigen_version "3.3.4")
-set(eigen_url "${oc_download_base}/tpl/eigen-${eigen_version}.tar.gz")
-set(eigen_md5 "090d992044f873890211d6410f580fd1")
+set(eigen_version "3.3.7")
+set(eigen_url "https://gitlab.com/libeigen/eigen/-/archive/${eigen_version}/eigen-${eigen_version}.tar.gz")
+set(eigen_md5 "9e30f67e8531477de4117506fe44669b")
 
 # glew
 list(APPEND projects glew)
