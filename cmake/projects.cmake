@@ -78,12 +78,12 @@ set(libarchive_md5 "a3acebe237f89d7f31c5bb1da5e843c7")
 
 # msgpackc
 list(APPEND projects msgpackc)
-set(msgpackc_version "3.1.0")
-set(msgpackc_url "https://github.com/msgpack/msgpack-c/releases/download/cpp-${msgpackc_version}/msgpack-3.1.0.tar.gz")
-set(msgpackc_md5 "57bdba5ae83831c7c04aad39e479b225")
+set(msgpackc_version "3.2.1")
+set(msgpackc_url "https://github.com/msgpack/msgpack-c/releases/download/cpp-${msgpackc_version}/msgpack-${msgpackc_version}.tar.gz")
+set(msgpackc_md5 "ef10c80885c4f5e4baf8d37113629eae")
 
 # mmtf-cpp
 list(APPEND projects mmtf-cpp)
-set(mmtfcpp_version "63e58a9057ee684b5a0a409932e7fc2126894fc0")
-set(mmtfcpp_url "https://github.com/rcsb/mmtf-cpp/archive/${mmtfcpp_version}.tar.gz")
-set(mmtfcpp_md5 "331c5c9c878f650381bcbdeac06dcfbe")
+set(mmtfcpp_version "1.0.0")
+set(mmtfcpp_url "https://github.com/rcsb/mmtf-cpp/archive/v${mmtfcpp_version}.tar.gz")
+set(mmtfcpp_md5 "553f028a771b9d9f824903a2bf34be51")
