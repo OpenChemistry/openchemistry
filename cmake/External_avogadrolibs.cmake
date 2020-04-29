@@ -48,6 +48,7 @@ ExternalProject_Add(avogadrolibs
     -DUSE_PROTOCALL:BOOL=${_protocall}
     -DUSE_VTK:BOOL=${USE_VTK}
     -DUSE_HDF5:BOOL=${USE_HDF5}
+    -DBUILD_GPL_PLUGINS:BOOL=${BUILD_GPL_PLUGINS}
   DEPENDS
     ${_deps}
   )
