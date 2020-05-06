@@ -24,7 +24,6 @@ list(APPEND projects gtest)
 set(gtest_version "1.7.0")
 set(gtest_url "https://github.com/google/googletest/archive/release-${gtest_version}.tar.gz")
 set(gtest_md5 "4ff6353b2560df0afecfbda3b2763847")
-#set(gtest_md5 "16877098823401d1bf2ed7891d7dce36")
 
 # hdf5
 list(APPEND projects hdf5)
@@ -34,10 +33,9 @@ set(hdf5_md5 "43a2f9466702fb1db31df98ae6677f15")
 
 # Open Babel
 list(APPEND projects openbabel)
-set(openbabel_version "3.0.0")
-set(openbabel_url "https://github.com/openbabel/openbabel/releases/download/openbabel-3-0-0/openbabel-${openbabel_version}-source.tar.bz2")
-#set(openbabel_url "${oc_download_base}/tpl/openbabel-${openbabel_version}.tar.gz")
-set(openbabel_md5 "4a4b2448007c5ac807bc51a5cd9c79cd")
+set(openbabel_version "3.1.0")
+set(openbabel_url "https://github.com/openbabel/openbabel/releases/download/openbabel-3-1-0/openbabel-${openbabel_version}-source.tar.bz2")
+set(openbabel_md5 "b4953f519daca79842538c0c08b8d800")
 
 # PCRE
 list(APPEND projects pcre)
@@ -66,9 +64,9 @@ set(kdsoap_md5 "f9df9bf9bb3378da10f987f3f3dbcd57")
 
 # spglib
 list(APPEND projects spglib)
-set(spglib_version "1.10.4")
+set(spglib_version "1.15.1")
 set(spglib_url "https://github.com/atztogo/spglib/archive/v${spglib_version}.tar.gz")
-set(spglib_md5 "df49ddccecfe82e50ade640d6547571b")
+set(spglib_md5 "c8736d99706c02fcd4ba81e51b3c21c8")
 
 # libarchive
 list(APPEND projects libarchive)
