@@ -9,9 +9,9 @@ endif()
 
 # Eigen
 list(APPEND projects eigen)
-set(eigen_version "3.3.7")
+set(eigen_version "3.3.9")
 set(eigen_url "https://gitlab.com/libeigen/eigen/-/archive/${eigen_version}/eigen-${eigen_version}.tar.gz")
-set(eigen_md5 "9e30f67e8531477de4117506fe44669b")
+set(eigen_md5 "609286804b0f79be622ccf7f9ff2b660")
 
 # glew
 list(APPEND projects glew)
@@ -24,45 +24,42 @@ list(APPEND projects gtest)
 set(gtest_version "1.7.0")
 set(gtest_url "https://github.com/google/googletest/archive/release-${gtest_version}.tar.gz")
 set(gtest_md5 "4ff6353b2560df0afecfbda3b2763847")
-#set(gtest_md5 "16877098823401d1bf2ed7891d7dce36")
 
 # hdf5
 list(APPEND projects hdf5)
-set(hdf5_version "1.10.1")
-set(hdf5_url "${oc_download_base}/tpl/hdf5-${hdf5_version}.tar.gz")
-set(hdf5_md5 "43a2f9466702fb1db31df98ae6677f15")
+set(hdf5_version "1_10_6")
+set(hdf5_url "https://github.com/HDFGroup/hdf5/archive/hdf5-${hdf5_version}.tar.gz")
+set(hdf5_md5 "abbf353b2d8a1d5a062bdbba1c365171")
 
 # Open Babel
 list(APPEND projects openbabel)
-set(openbabel_version "3.1.0")
-set(openbabel_url "https://github.com/openbabel/openbabel/releases/download/openbabel-3-1-0/openbabel-${openbabel_version}-source.tar.bz2")
-#set(openbabel_url "${oc_download_base}/tpl/openbabel-${openbabel_version}.tar.gz")
-set(openbabel_md5 "b4953f519daca79842538c0c08b8d800")
+set(openbabel_version "openbabel-3-1-1")
+set(openbabel_url "https://github.com/openbabel/openbabel/archive/openbabel-${openbabel_version}.tar.gz")
+set(openbabel_md5 "7efb864d2ba5593b286ddc49d70aa851")
 
 # PCRE
 list(APPEND projects pcre)
-set(pcre_version "8.34")
-set(pcre_url "${oc_download_base}/tpl/pcre-${pcre_version}.tar.gz")
-set(pcre_md5 "eb34b2c9c727fd64940d6fd9a00995eb")
+set(pcre_version "8.44")
+set(pcre_url "https://sourceforge.net/projects/pcre/files/pcre/${pcre_version}/pcre-${pcre_version}.tar.gz/download")
+set(pcre_md5 "3bcd2441024d00009a5fee43f058987c")
 
 # libxml2
 list(APPEND projects libxml2)
 set(libxml2_version "2.9.8")
-set(libxml2_url "${oc_download_base}/tpl/libxml2-${libxml2_version}.tar.gz")
+set(libxml2_url "https://gitlab.gnome.org/GNOME/libxml2/-/archive/v2.9.10/libxml2-v${libxml2_version}.tar.gz")
 set(libxml2_md5 "b786e353e2aa1b872d70d5d1ca0c740d")
 
 # Zlib
 list(APPEND projects zlib)
 set(zlib_version "1.2.11")
-set(zlib_url "${oc_download_base}/tpl/zlib-${zlib_version}.tar.gz")
+set(zlib_url "https://github.com/madler/zlib/archive/v${zlib_version}.tar.gz")
 set(zlib_md5 "1c9f62f0778697a09d36121ead88e08e")
 
 # KDSoap
 list(APPEND projects kdsoap)
-set(kdsoap_version "1.5.1-fb44069")
-#set(kdsoap_url "https://github.com/KDAB/KDSoap/releases/download/kdsoap-${kdsoap_version}/kdsoap-${kdsoap_version}.tar.gz")
-set(kdsoap_url "${oc_download_base}/tpl/kdsoap-${kdsoap_version}.tar.gz")
-set(kdsoap_md5 "f9df9bf9bb3378da10f987f3f3dbcd57")
+set(kdsoap_version "1.10.0")
+set(kdsoap_url "https://github.com/KDAB/KDSoap/releases/download/kdsoap-${kdsoap_version}/kdsoap-${kdsoap_version}.tar.gz")
+set(kdsoap_md5 "ac6fa410678873c634c4fe0db875c02a")
 
 # spglib
 list(APPEND projects spglib)
