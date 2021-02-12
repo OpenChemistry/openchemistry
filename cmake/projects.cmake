@@ -33,7 +33,7 @@ set(hdf5_md5 "abbf353b2d8a1d5a062bdbba1c365171")
 
 # Open Babel
 list(APPEND projects openbabel)
-set(openbabel_version "openbabel-3-1-1")
+set(openbabel_version "3-1-1")
 set(openbabel_url "https://github.com/openbabel/openbabel/archive/openbabel-${openbabel_version}.tar.gz")
 set(openbabel_md5 "7efb864d2ba5593b286ddc49d70aa851")
 
