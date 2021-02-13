@@ -47,7 +47,7 @@ set(pcre_md5 "3bcd2441024d00009a5fee43f058987c")
 list(APPEND projects libxml2)
 set(libxml2_version "2.9.10")
 set(libxml2_url "https://gitlab.gnome.org/GNOME/libxml2/-/archive/v${libxml2_version}/libxml2-v${libxml2_version}.tar.gz")
-set(libxml2_md5 "2b717cf366c4397b0b6353142ccd8e1c")
+set(libxml2_md5 "b18faee9173c3378c910f6d7d1493115")
 
 # Zlib
 list(APPEND projects zlib)
