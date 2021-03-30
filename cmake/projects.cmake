@@ -63,9 +63,9 @@ set(kdsoap_md5 "ac6fa410678873c634c4fe0db875c02a")
 
 # spglib
 list(APPEND projects spglib)
-set(spglib_version "1.10.4")
+set(spglib_version "1.16.1")
 set(spglib_url "https://github.com/atztogo/spglib/archive/v${spglib_version}.tar.gz")
-set(spglib_md5 "df49ddccecfe82e50ade640d6547571b")
+set(spglib_md5 "1933e2252a0e708951ee476eb93f6495")
 
 # libarchive
 list(APPEND projects libarchive)
