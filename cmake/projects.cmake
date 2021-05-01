@@ -69,9 +69,9 @@ set(spglib_md5 "1933e2252a0e708951ee476eb93f6495")
 
 # libarchive
 list(APPEND projects libarchive)
-set(libarchive_version "3.3.2")
+set(libarchive_version "3.5.1")
 set(libarchive_url "https://github.com/libarchive/libarchive/archive/v${libarchive_version}.tar.gz")
-set(libarchive_md5 "a3acebe237f89d7f31c5bb1da5e843c7")
+set(libarchive_md5 "742a47936955f280b9dc712ac544f8ec")
 
 # msgpackc
 list(APPEND projects msgpackc)
