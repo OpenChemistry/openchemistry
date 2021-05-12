@@ -16,7 +16,7 @@ set(eigen_md5 "609286804b0f79be622ccf7f9ff2b660")
 # glew
 list(APPEND projects glew)
 set(glew_version "2.2.0")
-set(glew_url "https://github.com/nigels-com/glew/archive/glew-${glew_version}.tgz")
+set(glew_url "https://github.com/nigels-com/glew/releases/download/glew-${glew_version}/glew-${glew_version}.tgz")
 set(glew_md5 "3579164bccaef09e36c0af7f4fd5c7c7")
 
 # gtest
