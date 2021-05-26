@@ -5,11 +5,21 @@ add_optional_deps(_deps "vtk")
 
 if(NOT USE_SYSTEM_YAEHMOP)
   if(BUILD_YAEHMOP)
-    # This does not work currently
     # Yaehmop depends on f2c or gfortran, with an optional dependency on
     # blas and lapack. This may be hard to do on windows.
-    message(FATAL_ERROR "Yaehmop cannot currently be built here")
-  else()
+    set(_source "${CMAKE_CURRENT_SOURCE_DIR}/yaehmop/tightbind")
+    set(_build "${CMAKE_CURRENT_BINARY_DIR}/yaehmop")
+    set(_install "${OpenChemistry_INSTALL_PREFIX}")
+
+    ExternalProject_Add(yaehmop
+      SOURCE_DIR ${_source}
+      BINARY_DIR ${_build}
+      INSTALL_DIR ${_install}
+      CMAKE_CACHE_ARGS
+        ${OpenChemistry_DEFAULT_ARGS}
+    DEPENDS
+      ${_deps}
+  )  else()
     # Need to use ExternalProject_Add
     set(YAEHMOP_NAME "yaehmop")
     if(WIN32)

@@ -11,9 +11,6 @@ ExternalProject_Add(libarchive
   URL ${libarchive_url}
   URL_MD5 ${libarchive_md5}
   BUILD_IN_SOURCE 1
-  PATCH_COMMAND ${CMAKE_COMMAND} -E copy_if_different
-    "${_self_dir}/libarchive.CMakeLists.txt"
-    "<SOURCE_DIR>/CMakeLists.txt"
-	CMAKE_ARGS
-	  -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
+  CMAKE_ARGS
+    -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
 )

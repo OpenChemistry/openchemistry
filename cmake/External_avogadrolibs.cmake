@@ -19,6 +19,10 @@ if(USE_VTK)
   add_optional_deps(_deps "VTK")
 endif()
 
+if(USE_PYTHON)
+  add_optional_deps(_deps "pybind11")
+endif()
+
 if(USE_HDF5)
   add_optional_deps(_deps "hdf5")
 endif()
@@ -48,6 +52,7 @@ ExternalProject_Add(avogadrolibs
     -DUSE_PROTOCALL:BOOL=${_protocall}
     -DUSE_VTK:BOOL=${USE_VTK}
     -DUSE_HDF5:BOOL=${USE_HDF5}
+    -DBUILD_GPL_PLUGINS:BOOL=${BUILD_GPL_PLUGINS}
   DEPENDS
     ${_deps}
   )

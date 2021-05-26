@@ -68,15 +68,30 @@ endmacro()
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 list(APPEND OpenChemistry_DEFAULT_ARGS "-DQt5_DIR:PATH=${Qt5_DIR}")
 
+# Add the third party dependencies first
+option(USE_VTK "Enable libraries that use VTK in Avogadro" OFF)
+option(USE_HDF5 "Enable functionality that requires HDF5" OFF)
+option(USE_PYTHON "Enable functionality that requires Python" OFF)
+
+if(USE_PYTHON)
+  find_package(PythonInterp 3 REQUIRED)
+  find_package(PythonLibs 3 REQUIRED)
+  list(APPEND OpenChemistry_DEFAULT_ARGS
+    "-DPYTHON_EXECUTABLE:FILEPATH=${PYTHON_EXECUTABLE}"
+    "-DPYTHON_INCLUDE_DIR:PATH=${PYTHON_INCLUDE_DIR}"
+    "-DPYTHON_LIBRARY:FILEPATH=${PYTHON_LIBRARY}")
+endif()
+
 option(BUILD_MOLEQUEUE "Build the MoleQueue application" ON)
 option(BUILD_MOLEQUEUE_UIT "Built the UIT/ezHPC integration for MoleQueue" OFF)
 option(BUILD_AVOGADRO "Build the Avogadro 2 application" ON)
 option(BUILD_AVOGADRO_CLIENT_SERVER
   "Build the client-server components for Avogadro" OFF)
 
-# Add the third party dependencies first
-option(USE_VTK "Enable libraries that use VTK in Avogadro" OFF)
-option(USE_HDF5 "Enable functionality that requires HDF5" OFF)
+# The GPL plugins just means the qtaim plugin right now, we should remove the
+# GPL code, but until that happens pass down the option.
+option(BUILD_GPL_PLUGINS "Build GPL plugins, i.e. QTAIM in Avogadro" OFF)
+
 option(BUILD_YAEHMOP_PLUGIN "Enable the yaehmop plugin in Avogadro. Requires VTK." OFF)
 
 if(BUILD_YAEHMOP_PLUGIN)
@@ -90,8 +105,9 @@ option(ENABLE_TESTING "Enable testing for Open Chemistry projects" OFF)
 list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DBUILD_DOCUMENTATION:BOOL=${BUILD_DOCUMENTATION}"
   "-DENABLE_TESTING:BOOL=${ENABLE_TESTING}"
-  "-DUSE_VTK:BOOL=${USE_VTK}"
-  "-DBUILD_YAEHMOP_PLUGIN:BOOL=${BUILD_YAEHMOP_PLUGIN}")
+  "-DBUILD_YAEHMOP_PLUGIN:BOOL=${BUILD_YAEHMOP_PLUGIN}"
+  "-DUSE_PYTHON:BOOL=${USE_PYTHON}"
+  "-DUSE_VTK:BOOL=${USE_VTK}")
 
 # Now for the actual open chemistry projects!
 if(BUILD_MOLEQUEUE)

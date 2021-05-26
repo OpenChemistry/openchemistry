@@ -15,7 +15,7 @@
 	url = git://github.com/Kitware/VTK.git
 [submodule "thirdparty/qttesting"]
 	path = thirdparty/qttesting
-	url = git://paraview.org/QtTesting.git
+	url = git://github.com/Kitware/QtTesting.git
 [submodule "thirdparty/protobuf"]
 	path = thirdparty/protobuf
 	url = git://github.com/OpenChemistry/protobuf.git
@@ -25,3 +25,9 @@
 [submodule "avogadrogenerators"]
 	path = avogadrogenerators
 	url = git://github.com/openchemistry/avogenerators.git
+[submodule "thirdparty/pybind11"]
+	path = thirdparty/pybind11
+	url = https://github.com/pybind/pybind11.git
+[submodule "thirdparty/yaehmop"]
+	path = thirdparty/yaehmop
+	url = https://github.com/greglandrum/yaehmop
