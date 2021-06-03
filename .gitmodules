@@ -31,3 +31,9 @@
 [submodule "thirdparty/yaehmop"]
 	path = thirdparty/yaehmop
 	url = https://github.com/greglandrum/yaehmop
+[submodule "molecules"]
+	path = molecules
+	url = git://github.com/OpenChemistry/molecules.git
+[submodule "crystals"]
+	path = crystals
+	url = git://github.com/OpenChemistry/crystals.git
