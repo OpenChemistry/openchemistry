@@ -24,6 +24,8 @@ ExternalProject_Add(openbabel
     -DWITH_JSON:BOOL=OFF
     -DWITH_COORDGEN:BOOL=OFF
     -DWITH_MAEPARSER:BOOL=OFF
+    -DCAIRO_LIBRARY:FILEPATH=""
+    -DCAIRO_INCLUDE_DIR:PATH=""
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
   DEPENDS
     ${_deps}
