@@ -9,9 +9,9 @@ endif()
 
 # Eigen
 list(APPEND projects eigen)
-set(eigen_version "3.3.9")
+set(eigen_version "3.4.0")
 set(eigen_url "https://gitlab.com/libeigen/eigen/-/archive/${eigen_version}/eigen-${eigen_version}.tar.gz")
-set(eigen_md5 "609286804b0f79be622ccf7f9ff2b660")
+set(eigen_md5 "4c527a9171d71a72a9d4186e65bea559")
 
 # glew
 list(APPEND projects glew)
@@ -39,7 +39,7 @@ set(openbabel_md5 "7efb864d2ba5593b286ddc49d70aa851")
 
 # PCRE
 list(APPEND projects pcre)
-set(pcre_version "8.44")
+set(pcre_version "8.45")
 set(pcre_url "https://sourceforge.net/projects/pcre/files/pcre/${pcre_version}/pcre-${pcre_version}.tar.gz/download")
 set(pcre_md5 "3bcd2441024d00009a5fee43f058987c")
 
@@ -63,21 +63,21 @@ set(kdsoap_md5 "ac6fa410678873c634c4fe0db875c02a")
 
 # spglib
 list(APPEND projects spglib)
-set(spglib_version "1.16.1")
+set(spglib_version "1.16.2")
 set(spglib_url "https://github.com/atztogo/spglib/archive/v${spglib_version}.tar.gz")
-set(spglib_md5 "1933e2252a0e708951ee476eb93f6495")
+set(spglib_md5 "557db34280e1a5a20992f9c29ea82c6e")
 
 # libarchive
 list(APPEND projects libarchive)
-set(libarchive_version "3.5.1")
+set(libarchive_version "3.5.2")
 set(libarchive_url "https://github.com/libarchive/libarchive/archive/v${libarchive_version}.tar.gz")
-set(libarchive_md5 "742a47936955f280b9dc712ac544f8ec")
+set(libarchive_md5 "94961a3227552a7b9b617a97f3471beb")
 
 # msgpackc
 list(APPEND projects msgpackc)
-set(msgpackc_version "3.2.1")
+set(msgpackc_version "3.3.0")
 set(msgpackc_url "https://github.com/msgpack/msgpack-c/releases/download/cpp-${msgpackc_version}/msgpack-${msgpackc_version}.tar.gz")
-set(msgpackc_md5 "ef10c80885c4f5e4baf8d37113629eae")
+set(msgpackc_md5 "e676575d52caae974e579c3d5f0ba6a2")
 
 # mmtf-cpp
 list(APPEND projects mmtf-cpp)
