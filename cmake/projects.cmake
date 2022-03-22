@@ -21,15 +21,15 @@ set(glew_md5 "3579164bccaef09e36c0af7f4fd5c7c7")
 
 # gtest
 list(APPEND projects gtest)
-set(gtest_version "1.7.0")
+set(gtest_version "1.11.0")
 set(gtest_url "https://github.com/google/googletest/archive/release-${gtest_version}.tar.gz")
-set(gtest_md5 "4ff6353b2560df0afecfbda3b2763847")
+set(gtest_md5 "e8a8df240b6938bb6384155d4c37d937")
 
 # hdf5
 list(APPEND projects hdf5)
-set(hdf5_version "1_10_6")
+set(hdf5_version "1_10_7")
 set(hdf5_url "https://github.com/HDFGroup/hdf5/archive/hdf5-${hdf5_version}.tar.gz")
-set(hdf5_md5 "abbf353b2d8a1d5a062bdbba1c365171")
+set(hdf5_md5 "be1b6012fb48ded5a2df3705f9cd6958")
 
 # Open Babel
 list(APPEND projects openbabel)
@@ -45,9 +45,9 @@ set(pcre_md5 "3bcd2441024d00009a5fee43f058987c")
 
 # libxml2
 list(APPEND projects libxml2)
-set(libxml2_version "2.9.10")
+set(libxml2_version "2.9.13")
 set(libxml2_url "https://gitlab.gnome.org/GNOME/libxml2/-/archive/v${libxml2_version}/libxml2-v${libxml2_version}.tar.gz")
-set(libxml2_md5 "b18faee9173c3378c910f6d7d1493115")
+set(libxml2_md5 "99dbd55a77c09edeeaaef5412e98769b")
 
 # Zlib
 list(APPEND projects zlib)
@@ -63,15 +63,15 @@ set(kdsoap_md5 "ac6fa410678873c634c4fe0db875c02a")
 
 # spglib
 list(APPEND projects spglib)
-set(spglib_version "1.16.2")
+set(spglib_version "1.16.3")
 set(spglib_url "https://github.com/atztogo/spglib/archive/v${spglib_version}.tar.gz")
-set(spglib_md5 "557db34280e1a5a20992f9c29ea82c6e")
+set(spglib_md5 "ebbb94f9925df098cc689f0e5b5d93e4")
 
 # libarchive
 list(APPEND projects libarchive)
-set(libarchive_version "3.5.2")
+set(libarchive_version "3.6.0")
 set(libarchive_url "https://github.com/libarchive/libarchive/archive/v${libarchive_version}.tar.gz")
-set(libarchive_md5 "94961a3227552a7b9b617a97f3471beb")
+set(libarchive_md5 "c6aee4307af87c04d327e6fbbee680a0")
 
 # msgpackc
 list(APPEND projects msgpackc)
