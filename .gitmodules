@@ -15,7 +15,7 @@
 	url = git@github.com:Kitware/VTK.git
 [submodule "thirdparty/qttesting"]
 	path = thirdparty/qttesting
-	url = git@paraview.org/QtTesting.git
+	url = git@gitlab.kitware.com:paraview/qttesting.git
 [submodule "thirdparty/protobuf"]
 	path = thirdparty/protobuf
 	url = git@github.com:OpenChemistry/protobuf.git
