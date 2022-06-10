@@ -33,9 +33,10 @@ set(hdf5_md5 "be1b6012fb48ded5a2df3705f9cd6958")
 
 # Open Babel
 list(APPEND projects openbabel)
-set(openbabel_version "3-1-1")
-set(openbabel_url "https://github.com/openbabel/openbabel/archive/openbabel-${openbabel_version}.tar.gz")
-set(openbabel_md5 "7efb864d2ba5593b286ddc49d70aa851")
+#set(openbabel_version "3-1-1")
+#set(openbabel_url "https://github.com/openbabel/openbabel/archive/openbabel-${openbabel_version}.tar.gz")
+set(openbabel_url "https://github.com/openbabel/openbabel/archive/f03cea648ffb0ca823ad01b708e26820f09ed002.tar.gz")
+set(openbabel_md5 "3cbc5c8eec2612083b9f3e58688cd0de")
 
 # PCRE
 list(APPEND projects pcre)
