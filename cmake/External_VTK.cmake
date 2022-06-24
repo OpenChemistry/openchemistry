@@ -11,19 +11,21 @@ ExternalProject_Add(VTK
   CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
     -DBUILD_TESTING:BOOL=OFF
-    -DVTK_Group_Rendering:BOOL=OFF
-    -DVTK_Group_StandAlone:BOOL=OFF
-    -DModule_vtkDomainsChemistry:BOOL=ON
-    -DModule_vtkViewsContext2D:BOOL=ON
-    -DModule_vtkChartsCore:BOOL=ON
-    -DModule_vtkRenderingVolumeOpenGL2:BOOL=ON
-    -DModule_vtkGUISupportQt:BOOL=ON
-    -DModule_vtkRenderingQt:BOOL=ON
-    -DModule_vtkViewsInfovis:BOOL=OFF
-    -DModule_vtkRenderingFreeTypeOpenGL2:BOOL=ON
+    -DVTK_GROUP_ENABLE_Rendering:STRING=DONT_WANT
+    -DVTK_GROUP_ENABLE_StandAlone:STRING=DONT_WANT
+    -DVTK_MODULE_ENABLE_VTK_DomainsChemistry:STRING=YES
+    -DVTK_MODULE_ENABLE_VTK_DomainsChemistryOpenGL2:STRING=YES
+    -DVTK_MODULE_ENABLE_VTK_ViewsContext2D:STRING=YES
+    -DVTK_MODULE_ENABLE_VTK_ChartsCore:STRING=YES
+    -DVTK_MODULE_ENABLE_VTK_RenderingVolumeOpenGL2:STRING=YES
+    -DVTK_MODULE_ENABLE_VTK_RenderingContextOpenGL2:STRING=YES
+    -DVTK_MODULE_ENABLE_VTK_GUISupportQt:STRING=YES
+    -DVTK_MODULE_ENABLE_VTK_RenderingQt:STRING=YES
+    -DVTK_MODULE_ENABLE_VTK_ViewsInfovis:STRING=NO
+    -DVTK_MODULE_ENABLE_VTK_RenderingFreeTypeOpenGL2:STRING=YES
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
-    -DVTK_USE_SYSTEM_ZLIB:BOOL=ON
-    -DVTK_USE_SYSTEM_EIGEN:BOOL=ON
+    -DVTK_MODULE_USE_EXTERNAL_VTK_zlib:BOOL=ON
+    -DVTK_MODULE_USE_EXTERNAL_VTK_eigen:BOOL=ON
     -DVTK_BUILD_QT_DESIGNER_PLUGIN:BOOL=OFF
     -DVTK_QT_VERSION:STRING=5
   DEPENDS
