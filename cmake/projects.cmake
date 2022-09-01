@@ -46,15 +46,15 @@ set(pcre_md5 "3bcd2441024d00009a5fee43f058987c")
 
 # libxml2
 list(APPEND projects libxml2)
-set(libxml2_version "2.9.13")
+set(libxml2_version "2.10.2")
 set(libxml2_url "https://gitlab.gnome.org/GNOME/libxml2/-/archive/v${libxml2_version}/libxml2-v${libxml2_version}.tar.gz")
-set(libxml2_md5 "99dbd55a77c09edeeaaef5412e98769b")
+set(libxml2_md5 "72e516d849f1c0610ab69fe5d60f1b86")
 
 # Zlib
 list(APPEND projects zlib)
-set(zlib_version "1.2.11")
+set(zlib_version "1.2.12")
 set(zlib_url "https://github.com/madler/zlib/archive/v${zlib_version}.tar.gz")
-set(zlib_md5 "0095d2d2d1f3442ce1318336637b695f")
+set(zlib_md5 "db5b7326d4e0dbcbd1981b640d495c9b")
 
 # KDSoap
 list(APPEND projects kdsoap)
@@ -64,15 +64,15 @@ set(kdsoap_md5 "ac6fa410678873c634c4fe0db875c02a")
 
 # spglib
 list(APPEND projects spglib)
-set(spglib_version "1.16.3")
-set(spglib_url "https://github.com/atztogo/spglib/archive/v${spglib_version}.tar.gz")
-set(spglib_md5 "ebbb94f9925df098cc689f0e5b5d93e4")
+set(spglib_version "1.16.5")
+set(spglib_url "https://github.com/spglib/spglib/archive/v${spglib_version}.tar.gz")
+set(spglib_md5 "623ce9637d48a25b44ff254790f6b86b")
 
 # libarchive
 list(APPEND projects libarchive)
-set(libarchive_version "3.6.0")
+set(libarchive_version "3.6.1")
 set(libarchive_url "https://github.com/libarchive/libarchive/archive/v${libarchive_version}.tar.gz")
-set(libarchive_md5 "c6aee4307af87c04d327e6fbbee680a0")
+set(libarchive_md5 "47a04d32ad760fbc4e71f824b0e9108f")
 
 # msgpackc
 list(APPEND projects msgpackc)
