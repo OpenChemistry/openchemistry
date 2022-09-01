@@ -1,5 +1,9 @@
-cmake_minimum_required(VERSION 2.8.8)
+cmake_minimum_required(VERSION 3.0)
 project(OpenChemistry CXX)
+
+if(POLICY CMP0135)
+  cmake_policy(SET CMP0135 NEW)
+endif()
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake"
   ${CMAKE_MODULE_PATH})
@@ -102,6 +106,7 @@ list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DENABLE_TESTING:BOOL=${ENABLE_TESTING}"
   "-DUSE_PYTHON:BOOL=${USE_PYTHON}"
   "-DUSE_VTK:BOOL=${USE_VTK}")
+
 
 # Now for the actual open chemistry projects!
 if(BUILD_MOLEQUEUE)
