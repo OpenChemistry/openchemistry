@@ -3,13 +3,13 @@
 	url = git@github.com:OpenChemistry/molequeue.git
 [submodule "avogadrolibs"]
 	path = avogadrolibs
-	url = git@github.com:OpenChemistry/avogadrolibs.git
+	url = git@github.com:pskowronskiTDx/avogadrolibs.git
 [submodule "avogadrodata"]
 	path = avogadrodata
 	url = git@github.com:OpenChemistry/avogadrodata.git
 [submodule "avogadroapp"]
 	path = avogadroapp
-	url = git@github.com:OpenChemistry/avogadroapp.git
+	url = git@github.com:pskowronskiTDx/avogadroapp.git
 [submodule "thirdparty/VTK"]
 	path = thirdparty/VTK
 	url = git@github.com:Kitware/VTK.git
