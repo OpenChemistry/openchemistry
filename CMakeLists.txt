@@ -108,6 +108,11 @@ if(QT_VERSION EQUAL 6 AND BUILD_MOLEQUEUE)
   set(BUILD_MOLEQUEUE OFF CACHE BOOL "Build the MoleQueue application" FORCE)
 endif()
 
+# 3DConnexion devices are supported on Windows and MacOS only
+if(WIN32 OR APPLE)
+  option(USE_TDX "Enable support for the 3DConnexion devices" ON)
+endif()
+
 if(USE_PYTHON)
   find_package(PythonInterp 3 REQUIRED)
   find_package(PythonLibs 3 REQUIRED)
@@ -126,6 +131,11 @@ list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DENABLE_TESTING:BOOL=${ENABLE_TESTING}"
   "-DUSE_PYTHON:BOOL=${USE_PYTHON}"
   "-DUSE_VTK:BOOL=${USE_VTK}")
+
+if(WIN32 OR APPLE)
+  list(APPEND OpenChemistry_DEFAULT_ARGS
+    "-DUSE_TDX:BOOL=${USE_TDX}")
+endif()  
 
 
 # Now for the actual open chemistry projects!
