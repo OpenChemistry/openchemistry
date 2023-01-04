@@ -134,7 +134,7 @@ list(APPEND OpenChemistry_DEFAULT_ARGS
 
 if(WIN32 OR APPLE)
   list(APPEND OpenChemistry_DEFAULT_ARGS
-    "-DUSE_TDX:BOOL=${USE_TDX}")
+    "-DUSE_3DCONNEXION:BOOL=${USE_3DCONNEXION}")
 endif()  
 
 
