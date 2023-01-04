@@ -90,7 +90,7 @@ option(USE_YAEHMOP "Enable functionality that requires Yaehmop" OFF)
 
 # 3DConnexion devices are supported on Windows and MacOS only
 if(WIN32 OR APPLE)
-  option(USE_TDX "Enable support for the 3DConnexion devices" OFF)
+  option(USE_3DCONNEXION "Enable support for the 3DConnexion devices" OFF)
 endif()
 
 if(USE_PYTHON)
@@ -114,7 +114,7 @@ list(APPEND OpenChemistry_DEFAULT_ARGS
 
 if(WIN32 OR APPLE)
   list(APPEND OpenChemistry_DEFAULT_ARGS
-    "-DUSE_TDX:BOOL=${USE_TDX}")
+    "-DUSE_3DCONNEXION:BOOL=${USE_3DCONNEXION}")
 endif()  
 
 
