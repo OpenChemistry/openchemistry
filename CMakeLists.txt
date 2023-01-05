@@ -88,8 +88,8 @@ option(USE_HDF5 "Enable functionality that requires HDF5" OFF)
 option(USE_PYTHON "Enable functionality that requires Python" OFF)
 option(USE_YAEHMOP "Enable functionality that requires Yaehmop" OFF)
 
-# 3DConnexion devices are supported on Windows and MacOS only
-if(WIN32 OR APPLE)
+# 3DConnexion devices support is available only for Windows
+if(WIN32)
   option(USE_3DCONNEXION "Enable support for the 3DConnexion devices" OFF)
 endif()
 
