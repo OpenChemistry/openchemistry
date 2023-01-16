@@ -88,8 +88,8 @@ option(USE_HDF5 "Enable functionality that requires HDF5" OFF)
 option(USE_PYTHON "Enable functionality that requires Python" OFF)
 option(USE_YAEHMOP "Enable functionality that requires Yaehmop" OFF)
 
-# 3DConnexion devices support is available only for Windows
-if(WIN32)
+# 3DConnexion devices support is available only for Windows and MacOS
+if(WIN32 OR APPLE)
   option(USE_3DCONNEXION "Enable support for the 3DConnexion devices" OFF)
 endif()
 
@@ -112,7 +112,7 @@ list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DUSE_PYTHON:BOOL=${USE_PYTHON}"
   "-DUSE_VTK:BOOL=${USE_VTK}")
 
-if(WIN32)
+if(WIN32 OR APPLE)
   list(APPEND OpenChemistry_DEFAULT_ARGS
     "-DUSE_3DCONNEXION:BOOL=${USE_3DCONNEXION}")
 endif()  
