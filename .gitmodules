@@ -16,12 +16,6 @@
 [submodule "thirdparty/qttesting"]
 	path = thirdparty/qttesting
 	url = https://gitlab.kitware.com/paraview/qttesting.git
-[submodule "thirdparty/protobuf"]
-	path = thirdparty/protobuf
-	url = https://github.com/OpenChemistry/protobuf.git
-[submodule "thirdparty/protocall"]
-	path = thirdparty/protocall
-	url = https://github.com/OpenChemistry/protocall.git
 [submodule "avogadrogenerators"]
 	path = avogadrogenerators
 	url = https://github.com/openchemistry/avogenerators.git

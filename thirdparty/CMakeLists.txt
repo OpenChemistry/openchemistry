@@ -104,10 +104,5 @@ if(BUILD_MOLEQUEUE AND BUILD_MOLEQUEUE_UIT)
   include(External_kdsoap)
 endif()
 
-if(BUILD_AVOGADRO AND BUILD_AVOGADRO_CLIENT_SERVER)
-  include(External_protobuf)
-  include(External_protocall)
-endif()
-
 set(OpenChemistry_THIRDPARTYLIBS_ARGS "${OpenChemistry_THIRDPARTYLIBS_ARGS}"
   PARENT_SCOPE)

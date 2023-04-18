@@ -92,8 +92,6 @@ endif()
 option(BUILD_MOLEQUEUE "Build the MoleQueue application" ${BUILD_MOLEQUEUE_DEFAULT})
 option(BUILD_MOLEQUEUE_UIT "Built the UIT/ezHPC integration for MoleQueue" OFF)
 option(BUILD_AVOGADRO "Build the Avogadro 2 application" ON)
-option(BUILD_AVOGADRO_CLIENT_SERVER
-  "Build the client-server components for Avogadro" OFF)
 
 # The GPL plugins just means the qtaim plugin right now, we should remove the
 # GPL code, but until that happens pass down the option.

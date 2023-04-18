@@ -31,13 +31,6 @@ if(ENABLE_TESTING)
   add_optional_deps(_deps "gtest")
 endif()
 
-if(BUILD_AVOGADRO_CLIENT_SERVER)
-  add_optional_deps(_deps "protobuf" "protocall")
-  set(_protocall "ON")
-else()
-  set(_protocall "OFF")
-endif()
-
 ExternalProject_Add(avogadrolibs
   SOURCE_DIR ${_source}
   BINARY_DIR ${_build}
@@ -45,7 +38,6 @@ ExternalProject_Add(avogadrolibs
     ${OpenChemistry_DEFAULT_ARGS}
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
     -DUSE_MOLEQUEUE:BOOL=${_molequeue}
-    -DUSE_PROTOCALL:BOOL=${_protocall}
     -DUSE_VTK:BOOL=${USE_VTK}
     -DUSE_HDF5:BOOL=${USE_HDF5}
     -DBUILD_GPL_PLUGINS:BOOL=${BUILD_GPL_PLUGINS}
