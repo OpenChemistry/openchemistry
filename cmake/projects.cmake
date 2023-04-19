@@ -1,12 +1,5 @@
 unset(projects)
 
-# The base URL for all hosted files to use when downloading
-if(DEFINED OpenChemistry_DOWNLOAD_BASE_URL)
-  set(oc_download_base ${OpenChemistry_DOWNLOAD_BASE_URL})
-else()
-  set(oc_download_base "http://www.openchemistry.org/files")
-endif()
-
 # Eigen
 list(APPEND projects eigen)
 set(eigen_version "3.4.0")
@@ -27,9 +20,9 @@ set(gtest_md5 "4ff6353b2560df0afecfbda3b2763847")
 
 # hdf5
 list(APPEND projects hdf5)
-set(hdf5_version "1_10_7")
+set(hdf5_version "1_10_10")
 set(hdf5_url "https://github.com/HDFGroup/hdf5/archive/hdf5-${hdf5_version}.tar.gz")
-set(hdf5_md5 "be1b6012fb48ded5a2df3705f9cd6958")
+set(hdf5_md5 "c9e7f394e7b87c00d6d3bf00c0009654")
 
 # Open Babel
 list(APPEND projects openbabel)
@@ -46,15 +39,15 @@ set(pcre_md5 "3bcd2441024d00009a5fee43f058987c")
 
 # libxml2
 list(APPEND projects libxml2)
-set(libxml2_version "2.10.2")
+set(libxml2_version "2.10.4")
 set(libxml2_url "https://gitlab.gnome.org/GNOME/libxml2/-/archive/v${libxml2_version}/libxml2-v${libxml2_version}.tar.gz")
-set(libxml2_md5 "72e516d849f1c0610ab69fe5d60f1b86")
+set(libxml2_md5 "af682edd332aa9940c02c66dcbe4ccf3")
 
 # Zlib
 list(APPEND projects zlib)
-set(zlib_version "1.2.11")
+set(zlib_version "1.2.13")
 set(zlib_url "https://github.com/madler/zlib/archive/v${zlib_version}.tar.gz")
-set(zlib_md5 "0095d2d2d1f3442ce1318336637b695f")
+set(zlib_md5 "9c7d356c5acaa563555490676ca14d23")
 
 # KDSoap
 list(APPEND projects kdsoap)
@@ -70,9 +63,9 @@ set(spglib_md5 "623ce9637d48a25b44ff254790f6b86b")
 
 # libarchive
 list(APPEND projects libarchive)
-set(libarchive_version "3.6.0")
+set(libarchive_version "3.6.2")
 set(libarchive_url "https://github.com/libarchive/libarchive/archive/v${libarchive_version}.tar.gz")
-set(libarchive_md5 "c6aee4307af87c04d327e6fbbee680a0")
+set(libarchive_md5 "7ea12096b1c35878ffc8769c7c345768")
 
 # msgpackc
 list(APPEND projects msgpackc)
@@ -82,6 +75,6 @@ set(msgpackc_md5 "e676575d52caae974e579c3d5f0ba6a2")
 
 # mmtf-cpp
 list(APPEND projects mmtf-cpp)
-set(mmtfcpp_version "1.0.0")
+set(mmtfcpp_version "1.1.0")
 set(mmtfcpp_url "https://github.com/rcsb/mmtf-cpp/archive/v${mmtfcpp_version}.tar.gz")
-set(mmtfcpp_md5 "553f028a771b9d9f824903a2bf34be51")
+set(mmtfcpp_md5 "ec961ff406a1636b4c5a25de7d9bd47b")
