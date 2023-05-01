@@ -10,6 +10,8 @@ ExternalProject_Add(yaehmop
   INSTALL_DIR ${_install}
   CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
+    -DBIND_EXE_NAME:FILEPATH=eht_bind
+    ${OpenChemistry_THIRDPARTYLIBS_ARGS}
   DEPENDS
     ${_deps}
   )
