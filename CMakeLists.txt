@@ -110,7 +110,7 @@ endif()
 
 # 3DConnexion devices are supported on Windows and MacOS only
 if(WIN32 OR APPLE)
-  option(USE_TDX "Enable support for the 3DConnexion devices" ON)
+  option(USE_3DCONNEXION "Enable support for the 3DConnexion devices" ON)
 endif()
 
 if(USE_PYTHON)
