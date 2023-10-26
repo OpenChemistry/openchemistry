@@ -31,3 +31,12 @@
 [submodule "crystals"]
 	path = crystals
 	url = https://github.com/OpenChemistry/crystals.git
+[submodule "fragments"]
+	path = fragments
+	url = git@github.com:OpenChemistry/fragments.git
+[submodule "avogadro-i18n"]
+	path = avogadro-i18n
+	url = git@github.com:OpenChemistry/avogadro-i18n.git
+[submodule "jupyter-examples"]
+	path = jupyter-examples
+	url = git@github.com:OpenChemistry/jupyter-examples.git
