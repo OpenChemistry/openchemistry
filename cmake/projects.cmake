@@ -28,8 +28,8 @@ set(hdf5_md5 "c9e7f394e7b87c00d6d3bf00c0009654")
 list(APPEND projects openbabel)
 #set(openbabel_version "3-1-1")
 #set(openbabel_url "https://github.com/openbabel/openbabel/archive/openbabel-${openbabel_version}.tar.gz")
-set(openbabel_url "https://github.com/openbabel/openbabel/archive/e7aa0942f6c7733950dcf49e3c8e7f1b56feeea5.tar.gz")
-set(openbabel_md5 "40a4b996fa19cd29be0e45a70d8d8b1c")
+set(openbabel_url "https://github.com/openbabel/openbabel/archive/32cf131444c1555c749b356dab44fb9fe275271f.tar.gz")
+set(openbabel_md5 "69af3ace345d59cf501c25b3a66259d7")
 
 # PCRE
 list(APPEND projects pcre)
