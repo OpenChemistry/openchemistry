@@ -11,9 +11,6 @@ ExternalProject_Add(spglib
   URL ${spglib_url}
   URL_MD5 ${spglib_md5}
   BUILD_IN_SOURCE 1
-  PATCH_COMMAND ${CMAKE_COMMAND} -E copy_if_different
-    "${_self_dir}/spglib.CMakeLists.txt"
-    "<SOURCE_DIR>/CMakeLists.txt"
   CMAKE_ARGS
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
 )
