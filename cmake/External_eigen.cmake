@@ -7,5 +7,6 @@ ExternalProject_Add(eigen
   URL_MD5 ${eigen_md5}
   CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
+    -DEIGEN_BUILD_DOC:BOOL=OFF
     -DBUILD_TESTING:BOOL=OFF
   )
