@@ -5,12 +5,14 @@
 # Downloads subdir in the build tree.
 #
 if(NOT DEFINED download_dir)
-  if(NOT "$ENV{HOME}" STREQUAL "" AND EXISTS "$ENV{HOME}/Downloads")
+  if(DOWNLOAD_TO_SOURCE_DIR AND NOT "${CMAKE_CURRENT_SOURCE_DIR}" STREQUAL "")
+    set(download_dir "${CMAKE_CURRENT_SOURCE_DIR}/Downloads")
+  elseif(DOWNLOAD_TO_BINARY_DIR AND NOT "${CMAKE_CURRENT_BINARY_DIR}" STREQUAL "")
+    set(download_dir "${CMAKE_CURRENT_BINARY_DIR}/Downloads")
+  elseif(NOT "$ENV{HOME}" STREQUAL "" AND EXISTS "$ENV{HOME}/Downloads")
     set(download_dir "$ENV{HOME}/Downloads")
   elseif(NOT "$ENV{USERPROFILE}" STREQUAL "" AND EXISTS "$ENV{USERPROFILE}/Downloads")
     set(download_dir "$ENV{USERPROFILE}/Downloads")
-  elseif(NOT "${CMAKE_CURRENT_BINARY_DIR}" STREQUAL "")
-    set(download_dir "${CMAKE_CURRENT_BINARY_DIR}/Downloads")
   else()
     message(FATAL_ERROR "unexpectedly empty CMAKE_CURRENT_BINARY_DIR")
   endif()

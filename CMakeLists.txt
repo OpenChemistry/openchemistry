@@ -15,6 +15,9 @@ include(BuildLocation)
 
 include(ExternalProject)
 include(projects)
+# Allow choice of where download_dir should be.
+option(DOWNLOAD_TO_SOURCE_DIR "Download external dependency source archives to CMAKE_CURRENT_SOURCE_DIR/Downloads" OFF)
+option(DOWNLOAD_TO_BINARY_DIR "Download external dependency source archives to CMAKE_CURRENT_BINARY_DIR/Downloads" OFF)
 include(download_dir)
 
 # Set up a few default arguments for all projects, such as the install prefix,
