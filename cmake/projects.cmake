@@ -78,3 +78,9 @@ list(APPEND projects mmtf-cpp)
 set(mmtfcpp_version "1.1.0")
 set(mmtfcpp_url "https://github.com/rcsb/mmtf-cpp/archive/v${mmtfcpp_version}.tar.gz")
 set(mmtfcpp_md5 "ec961ff406a1636b4c5a25de7d9bd47b")
+
+# libmsym
+list(APPEND projects libmsym)
+set(libmsym_version "0.2.3-paper")
+set(libmsym_url "https://github.com/mcodev31/libmsym/archive/refs/tags/v${libmsym_version}.tar.gz")
+set(libmsym_md5 "1221f9f0b1efefe061b0afbf8cf72481")

@@ -1,10 +1,11 @@
 set(_build "${CMAKE_CURRENT_BINARY_DIR}/libmsym")
+set(libmsym_source  "${CMAKE_CURRENT_BINARY_DIR}/libmsym-0.2.3-paper")
 
 ExternalProject_Add(libmsym
-  GIT_REPOSITORY "https://github.com/mcodev31/libmsym.git"
-  GIT_TAG "0c47befe4a1cd05cbba1aa561b914be926e5ced7"
   DOWNLOAD_DIR ${download_dir}
-  BINARY_DIR ${_build}
+  SOURCE_DIR "${libmsym_source}"
+  URL ${libmsym_url}
+  URL_MD5 ${libmsym_md5}
   CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
   CMAKE_ARGS
@@ -12,4 +13,4 @@ ExternalProject_Add(libmsym
     -DMSYM_NO_VLA_SUPPORT:BOOL=TRUE
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
     -DINSTALL_BIN_DIR:PATH=bin
-  )
+)
