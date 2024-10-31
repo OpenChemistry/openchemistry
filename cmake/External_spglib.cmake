@@ -12,6 +12,7 @@ ExternalProject_Add(spglib
   URL_MD5 ${spglib_md5}
   BUILD_IN_SOURCE 1
   CMAKE_ARGS
+    ${OpenChemistry_DEFAULT_ARGS}
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
     -DSPGLIB_WITH_TESTS=OFF
 )
