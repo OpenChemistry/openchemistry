@@ -11,6 +11,8 @@ ExternalProject_Add(libarchive
   URL ${libarchive_url}
   URL_MD5 ${libarchive_md5}
   BUILD_IN_SOURCE 1
+  CMAKE_CACHE_ARGS
+    ${OpenChemistry_DEFAULT_ARGS}
   CMAKE_ARGS
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
 )

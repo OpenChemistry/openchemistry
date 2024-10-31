@@ -22,6 +22,7 @@ if(WIN32)
         "${_self_dir}/zlib.gzguts.h"
         "<SOURCE_DIR>/gzguts.h"
     CMAKE_CACHE_ARGS
+      ${OpenChemistry_DEFAULT_ARGS}
       -DCMAKE_CXX_FLAGS:STRING=${pv_tpl_cxx_flags}
       -DCMAKE_C_FLAGS:STRING=${pv_tpl_c_flags}
       -DCMAKE_BUILD_TYPE:STRING=${CMAKE_CFG_INTDIR}
