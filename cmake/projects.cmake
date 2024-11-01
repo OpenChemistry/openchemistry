@@ -45,9 +45,9 @@ set(libxml2_md5 "af682edd332aa9940c02c66dcbe4ccf3")
 
 # Zlib
 list(APPEND projects zlib)
-set(zlib_version "1.2.11")
+set(zlib_version "1.3.1")
 set(zlib_url "https://github.com/madler/zlib/archive/v${zlib_version}.tar.gz")
-set(zlib_md5 "0095d2d2d1f3442ce1318336637b695f")
+set(zlib_md5 "ddb17dbbf2178807384e57ba0d81e6a1")
 
 # KDSoap
 list(APPEND projects kdsoap)
@@ -82,5 +82,10 @@ set(mmtfcpp_md5 "ec961ff406a1636b4c5a25de7d9bd47b")
 # libmsym
 list(APPEND projects libmsym)
 set(libmsym_version "0.2.3-paper")
-set(libmsym_url "https://github.com/mcodev31/libmsym/archive/refs/tags/v${libmsym_version}.tar.gz")
-set(libmsym_md5 "1221f9f0b1efefe061b0afbf8cf72481")
+IF (WIN32)
+  set(libmsym_url "https://github.com/mcodev31/libmsym/archive/0c47befe4a1cd05cbba1aa561b914be926e5ced7.tar.gz")
+  set(libmsym_md5 "369eb1c447c317a4482a3d560fcdb648")
+ELSE()
+  set(libmsym_url "https://github.com/mcodev31/libmsym/archive/refs/tags/v${libmsym_version}.tar.gz")
+  set(libmsym_md5 "1221f9f0b1efefe061b0afbf8cf72481")
+ENDIF()
