@@ -45,9 +45,9 @@ set(libxml2_md5 "af682edd332aa9940c02c66dcbe4ccf3")
 
 # Zlib
 list(APPEND projects zlib)
-set(zlib_version "1.3.1")
+set(zlib_version "1.2.11")
 set(zlib_url "https://github.com/madler/zlib/archive/v${zlib_version}.tar.gz")
-set(zlib_md5 "ddb17dbbf2178807384e57ba0d81e6a1")
+set(zlib_md5 "0095d2d2d1f3442ce1318336637b695f")
 
 # KDSoap
 list(APPEND projects kdsoap)
