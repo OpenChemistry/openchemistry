@@ -8,7 +8,7 @@ get_filename_component(_self_dir ${CMAKE_CURRENT_LIST_FILE} PATH)
 ExternalProject_Add(mmtfcpp
   DOWNLOAD_DIR ${download_dir}
   URL ${mmtfcpp_url}
-  URL_MD5 ${mmtfcpp_md5}
+  URL_SHA256 ${mmtfcpp_sha256}
   CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
   DEPENDS

@@ -16,7 +16,7 @@ ExternalProject_Add(glew
   SOURCE_DIR ${glew_source}
   INSTALL_DIR ${glew_install}
   URL ${glew_url}
-  URL_MD5 ${glew_md5}
+  URL_SHA256 ${glew_sha256}
   PATCH_COMMAND ${CMAKE_COMMAND} -E copy_if_different
     "${CMAKE_CURRENT_BINARY_DIR}/glew.CMakeLists.txt"
     "<SOURCE_DIR>/CMakeLists.txt"
