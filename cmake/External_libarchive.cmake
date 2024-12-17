@@ -9,7 +9,7 @@ ExternalProject_Add(libarchive
   SOURCE_DIR "${libarchive_source}"
   INSTALL_DIR "${libarchive_install}"
   URL ${libarchive_url}
-  URL_MD5 ${libarchive_md5}
+  URL_SHA256 ${libarchive_sha256}
   BUILD_IN_SOURCE 1
   CMAKE_ARGS
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>

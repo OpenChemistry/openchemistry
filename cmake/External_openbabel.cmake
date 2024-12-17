@@ -13,7 +13,7 @@ ExternalProject_Add(openbabel
   DOWNLOAD_DIR ${download_dir}
   BINARY_DIR ${_build}
   URL ${openbabel_url}
-  URL_MD5 ${openbabel_md5}
+  URL_SHA256 ${openbabel_sha256}
   CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
     -DENABLE_TESTS:BOOL=OFF
