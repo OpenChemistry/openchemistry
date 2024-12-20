@@ -19,8 +19,8 @@ function(compute_filename_from_url url filename_var)
 endfunction()
 
 
-# Download each file in turn. If it exists and the md5 matches, it will not be
-# downloaded again. If the md5 differs, it will be deleted and downloaded.
+# Download each file in turn. If it exists and the sha256 matches, it will not be
+# downloaded again. If the sha256 differs, it will be deleted and downloaded.
 message(STATUS "Downloading source tarballs to '${download_dir}'...")
 foreach(proj ${projects})
   compute_filename_from_url(${${proj}_url} filename)
@@ -31,7 +31,7 @@ foreach(proj ${projects})
     TIMEOUT 3600
     STATUS status
     LOG log
-    EXPECTED_MD5 ${${proj}_md5}
+    EXPECTED_SHA256 ${${proj}_sha256}
     SHOW_PROGRESS)
   list(GET status 0 status_code)
   list(GET status 1 status_string)

@@ -5,7 +5,7 @@ ExternalProject_Add(libmsym
   DOWNLOAD_DIR ${download_dir}
   SOURCE_DIR "${libmsym_source}"
   URL ${libmsym_url}
-  URL_MD5 ${libmsym_md5}
+  URL_SHA256 ${libmsym_sha256}
   CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
   CMAKE_ARGS

@@ -7,7 +7,7 @@ ExternalProject_Add(msgpackc
   DOWNLOAD_DIR ${download_dir}
   SOURCE_DIR "${msgpackc_source}"
   URL ${msgpackc_url}
-  URL_MD5 ${msgpackc_md5}
+  URL_SHA256 ${msgpackc_sha256}
   CMAKE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
   PATCH_COMMAND ${CMAKE_COMMAND} -E copy_if_different
