@@ -5,7 +5,6 @@ unset(_deps)
 
 list(APPEND _deps "spglib")
 list(APPEND _deps "libarchive")
-list(APPEND _deps "mmtfcpp")
 
 if(BUILD_MOLEQUEUE)
   list(APPEND _deps "molequeue")
