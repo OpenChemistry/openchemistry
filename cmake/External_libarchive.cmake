@@ -12,5 +12,6 @@ ExternalProject_Add(libarchive
   URL_MD5 ${libarchive_md5}
   BUILD_IN_SOURCE 1
   CMAKE_ARGS
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
 )

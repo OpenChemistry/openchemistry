@@ -67,18 +67,6 @@ set(libarchive_version "3.7.7")
 set(libarchive_url "https://github.com/libarchive/libarchive/archive/v${libarchive_version}.tar.gz")
 set(libarchive_md5 "26946b891d361a8dfc70c10e242cabae")
 
-# msgpackc
-list(APPEND projects msgpackc)
-set(msgpackc_version "3.3.0")
-set(msgpackc_url "https://github.com/msgpack/msgpack-c/releases/download/cpp-${msgpackc_version}/msgpack-${msgpackc_version}.tar.gz")
-set(msgpackc_md5 "e676575d52caae974e579c3d5f0ba6a2")
-
-# mmtf-cpp
-list(APPEND projects mmtf-cpp)
-set(mmtfcpp_version "1.1.0")
-set(mmtfcpp_url "https://github.com/rcsb/mmtf-cpp/archive/v${mmtfcpp_version}.tar.gz")
-set(mmtfcpp_md5 "ec961ff406a1636b4c5a25de7d9bd47b")
-
 # libmsym
 list(APPEND projects libmsym)
 set(libmsym_version "0.2.3-paper")
