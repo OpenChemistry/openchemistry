@@ -69,11 +69,10 @@ set(libarchive_md5 "26946b891d361a8dfc70c10e242cabae")
 
 # libmsym
 list(APPEND projects libmsym)
-set(libmsym_version "0.2.3-paper")
 IF (WIN32)
   set(libmsym_url "https://github.com/mcodev31/libmsym/archive/0c47befe4a1cd05cbba1aa561b914be926e5ced7.tar.gz")
   set(libmsym_md5 "369eb1c447c317a4482a3d560fcdb648")
 ELSE()
-  set(libmsym_url "https://github.com/mcodev31/libmsym/archive/refs/tags/v${libmsym_version}.tar.gz")
-  set(libmsym_md5 "1221f9f0b1efefe061b0afbf8cf72481")
+  set(libmsym_url "https://github.com/mcodev31/libmsym/archive/85e47232376a8e735c2a7b5283f40b59b3953db1.tar.gz")
+  set(libmsym_md5 "af1ca360f29aeb546c38bf5bb7555821")
 ENDIF()
