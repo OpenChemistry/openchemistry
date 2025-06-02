@@ -16,6 +16,7 @@ ExternalProject_Add(molequeue
     ${OpenChemistry_DEFAULT_ARGS}
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
     -DMoleQueue_USE_EZHPC_UIT:BOOL=${_uit}
+    -DCMAKE_POLICY_VERSION_MINIMUM:STRING=3.5
   DEPENDS
     ${_deps}
   )
