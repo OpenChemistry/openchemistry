@@ -42,7 +42,7 @@
 [submodule "fragments"]
 	path = fragments
 	url = https://github.com/OpenChemistry/fragments.git
-        branch = master
+        branch = main
 [submodule "avogadro-i18n"]
 	path = avogadro-i18n
 	url = https://github.com/OpenChemistry/avogadro-i18n.git
