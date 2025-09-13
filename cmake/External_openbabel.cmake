@@ -30,4 +30,7 @@ ExternalProject_Add(openbabel
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
   DEPENDS
     ${_deps}
+  PATCH_COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    "${_self_dir}/obabel.CMakeLists.txt"
+    "<SOURCE_DIR>/CMakeLists.txt"
   )
