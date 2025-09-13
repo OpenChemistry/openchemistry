@@ -14,9 +14,9 @@ set(glew_sha256 "d4fc82893cfb00109578d0a1a2337fb8ca335b3ceccf97b97e5cc7f08e4353e
 
 # gtest
 list(APPEND projects gtest)
-set(gtest_version "1.15.2")
+set(gtest_version "1.17.0")
 set(gtest_url "https://github.com/google/googletest/archive/refs/tags/v${gtest_version}.tar.gz")
-set(gtest_sha256 "ad7fdba11ea011c1d925b3289cf4af2c66a352e18d4c7264392fead75e919363")
+set(gtest_sha256 "65fab701d9829d38cb77c14acdc431d2108bfdbf8979e40eb8ae567edf10b27c")
 
 # hdf5
 list(APPEND projects hdf5)
@@ -41,13 +41,13 @@ set(pcre_sha256 "4e6ce03e0336e8b4a3d6c2b70b1c5e18590a5673a98186da90d4f33c23defc0
 list(APPEND projects libxml2)
 set(libxml2_version "2.10.4")
 set(libxml2_url "https://gitlab.gnome.org/GNOME/libxml2/-/archive/v${libxml2_version}/libxml2-v${libxml2_version}.tar.gz")
-set(libxml2_sha256 "7a4fe33f42abff6e4df8b153b4a527d59a6ed957f5621d9142ed68d4a473b1b5")
+set(libxml2_sha256 "1aa47bd54f9e0245686d494fbbbfa4e3e77b6fc4f988708383de8a1033292e66")
 
 # Zlib
 list(APPEND projects zlib)
 set(zlib_version "1.3.1")
 set(zlib_url "https://github.com/madler/zlib/archive/v${zlib_version}.tar.gz")
-set(zlib_sha256 "629380c90a77b964d896ed37163f5c3a34f6e6d897311f1df2a7016355c45eff")
+set(zlib_sha256 "17e88863f3600672ab49182f217281b6fc4d3c762bde361935e436a95214d05c")
 
 # KDSoap
 list(APPEND projects kdsoap)
@@ -67,18 +67,6 @@ set(libarchive_version "3.7.7")
 set(libarchive_url "https://github.com/libarchive/libarchive/archive/v${libarchive_version}.tar.gz")
 set(libarchive_sha256 "fa62384995e8aa4f5a901c184fb5c91e56a29e24c05b6881a7f8fd5bbea694d2")
 
-# msgpackc
-list(APPEND projects msgpackc)
-set(msgpackc_version "3.3.0")
-set(msgpackc_url "https://github.com/msgpack/msgpack-c/releases/download/cpp-${msgpackc_version}/msgpack-${msgpackc_version}.tar.gz")
-set(msgpackc_sha256 "6e114d12a5ddb8cb11f669f83f32246e484a8addd0ce93f274996f1941c1f07b")
-
-# mmtf-cpp
-list(APPEND projects mmtf-cpp)
-set(mmtfcpp_version "1.1.0")
-set(mmtfcpp_url "https://github.com/rcsb/mmtf-cpp/archive/v${mmtfcpp_version}.tar.gz")
-set(mmtfcpp_sha256 "021173bdc1814b1d0541c4426277d39df2b629af53151999b137e015418f76c0")
-
 # libmsym
 list(APPEND projects libmsym)
 IF (WIN32)
@@ -86,5 +74,5 @@ IF (WIN32)
   set(libmsym_sha256 "7a8ef0eaaa3319fbf2bd4c829395706b9b28e76adad65385851c491f81cf196f")
 ELSE()
   set(libmsym_url "https://github.com/mcodev31/libmsym/archive/85e47232376a8e735c2a7b5283f40b59b3953db1.tar.gz")
-  set(libmsym_sha256 "3741ebe163cf40696570d6b62e4834ca587d43dcac9de713994cc5e2960fb8fd")
+  set(libmsym_sha256 "456e2c1e0c78e212115d4d332f557f108b6d41b730d5fd6639c2452df31b7096")
 ENDIF()

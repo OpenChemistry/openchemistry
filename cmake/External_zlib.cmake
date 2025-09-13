@@ -12,8 +12,8 @@ if(WIN32)
     SOURCE_DIR ${zlib_source}
     BINARY_DIR ${zlib_build}
     INSTALL_DIR ${zlib_install}
-    URL ${zlib_url}
-    URL_SHA256 ${zlib_sha256}
+    URL "${zlib_url}"
+    URL_HASH SHA256=${zlib_sha256}
     PATCH_COMMAND ${CMAKE_COMMAND} -E remove <SOURCE_DIR>/zconf.h
       COMMAND ${CMAKE_COMMAND} -E copy_if_different
         "${_self_dir}/zlib.CMakeLists.txt"
@@ -40,8 +40,8 @@ else()
     DOWNLOAD_DIR ${download_dir}
     SOURCE_DIR ${zlib_source}
     INSTALL_DIR ${zlib_install}
-    URL ${zlib_url}
-    URL_SHA256 ${zlib_sha256}
+    URL "${zlib_url}"
+    URL_HASH SHA256=${zlib_sha256}
     BUILD_IN_SOURCE 1
     CONFIGURE_COMMAND <SOURCE_DIR>/configure --prefix=<INSTALL_DIR>)
 endif()

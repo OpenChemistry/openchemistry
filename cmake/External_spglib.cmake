@@ -9,7 +9,7 @@ ExternalProject_Add(spglib
   SOURCE_DIR "${spglib_source}"
   INSTALL_DIR "${spglib_install}"
   URL ${spglib_url}
-  URL_SHA256 ${spglib_sha256}
+  URL_HASH SHA256=${spglib_sha256}
   BUILD_IN_SOURCE 1
   CMAKE_ARGS
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
