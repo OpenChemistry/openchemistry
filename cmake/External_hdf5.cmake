@@ -3,7 +3,7 @@ get_filename_component(_self_dir ${CMAKE_CURRENT_LIST_FILE} PATH)
 ExternalProject_Add(hdf5
   DOWNLOAD_DIR ${download_dir}
   URL ${hdf5_url}
-  URL_MD5 ${hdf5_md5}
+  URL_SHA256 ${hdf5_sha256}
   BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}/hdf5"
   INSTALL_DIR "${OpenChemistry_INSTALL_PREFIX}"
   CMAKE_ARGS

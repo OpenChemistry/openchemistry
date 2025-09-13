@@ -44,7 +44,7 @@ ExternalProject_Add(libxml2
   SOURCE_DIR ${libxml2_source}
   INSTALL_DIR ${libxml2_install}
   URL ${libxml2_url}
-  URL_MD5 ${libxml2_md5}
+  URL_SHA256 ${libxml2_sha256}
   BUILD_IN_SOURCE 1
   ${libxml2_patch_command}
   ${libxml2_config_command}
