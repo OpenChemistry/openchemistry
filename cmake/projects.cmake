@@ -14,7 +14,7 @@ set(glew_sha256 "d4fc82893cfb00109578d0a1a2337fb8ca335b3ceccf97b97e5cc7f08e4353e
 
 # gtest
 list(APPEND projects gtest)
-set(gtest_version "1.13.0")
+set(gtest_version "1.15.2")
 set(gtest_url "https://github.com/google/googletest/archive/refs/tags/v${gtest_version}.tar.gz")
 set(gtest_sha256 "ad7fdba11ea011c1d925b3289cf4af2c66a352e18d4c7264392fead75e919363")
 
@@ -45,7 +45,7 @@ set(libxml2_sha256 "7a4fe33f42abff6e4df8b153b4a527d59a6ed957f5621d9142ed68d4a473
 
 # Zlib
 list(APPEND projects zlib)
-set(zlib_version "1.2.11")
+set(zlib_version "1.3.1")
 set(zlib_url "https://github.com/madler/zlib/archive/v${zlib_version}.tar.gz")
 set(zlib_sha256 "629380c90a77b964d896ed37163f5c3a34f6e6d897311f1df2a7016355c45eff")
 
@@ -81,11 +81,10 @@ set(mmtfcpp_sha256 "021173bdc1814b1d0541c4426277d39df2b629af53151999b137e015418f
 
 # libmsym
 list(APPEND projects libmsym)
-set(libmsym_version "0.2.3-paper")
 IF (WIN32)
   set(libmsym_url "https://github.com/mcodev31/libmsym/archive/0c47befe4a1cd05cbba1aa561b914be926e5ced7.tar.gz")
   set(libmsym_sha256 "7a8ef0eaaa3319fbf2bd4c829395706b9b28e76adad65385851c491f81cf196f")
 ELSE()
-  set(libmsym_url "https://github.com/mcodev31/libmsym/archive/refs/tags/v${libmsym_version}.tar.gz")
+  set(libmsym_url "https://github.com/mcodev31/libmsym/archive/85e47232376a8e735c2a7b5283f40b59b3953db1.tar.gz")
   set(libmsym_sha256 "3741ebe163cf40696570d6b62e4834ca587d43dcac9de713994cc5e2960fb8fd")
 ENDIF()

@@ -16,6 +16,7 @@ ExternalProject_Add(openbabel
   URL_SHA256 ${openbabel_sha256}
   CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
+    -DCMAKE_POLICY_VERSION_MINIMUM:STRING=3.5
     -DENABLE_TESTS:BOOL=OFF
     -DBUILD_GUI:BOOL=OFF
     -DOPTIMIZE_NATIVE:BOOL=OFF
@@ -29,4 +30,7 @@ ExternalProject_Add(openbabel
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
   DEPENDS
     ${_deps}
+  PATCH_COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    "${_self_dir}/obabel.CMakeLists.txt"
+    "<SOURCE_DIR>/CMakeLists.txt"
   )

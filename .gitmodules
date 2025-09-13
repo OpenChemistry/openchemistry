@@ -1,15 +1,19 @@
 [submodule "molequeue"]
 	path = molequeue
 	url = https://github.com/OpenChemistry/molequeue.git
+        branch = master
 [submodule "avogadrolibs"]
 	path = avogadrolibs
 	url = https://github.com/OpenChemistry/avogadrolibs.git
+	branch = master
 [submodule "avogadrodata"]
 	path = avogadrodata
 	url = https://github.com/OpenChemistry/avogadrodata.git
+	branch = master
 [submodule "avogadroapp"]
 	path = avogadroapp
 	url = https://github.com/OpenChemistry/avogadroapp.git
+	branch = master
 [submodule "thirdparty/VTK"]
 	path = thirdparty/VTK
 	url = https://github.com/Kitware/VTK.git
@@ -19,24 +23,31 @@
 [submodule "avogadrogenerators"]
 	path = avogadrogenerators
 	url = https://github.com/openchemistry/avogenerators.git
+	branch = master
 [submodule "thirdparty/pybind11"]
 	path = thirdparty/pybind11
 	url = https://github.com/pybind/pybind11.git
 [submodule "thirdparty/yaehmop"]
 	path = thirdparty/yaehmop
 	url = https://github.com/greglandrum/yaehmop
+        branch = master
 [submodule "molecules"]
 	path = molecules
 	url = https://github.com/OpenChemistry/molecules.git
+        branch = master
 [submodule "crystals"]
 	path = crystals
 	url = https://github.com/OpenChemistry/crystals.git
+        branch = master
 [submodule "fragments"]
 	path = fragments
 	url = https://github.com/OpenChemistry/fragments.git
+        branch = main
 [submodule "avogadro-i18n"]
 	path = avogadro-i18n
 	url = https://github.com/OpenChemistry/avogadro-i18n.git
+	branch = master
 [submodule "jupyter-examples"]
 	path = jupyter-examples
 	url = https://github.com/OpenChemistry/jupyter-examples.git
+        branch = master
