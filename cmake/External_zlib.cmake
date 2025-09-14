@@ -18,9 +18,6 @@ if(WIN32)
       COMMAND ${CMAKE_COMMAND} -E copy_if_different
         "${_self_dir}/zlib.CMakeLists.txt"
         "<SOURCE_DIR>/CMakeLists.txt"
-      COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        "${_self_dir}/zlib.gzguts.h"
-        "<SOURCE_DIR>/gzguts.h"
     CMAKE_CACHE_ARGS
       -DCMAKE_CXX_FLAGS:STRING=${pv_tpl_cxx_flags}
       -DCMAKE_C_FLAGS:STRING=${pv_tpl_c_flags}
