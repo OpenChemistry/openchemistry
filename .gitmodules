@@ -20,8 +20,8 @@
 [submodule "thirdparty/qttesting"]
 	path = thirdparty/qttesting
 	url = https://github.com/Kitware/qttesting.git
-[submodule "avogadrogenerators"]
-	path = avogadrogenerators
+[submodule "avogenerators"]
+	path = avogenerators
 	url = https://github.com/openchemistry/avogenerators.git
 	branch = master
 [submodule "thirdparty/pybind11"]
