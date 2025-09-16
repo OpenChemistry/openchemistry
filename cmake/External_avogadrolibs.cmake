@@ -4,7 +4,6 @@ set(_build "${CMAKE_CURRENT_BINARY_DIR}/avogadrolibs")
 unset(_deps)
 
 list(APPEND _deps "spglib")
-list(APPEND _deps "libarchive")
 
 if(BUILD_MOLEQUEUE)
   list(APPEND _deps "molequeue")
@@ -13,6 +12,7 @@ else()
   set(_molequeue "OFF")
 endif()
 add_optional_deps(_deps "eigen" "glew" "libmsym")
+add_optional_deps(_deps "libarchive")
 
 if(USE_VTK)
   add_optional_deps(_deps "VTK")
