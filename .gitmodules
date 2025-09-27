@@ -51,3 +51,6 @@
 	path = jupyter-examples
 	url = https://github.com/OpenChemistry/jupyter-examples.git
         branch = master
+[submodule "thirdparty/jkqtplotter"]
+	path = thirdparty/jkqtplotter
+	url = https://github.com/jkriege2/JKQtPlotter.git
