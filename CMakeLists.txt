@@ -102,6 +102,7 @@ option(BUILD_GPL_PLUGINS "Build GPL plugins, i.e. QTAIM in Avogadro" OFF)
 
 # Add the third party dependencies first
 option(USE_VTK "Enable libraries that use VTK in Avogadro" OFF)
+option(USE_PLOTTER "Enable functionality that uses JKQtPlotter" ON)
 option(USE_HDF5 "Enable functionality that requires HDF5" OFF)
 option(USE_PYTHON "Enable functionality that requires Python" OFF)
 option(USE_YAEHMOP "Enable functionality that requires Yaehmop" OFF)
