@@ -5,6 +5,9 @@ set(_deps "avogadrolibs")
 if(ENABLE_TESTING)
   add_optional_deps(_deps "qttesting")
 endif()
+if(USE_PLOTTER)
+  add_optional_deps(_deps "jkqtplotter")
+endif()
 
 # FIXME The RPC code should be moved out of MoleQueue.
 if(BUILD_MOLEQUEUE)
