@@ -18,6 +18,10 @@ if(USE_VTK)
   add_optional_deps(_deps "VTK")
 endif()
 
+if(USE_PLOTTER)
+  add_optional_deps(_deps "jkqtplotter")
+endif()
+
 if(USE_PYTHON)
   add_optional_deps(_deps "pybind11")
 endif()
