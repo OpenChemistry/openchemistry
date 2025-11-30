@@ -72,25 +72,18 @@ macro(add_optional_deps dep_var)
 endmacro()
 
 # First the third party applications, some of which use Qt.
-set(QT_VERSION "5" CACHE STRING "What major version of Qt")
-set(QT_VERSIONS_SUPPORTED 5 6)
-set_property(CACHE QT_VERSION PROPERTY STRINGS 5 6)
+set(QT_VERSION "6" CACHE STRING "What major version of Qt")
+set(QT_VERSIONS_SUPPORTED 6)
+set_property(CACHE QT_VERSION PROPERTY STRINGS 6)
 if(NOT QT_VERSION IN_LIST QT_VERSIONS_SUPPORTED)
   message(FATAL_ERROR "Qt version must be one of ${QT_VERSIONS_SUPPORTED}")
 else()
   list(APPEND OpenChemistry_DEFAULT_ARGS "-DQT_VERSION:STRING=${QT_VERSION}")
 endif()
-if(QT_VERSION EQUAL 5)
-  find_package(Qt5 COMPONENTS Widgets REQUIRED)
-  list(APPEND OpenChemistry_DEFAULT_ARGS "-DQt5_DIR:PATH=${Qt5_DIR}")
-  # Used in testing, preserve previous behavior for Qt 5 for now.
-  set(BUILD_MOLEQUEUE_DEFAULT ON)
-else()
-  find_package(Qt6 COMPONENTS Widgets REQUIRED)
-  list(APPEND OpenChemistry_DEFAULT_ARGS "-DQt6_DIR:PATH=${Qt6_DIR}")
-  # MoleQueue would need some work if we were to port it.
-  set(BUILD_MOLEQUEUE_DEFAULT OFF)
-endif()
+find_package(Qt6 COMPONENTS Widgets REQUIRED)
+list(APPEND OpenChemistry_DEFAULT_ARGS "-DQt6_DIR:PATH=${Qt6_DIR}")
+# MoleQueue would need some work if we were to port it.
+set(BUILD_MOLEQUEUE_DEFAULT OFF)
 
 option(BUILD_MOLEQUEUE "Build the MoleQueue application" ${BUILD_MOLEQUEUE_DEFAULT})
 option(BUILD_MOLEQUEUE_UIT "Built the UIT/ezHPC integration for MoleQueue" OFF)
