@@ -11,6 +11,8 @@ ExternalProject_Add(spglib
   URL ${spglib_url}
   URL_HASH SHA256=${spglib_sha256}
   BUILD_IN_SOURCE 1
+  CMAKE_CACHE_ARGS
+    ${OpenChemistry_DEFAULT_ARGS}
   CMAKE_ARGS
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
     -DSPGLIB_WITH_TESTS=OFF
