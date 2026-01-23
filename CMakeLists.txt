@@ -113,8 +113,9 @@ if(QT_VERSION EQUAL 6 AND BUILD_MOLEQUEUE)
 endif()
 
 # 3DConnexion devices are supported on Windows and MacOS only
+# but need to be updated for OpenGL 4.0 Core Profile
 if(WIN32 OR APPLE)
-  option(USE_3DCONNEXION "Enable support for the 3DConnexion devices" ON)
+  option(USE_3DCONNEXION "Enable support for the 3DConnexion devices" OFF)
 endif()
 
 if(USE_PYTHON)

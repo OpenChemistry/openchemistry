@@ -9,12 +9,8 @@ if(USE_PLOTTER)
   add_optional_deps(_deps "jkqtplotter")
 endif()
 
-# FIXME The RPC code should be moved out of MoleQueue.
-if(BUILD_MOLEQUEUE)
-  set(ENABLE_RPC "ON")
-else()
-  set(ENABLE_RPC "OFF")
-endif()
+# Enable RPC by default
+set(ENABLE_RPC "ON")
 
 ExternalProject_Add(avogadroapp
   SOURCE_DIR ${_source}
