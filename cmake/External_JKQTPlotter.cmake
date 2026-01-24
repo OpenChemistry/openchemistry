@@ -5,11 +5,7 @@ set(_install "${OpenChemistry_INSTALL_PREFIX}")
 
 unset(_deps)
 
-if(QT_VERSION EQUAL 5)
-  find_package(Qt5 COMPONENTS Widgets REQUIRED)
-else()
-  find_package(Qt6 COMPONENTS Widgets REQUIRED)
-endif()
+find_package(Qt6 COMPONENTS Widgets REQUIRED)
 
 ExternalProject_Add(jkqtplotter
   SOURCE_DIR ${_source}
