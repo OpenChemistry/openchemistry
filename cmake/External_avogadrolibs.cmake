@@ -14,10 +14,6 @@ endif()
 add_optional_deps(_deps "eigen" "glew" "libmsym")
 add_optional_deps(_deps "libarchive")
 
-if(USE_VTK)
-  add_optional_deps(_deps "VTK")
-endif()
-
 if(USE_PLOTTER)
   add_optional_deps(_deps "jkqtplotter")
 endif()
@@ -40,7 +36,7 @@ ExternalProject_Add(avogadrolibs
   CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
-    -DUSE_MOLEQUEUE:BOOL=${_molequeue}
+    -DUSE_PLOTTER:BOOL=${USE_PLOTTER}
     -DUSE_VTK:BOOL=${USE_VTK}
     -DUSE_HDF5:BOOL=${USE_HDF5}
     -DBUILD_GPL_PLUGINS:BOOL=${BUILD_GPL_PLUGINS}

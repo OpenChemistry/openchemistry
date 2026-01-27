@@ -17,6 +17,7 @@ ExternalProject_Add(avogadroapp
   BINARY_DIR ${_build}
   CMAKE_CACHE_ARGS
     -DAvogadro_ENABLE_RPC:BOOL=${ENABLE_RPC}
+    -DUSE_PLOTTER:BOOL=${USE_PLOTTER}
     ${OpenChemistry_DEFAULT_ARGS}
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
   DEPENDS
