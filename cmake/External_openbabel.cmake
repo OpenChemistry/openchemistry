@@ -33,4 +33,7 @@ ExternalProject_Add(openbabel
   PATCH_COMMAND ${CMAKE_COMMAND} -E copy_if_different
     "${_self_dir}/obabel.CMakeLists.txt"
     "<SOURCE_DIR>/CMakeLists.txt"
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    "${_self_dir}/chemicaljsonformat.txt"
+    "<SOURCE_DIR>/src/formats/json/chemicaljsonformat.cpp"
   )
