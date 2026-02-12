@@ -57,15 +57,15 @@ set(kdsoap_sha256 "0c606ecc434466dbadb2829820ca163af60cc7ca226f553b5d40321967373
 
 # spglib
 list(APPEND projects spglib)
-set(spglib_version "2.5.0")
+set(spglib_version "2.7.0")
 set(spglib_url "https://github.com/spglib/spglib/archive/v${spglib_version}.tar.gz")
-set(spglib_sha256 "b6026f5e85106c0c9ee57e54b9399890d0f29982e20e96ede0428b3efbe6b914")
+set(spglib_sha256 "b22fc9abae9716c574fbc6d55cfc53ed654a714fccc5657a26ff5d18114bd8bd")
 
 # libarchive
 list(APPEND projects libarchive)
-set(libarchive_version "3.7.7")
+set(libarchive_version "3.8.5")
 set(libarchive_url "https://github.com/libarchive/libarchive/archive/v${libarchive_version}.tar.gz")
-set(libarchive_sha256 "fa62384995e8aa4f5a901c184fb5c91e56a29e24c05b6881a7f8fd5bbea694d2")
+set(libarchive_sha256 "3877c692621d8fbe9512592cf824c98c4b393525ab96735616ff628086158777")
 
 # libmsym
 list(APPEND projects libmsym)

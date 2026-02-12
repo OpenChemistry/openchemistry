@@ -4,6 +4,12 @@ set(libarchive_install "${OpenChemistry_INSTALL_PREFIX}")
 
 get_filename_component(_self_dir ${CMAKE_CURRENT_LIST_FILE} PATH)
 
+set(_libarchive_platform_args)
+if(APPLE)
+  # liblzma is not available on macOS 14.x, so disable it
+  list(APPEND _libarchive_platform_args -DENABLE_LZMA=OFF)
+endif()
+
 ExternalProject_Add(libarchive
   DOWNLOAD_DIR ${download_dir}
   SOURCE_DIR "${libarchive_source}"
@@ -14,4 +20,5 @@ ExternalProject_Add(libarchive
   CMAKE_ARGS
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
+    ${_libarchive_platform_args}
 )
