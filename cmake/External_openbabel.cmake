@@ -36,4 +36,7 @@ ExternalProject_Add(openbabel
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
     "${_self_dir}/chemicaljsonformat.txt"
     "<SOURCE_DIR>/src/formats/json/chemicaljsonformat.cpp"
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    "${_self_dir}/fastaformat.txt"
+    "<SOURCE_DIR>/src/formats/fastaformat.cpp"
   )
