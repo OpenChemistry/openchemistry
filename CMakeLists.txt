@@ -94,7 +94,6 @@ option(BUILD_AVOGADRO "Build the Avogadro 2 application" ON)
 option(BUILD_GPL_PLUGINS "Build GPL plugins, i.e. QTAIM in Avogadro" OFF)
 
 # Add the third party dependencies first
-option(USE_VTK "Enable libraries that use VTK in Avogadro" OFF)
 option(USE_PLOTTER "Enable functionality that uses JKQtPlotter" ON)
 option(USE_HDF5 "Enable functionality that requires HDF5" OFF)
 option(USE_PYTHON "Enable functionality that requires Python" OFF)
@@ -127,8 +126,7 @@ option(ENABLE_TESTING "Enable testing for Open Chemistry projects" OFF)
 list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DBUILD_DOCUMENTATION:BOOL=${BUILD_DOCUMENTATION}"
   "-DENABLE_TESTING:BOOL=${ENABLE_TESTING}"
-  "-DUSE_PYTHON:BOOL=${USE_PYTHON}"
-  "-DUSE_VTK:BOOL=${USE_VTK}")
+  "-DUSE_PYTHON:BOOL=${USE_PYTHON}")
 
 if(WIN32 OR APPLE)
   list(APPEND OpenChemistry_DEFAULT_ARGS

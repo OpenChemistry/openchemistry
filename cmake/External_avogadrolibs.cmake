@@ -37,7 +37,6 @@ ExternalProject_Add(avogadrolibs
     ${OpenChemistry_DEFAULT_ARGS}
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
     -DUSE_PLOTTER:BOOL=${USE_PLOTTER}
-    -DUSE_VTK:BOOL=${USE_VTK}
     -DUSE_HDF5:BOOL=${USE_HDF5}
     -DBUILD_GPL_PLUGINS:BOOL=${BUILD_GPL_PLUGINS}
   DEPENDS
