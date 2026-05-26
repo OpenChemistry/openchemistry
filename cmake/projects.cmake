@@ -26,10 +26,10 @@ set(hdf5_sha256 "563940efec30ec027108bc425f45488ce98d356798bdf743441e574c2d52dd5
 
 # Open Babel
 list(APPEND projects openbabel)
-#set(openbabel_version "3-1-1")
-#set(openbabel_url "https://github.com/openbabel/openbabel/archive/openbabel-${openbabel_version}.tar.gz")
-set(openbabel_url "https://github.com/openbabel/openbabel/archive/32cf131444c1555c749b356dab44fb9fe275271f.tar.gz")
-set(openbabel_sha256 "7b471015df510b30057b8356f42729a35dfd1f4fa85f205c56bbaf3c64e85071")
+set(openbabel_version "3-2-0")
+set(openbabel_url "https://github.com/openbabel/openbabel/archive/openbabel-${openbabel_version}.tar.gz")
+#set(openbabel_url "https://github.com/openbabel/openbabel/archive/32cf131444c1555c749b356dab44fb9fe275271f.tar.gz")
+set(openbabel_sha256 "9aadf9f01b3d0ff15d49fcd28d7d76b923218d70bf10f99ea4cc466607f4c7e2")
 
 # PCRE
 list(APPEND projects pcre)
@@ -39,13 +39,13 @@ set(pcre_sha256 "4e6ce03e0336e8b4a3d6c2b70b1c5e18590a5673a98186da90d4f33c23defc0
 
 # libxml2
 list(APPEND projects libxml2)
-set(libxml2_version "2.10.4")
+set(libxml2_version "2.15.3")
 set(libxml2_url "https://gitlab.gnome.org/GNOME/libxml2/-/archive/v${libxml2_version}/libxml2-v${libxml2_version}.tar.gz")
 set(libxml2_sha256 "1aa47bd54f9e0245686d494fbbbfa4e3e77b6fc4f988708383de8a1033292e66")
 
 # Zlib
 list(APPEND projects zlib)
-set(zlib_version "1.3.1")
+set(zlib_version "1.3.2")
 set(zlib_url "https://github.com/madler/zlib/archive/v${zlib_version}.tar.gz")
 set(zlib_sha256 "17e88863f3600672ab49182f217281b6fc4d3c762bde361935e436a95214d05c")
 
@@ -63,9 +63,9 @@ set(spglib_sha256 "b22fc9abae9716c574fbc6d55cfc53ed654a714fccc5657a26ff5d18114bd
 
 # libarchive
 list(APPEND projects libarchive)
-set(libarchive_version "3.8.5")
+set(libarchive_version "3.8.7")
 set(libarchive_url "https://github.com/libarchive/libarchive/archive/v${libarchive_version}.tar.gz")
-set(libarchive_sha256 "3877c692621d8fbe9512592cf824c98c4b393525ab96735616ff628086158777")
+set(libarchive_sha256 "bc942030fe7cb30e04eed31bd5f63c38cdfd712315b303e91b64e58f05db2346")
 
 # libmsym
 list(APPEND projects libmsym)
