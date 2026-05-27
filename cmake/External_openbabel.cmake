@@ -5,10 +5,16 @@
 # where linking must take place a utility binary should be used in a separate
 # process.
 set(_build "${CMAKE_CURRENT_BINARY_DIR}/openbabel")
+get_filename_component(_self_dir ${CMAKE_CURRENT_LIST_FILE} PATH)
 
 unset(_deps)
 add_optional_deps(_deps "zlib" "libxml2")
 
+# Open Babel 3.2.0 ships an InChI 1.07.5 bump that dropped ichilnct.c but kept
+# the cdecl_/pasc_ wrappers in inchi_dll.c that reference Get_inchi_Input_FromAuxInfo,
+# Get_std_inchi_Input_FromAuxInfo, Free_inchi_Input, Free_std_inchi_Input. MSVC
+# fails to link the inchi DLL because of the unresolved externals; GCC/Clang
+# allow them through. Restore the upstream file until openbabel fixes this.
 ExternalProject_Add(openbabel
   DOWNLOAD_DIR ${download_dir}
   BINARY_DIR ${_build}
@@ -30,4 +36,7 @@ ExternalProject_Add(openbabel
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
   DEPENDS
     ${_deps}
+  PATCH_COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    "${_self_dir}/ichilnct.txt"
+    "<SOURCE_DIR>/src/formats/libinchi/ichilnct.c"
   )
