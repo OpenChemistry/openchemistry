@@ -9,7 +9,9 @@ string(REGEX REPLACE "^([0-9]+\\.[0-9]+)\\.[0-9]+$" "\\1"
   GLEW_SOVERSION "${GLEW_VERSION}")
 
 # Platform specific differences:
-if(APPLE)
+if(EMSCRIPTEN)
+  set(platform_libs)
+elseif(APPLE)
   set(platform_libs "-framework AGL" "-framework OpenGL")
 elseif(WIN32)
   set(GLEW_NAME "glew32")
@@ -53,23 +55,24 @@ if(platform_libs)
   target_link_libraries(${GLEW_NAME}mx ${platform_libs})
 endif()
 
-add_executable(glewinfo src/glewinfo.c)
-set_property(TARGET glewinfo PROPERTY COMPILE_DEFINITIONS GLEW_NO_GLU)
-if(NOT BUILD_SHARED_LIBS)
-  set_property(TARGET glewinfo APPEND PROPERTY COMPILE_DEFINITIONS GLEW_STATIC)
+if(NOT EMSCRIPTEN)
+  add_executable(glewinfo src/glewinfo.c)
+  set_property(TARGET glewinfo PROPERTY COMPILE_DEFINITIONS GLEW_NO_GLU)
+  if(NOT BUILD_SHARED_LIBS)
+    set_property(TARGET glewinfo APPEND PROPERTY COMPILE_DEFINITIONS GLEW_STATIC)
+  endif()
+  target_link_libraries(glewinfo ${GLEW_NAME})
+
+  add_executable(visualinfo src/visualinfo.c)
+  set_property(TARGET visualinfo PROPERTY COMPILE_DEFINITIONS GLEW_NO_GLU)
+  if(NOT BUILD_SHARED_LIBS)
+    set_property(TARGET visualinfo APPEND PROPERTY COMPILE_DEFINITIONS GLEW_STATIC)
+  endif()
+  target_link_libraries(visualinfo ${GLEW_NAME})
+
+  add_test(NAME glewinfo COMMAND glewinfo)
+  add_test(NAME visualinfo COMMAND visualinfo)
 endif()
-target_link_libraries(glewinfo ${GLEW_NAME})
-
-add_executable(visualinfo src/visualinfo.c)
-set_property(TARGET visualinfo PROPERTY COMPILE_DEFINITIONS GLEW_NO_GLU)
-if(NOT BUILD_SHARED_LIBS)
-  set_property(TARGET visualinfo APPEND PROPERTY COMPILE_DEFINITIONS GLEW_STATIC)
-endif()
-target_link_libraries(visualinfo ${GLEW_NAME})
-
-
-add_test(NAME glewinfo COMMAND glewinfo)
-add_test(NAME visualinfo COMMAND visualinfo)
 
 
 install(FILES
@@ -95,8 +98,10 @@ install(TARGETS
   ARCHIVE DESTINATION lib
   )
 
-install(TARGETS
-    glewinfo
-    visualinfo
-  RUNTIME DESTINATION bin
-  )
+if(NOT EMSCRIPTEN)
+  install(TARGETS
+      glewinfo
+      visualinfo
+    RUNTIME DESTINATION bin
+    )
+endif()
