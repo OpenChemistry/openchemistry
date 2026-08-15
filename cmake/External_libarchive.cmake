@@ -10,6 +10,26 @@ if(APPLE)
   list(APPEND _libarchive_platform_args -DENABLE_LZMA=OFF)
 endif()
 
+if(EMSCRIPTEN)
+  list(APPEND _libarchive_platform_args
+    -DENABLE_ACL=OFF
+    -DENABLE_BZip2=OFF
+    -DENABLE_CAT=OFF
+    -DENABLE_CPIO=OFF
+    -DENABLE_ICONV=OFF
+    -DENABLE_LIBB2=OFF
+    -DENABLE_LIBXML2=OFF
+    -DENABLE_LZ4=OFF
+    -DENABLE_LZMA=OFF
+    -DENABLE_OPENSSL=OFF
+    -DENABLE_TAR=OFF
+    -DENABLE_TEST=OFF
+    -DENABLE_UNZIP=OFF
+    -DENABLE_XATTR=OFF
+    -DENABLE_ZLIB=OFF
+    -DENABLE_ZSTD=OFF)
+endif()
+
 ExternalProject_Add(libarchive
   DOWNLOAD_DIR ${download_dir}
   SOURCE_DIR "${libarchive_source}"
@@ -17,6 +37,8 @@ ExternalProject_Add(libarchive
   URL ${libarchive_url}
   URL_HASH SHA256=${libarchive_sha256}
   BUILD_IN_SOURCE 1
+  CMAKE_CACHE_ARGS
+    ${OpenChemistry_DEFAULT_ARGS}
   CMAKE_ARGS
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>

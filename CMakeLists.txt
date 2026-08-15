@@ -23,12 +23,62 @@ include(download_dir)
 # Set up a few default arguments for all projects, such as the install prefix,
 # CMake prefix path and the runtime/library output directories.
 option(BUILD_SHARED_LIBS "Build libraries as SHARED" ON)
+if(EMSCRIPTEN)
+  set(BUILD_SHARED_LIBS OFF CACHE BOOL
+    "Build libraries as SHARED" FORCE)
+endif()
 
 set(OpenChemistry_INSTALL_PREFIX "${OpenChemistry_BINARY_DIR}/prefix")
 set(OpenChemistry_DEFAULT_ARGS
   "-DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS}"
   "-DCMAKE_PREFIX_PATH:PATH=${OpenChemistry_INSTALL_PREFIX};${CMAKE_PREFIX_PATH}"
   "-DCMAKE_INSTALL_PREFIX:PATH=${OpenChemistry_INSTALL_PREFIX}")
+
+if(CMAKE_FIND_ROOT_PATH)
+  list(APPEND OpenChemistry_DEFAULT_ARGS
+    "-DCMAKE_FIND_ROOT_PATH:PATH=${OpenChemistry_INSTALL_PREFIX};${CMAKE_FIND_ROOT_PATH}")
+else()
+  list(APPEND OpenChemistry_DEFAULT_ARGS
+    "-DCMAKE_FIND_ROOT_PATH:PATH=${OpenChemistry_INSTALL_PREFIX}")
+endif()
+
+set(OpenChemistry_THIRDPARTYLIBS_ARGS
+  "-DEigen3_DIR:PATH=${OpenChemistry_INSTALL_PREFIX}/share/eigen3/cmake"
+  "-DSpglib_DIR:PATH=${OpenChemistry_INSTALL_PREFIX}/lib/cmake/Spglib"
+  "-DLIBMSYM_INCLUDE_DIR:PATH=${OpenChemistry_INSTALL_PREFIX}/include"
+  "-DLIBMSYM_LIBRARY:FILEPATH=${OpenChemistry_INSTALL_PREFIX}/lib/libmsym.a"
+  "-DGLEW_INCLUDE_DIR:PATH=${OpenChemistry_INSTALL_PREFIX}/include"
+  "-DGLEW_USE_STATIC_LIBS:BOOL=ON"
+  "-DGLEW_LIBRARY:FILEPATH=${OpenChemistry_INSTALL_PREFIX}/lib/libGLEW.a"
+  "-DGLEW_LIBRARIES:FILEPATH=${OpenChemistry_INSTALL_PREFIX}/lib/libGLEW.a"
+  "-DGLEW_STATIC_LIBRARY_RELEASE:FILEPATH=${OpenChemistry_INSTALL_PREFIX}/lib/libGLEW.a"
+  "-DLibArchive_INCLUDE_DIR:PATH=${OpenChemistry_INSTALL_PREFIX}/include"
+  "-DLibArchive_LIBRARY:FILEPATH=${OpenChemistry_INSTALL_PREFIX}/lib/libarchive.a")
+
+foreach(_var
+    CMAKE_TOOLCHAIN_FILE
+    CMAKE_SYSTEM_NAME
+    CMAKE_SYSROOT
+    QT_HOST_PATH
+    QT_HOST_PATH_CMAKE_DIR)
+  if(DEFINED ${_var})
+    list(APPEND OpenChemistry_DEFAULT_ARGS "-D${_var}:PATH=${${_var}}")
+  endif()
+endforeach()
+
+if(EMSCRIPTEN AND DEFINED ENV{EMSDK})
+  set(_openchemistry_emscripten_toolchain
+    "$ENV{EMSDK}/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake")
+  if(EXISTS "${_openchemistry_emscripten_toolchain}")
+    list(APPEND OpenChemistry_DEFAULT_ARGS
+      "-DQT_CHAINLOAD_TOOLCHAIN_FILE:FILEPATH=${_openchemistry_emscripten_toolchain}")
+  endif()
+  list(APPEND OpenChemistry_DEFAULT_ARGS
+    "-DCMAKE_C_FLAGS:STRING=-pthread"
+    "-DCMAKE_CXX_FLAGS:STRING=-pthread"
+    "-DCMAKE_EXE_LINKER_FLAGS:STRING=-pthread")
+  unset(_openchemistry_emscripten_toolchain)
+endif()
 
 # If there is a CMAKE_BUILD_TYPE it is important to ensure it is passed down.
 if(CMAKE_BUILD_TYPE)
@@ -98,6 +148,10 @@ option(USE_PLOTTER "Enable functionality that uses JKQtPlotter" ON)
 option(USE_HDF5 "Enable functionality that requires HDF5" OFF)
 option(USE_PYTHON "Enable functionality that requires Python" OFF)
 option(USE_YAEHMOP "Enable functionality that requires Yaehmop" OFF)
+option(USE_OPENGL "Enable functionality that requires OpenGL" ON)
+option(USE_LIBARCHIVE "Enable optional Libarchive features" ON)
+option(USE_LIBMSYM "Enable optional features using libmsym" ON)
+option(USE_SPGLIB "Enable optional features using spglib" ON)
 
 if(QT_VERSION EQUAL 6 AND BUILD_MOLEQUEUE)
   message("Disabling BUILD_MOLEQUEUE - it is not ported to Qt 6.")
@@ -119,20 +173,66 @@ if(USE_PYTHON)
     "-DPYTHON_LIBRARY:FILEPATH=${PYTHON_LIBRARY}")
 endif()
 
-add_subdirectory(thirdparty)
+#add_subdirectory(thirdparty)
 
 option(BUILD_DOCUMENTATION "Build documentation (Doxygen)" OFF)
 option(ENABLE_TESTING "Enable testing for Open Chemistry projects" OFF)
 list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DBUILD_DOCUMENTATION:BOOL=${BUILD_DOCUMENTATION}"
   "-DENABLE_TESTING:BOOL=${ENABLE_TESTING}"
-  "-DUSE_PYTHON:BOOL=${USE_PYTHON}")
+  "-DUSE_PYTHON:BOOL=${USE_PYTHON}"
+  "-DUSE_OPENGL:BOOL=${USE_OPENGL}"
+  "-DUSE_LIBARCHIVE:BOOL=${USE_LIBARCHIVE}"
+  "-DUSE_LIBMSYM:BOOL=${USE_LIBMSYM}"
+  "-DUSE_SPGLIB:BOOL=${USE_SPGLIB}")
 
 if(WIN32 OR APPLE)
   list(APPEND OpenChemistry_DEFAULT_ARGS
     "-DUSE_3DCONNEXION:BOOL=${USE_3DCONNEXION}")
 endif()  
 
+
+add_optional_deps(OpenChemistry_external_deps "eigen")
+
+if(USE_SPGLIB)
+  add_optional_deps(OpenChemistry_external_deps "spglib")
+endif()
+
+if(USE_OPENGL)
+  add_optional_deps(OpenChemistry_external_deps "glew")
+endif()
+
+if(USE_LIBMSYM)
+  add_optional_deps(OpenChemistry_external_deps "libmsym")
+endif()
+
+if(USE_LIBARCHIVE)
+  add_optional_deps(OpenChemistry_external_deps "libarchive")
+endif()
+
+if(USE_PLOTTER)
+  add_optional_deps(OpenChemistry_external_deps "jkqtplotter")
+endif()
+
+if(USE_PYTHON)
+  add_optional_deps(OpenChemistry_external_deps "pybind11")
+endif()
+
+if(USE_HDF5)
+  add_optional_deps(OpenChemistry_external_deps "hdf5")
+endif()
+
+if(ENABLE_TESTING)
+  add_optional_deps(OpenChemistry_external_deps "gtest" "qttesting")
+endif()
+
+foreach(_dependency IN LISTS OpenChemistry_external_deps)
+  if(_dependency STREQUAL "jkqtplotter")
+    include(External_JKQTPlotter)
+  else()
+    include(External_${_dependency})
+  endif()
+endforeach()
 
 # Now for the actual open chemistry projects!
 if(BUILD_MOLEQUEUE)
