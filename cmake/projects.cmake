@@ -14,9 +14,9 @@ set(glew_sha256 "d4fc82893cfb00109578d0a1a2337fb8ca335b3ceccf97b97e5cc7f08e4353e
 
 # gtest
 list(APPEND projects gtest)
-set(gtest_version "1.17.0")
+set(gtest_version "1.18.0")
 set(gtest_url "https://github.com/google/googletest/archive/refs/tags/v${gtest_version}.tar.gz")
-set(gtest_sha256 "65fab701d9829d38cb77c14acdc431d2108bfdbf8979e40eb8ae567edf10b27c")
+set(gtest_sha256 "6e3191c1455468b3fc35a417fb565c1c5071aee1b7e7f85e30cf48a98d37d8b5")
 
 # hdf5
 list(APPEND projects hdf5)
