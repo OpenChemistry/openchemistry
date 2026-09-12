@@ -5,19 +5,19 @@ Open Chemistry
 Introduction
 ------------
 
-The Open Chemistry project is a collection of open source, cross platform
-libraries and applications for the exploration, analysis and generation of
+The Open Chemistry project is a collection of open-source, cross-platform
+libraries and applications for the exploration, analysis, and generation of
 chemical data. The project builds upon various efforts by collaborators and
-innovators in open chemistry such as the Blue Obelisk, Quixote and the
-associated projects. We aim to improve the state of the art, and facilitate the
+innovators in open chemistry such as the Blue Obelisk, Quixote, and the
+associated projects. We aim to improve the state of the art and facilitate the
 open exchange of ideas and exchange of chemical data leveraging the best
 technologies ranging from quantum chemistry codes, molecular dynamics,
 informatics and visualization.
 
 This repository contains git submodules for the Open Chemistry projects:
 Avogadro, MoleQueue and MongoChem. It can be used to download all relevant
-source files as well as building many of the necessary dependencies. Please
-see the documentation in the submodules for more details about each project.
+source files and build many necessary dependencies. Please
+take a look at the documentation in the submodules for more details about each project.
 
 ![Kitware, Inc.][KitwareLogo]
 
@@ -37,9 +37,9 @@ and integration. Please check our [development][Development] guide for more
 details on developing and contributing to the project. The GitHub issue
 tracker can be used to report bugs, make feature requests, etc.
 
-Our [wiki][Wiki] is used to document features, flesh out designs and host other
-documentation. Our API is [documented using Doxygen][Doxygen] with updated
-documentation generated nightly. We have several [mailing lists][MailingLists]
+Our [wiki][Wiki] documents features, flesh out designs and hosts other
+documentation. Our API is [documented using Doxygen][Doxygen] with the documentation being updated
+nightly. We have several [mailing lists][MailingLists]
 to coordinate development and to provide support.
 
   [OpenChemistry]: http://openchemistry.org/ "Open Chemistry Project"
