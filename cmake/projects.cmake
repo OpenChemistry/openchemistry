@@ -39,9 +39,9 @@ set(pcre_sha256 "4e6ce03e0336e8b4a3d6c2b70b1c5e18590a5673a98186da90d4f33c23defc0
 
 # libxml2
 list(APPEND projects libxml2)
-set(libxml2_version "2.15.3")
+set(libxml2_version "2.15.4")
 set(libxml2_url "https://gitlab.gnome.org/GNOME/libxml2/-/archive/v${libxml2_version}/libxml2-v${libxml2_version}.tar.gz")
-set(libxml2_sha256 "1aa47bd54f9e0245686d494fbbbfa4e3e77b6fc4f988708383de8a1033292e66")
+set(libxml2_sha256 "a569ee9c59eabb197a0d5047046d757ee14c86fb2d4a734555b633cb5584ad25")
 
 # Zlib
 list(APPEND projects zlib)
