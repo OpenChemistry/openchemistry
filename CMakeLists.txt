@@ -146,6 +146,54 @@ if(WIN32 OR APPLE)
     "-DUSE_3DCONNEXION:BOOL=${USE_3DCONNEXION}")
 endif()  
 
+add_optional_deps(OpenChemistry_external_deps "eigen")
+
+if(USE_SPGLIB)
+  add_optional_deps(OpenChemistry_external_deps "spglib")
+endif()
+
+if(USE_OPENGL)
+  add_optional_deps(OpenChemistry_external_deps "glew")
+endif()
+
+if(USE_LIBMSYM)
+  add_optional_deps(OpenChemistry_external_deps "libmsym")
+endif()
+
+if(USE_LIBARCHIVE)
+  add_optional_deps(OpenChemistry_external_deps "libarchive")
+endif()
+
+if(USE_PLOTTER)
+  add_optional_deps(OpenChemistry_external_deps "jkqtplotter")
+endif()
+
+if(USE_PYTHON)
+  add_optional_deps(OpenChemistry_external_deps "pybind11")
+endif()
+
+if(USE_HDF5)
+  add_optional_deps(OpenChemistry_external_deps "hdf5")
+endif()
+
+if(USE_SENTRY)
+  list(APPEND OpenChemistry_external_deps "sentry")
+endif()
+
+if(ENABLE_TESTING)
+  add_optional_deps(OpenChemistry_external_deps "gtest")
+  if(NOT AVOGADRO_WEB_EDITOR)
+    add_optional_deps(OpenChemistry_external_deps "qttesting")
+  endif()
+endif()
+
+foreach(_dependency IN LISTS OpenChemistry_external_deps)
+  if(_dependency STREQUAL "jkqtplotter")
+    include(External_JKQTPlotter)
+  else()
+    include(External_${_dependency})
+  endif()
+endforeach()
 
 # Now for the actual open chemistry projects!
 if(BUILD_MOLEQUEUE)
