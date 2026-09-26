@@ -287,10 +287,6 @@ if(USE_HDF5)
   add_optional_deps(OpenChemistry_external_deps "hdf5")
 endif()
 
-if(USE_SENTRY)
-  list(APPEND OpenChemistry_external_deps "sentry")
-endif()
-
 if(ENABLE_TESTING)
   add_optional_deps(OpenChemistry_external_deps "gtest")
   if(NOT AVOGADRO_WEB_EDITOR)
