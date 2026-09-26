@@ -8,6 +8,9 @@ endif()
 if(USE_PLOTTER)
   add_optional_deps(_deps "jkqtplotter")
 endif()
+if(USE_SENTRY)
+  list(APPEND _deps "sentry")
+endif()
 
 # Enable RPC by default
 set(_rpc_default ON)
@@ -25,6 +28,9 @@ ExternalProject_Add(avogadroapp
   CMAKE_CACHE_ARGS
     -DAvogadro_ENABLE_RPC:BOOL=${Avogadro_ENABLE_RPC}
     -DUSE_PLOTTER:BOOL=${USE_PLOTTER}
+    -DUSE_SENTRY:BOOL=${USE_SENTRY}
+    -DSENTRY_DSN:STRING=${SENTRY_DSN}
+    -DSENTRY_ENVIRONMENT:STRING=${SENTRY_ENVIRONMENT}
     ${OpenChemistry_DEFAULT_ARGS}
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
   DEPENDS

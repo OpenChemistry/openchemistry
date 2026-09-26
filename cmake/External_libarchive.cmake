@@ -5,10 +5,13 @@ set(libarchive_install "${OpenChemistry_INSTALL_PREFIX}")
 get_filename_component(_self_dir ${CMAKE_CURRENT_LIST_FILE} PATH)
 
 set(_libarchive_platform_args)
-if(APPLE)
-  # liblzma is not available on macOS 14.x, so disable it
-  list(APPEND _libarchive_platform_args -DENABLE_LZMA=OFF)
-endif()
+# Note: LZMA (.xz) used to be disabled on macOS because liblzma was missing on
+# the 14.x runners. It is available again, and the Mac workflow now installs it
+# explicitly, so xz is built everywhere. macdeployqt rewrites and bundles the
+# result into Contents/Frameworks alongside libzstd and liblz4, which was
+# verified against a shipped bundle. If a platform genuinely lacks liblzma the
+# build still succeeds, libarchive simply reports xz as unsupported and
+# Avogadro refuses .xz files with a clear message rather than misreading them.
 
 ExternalProject_Add(libarchive
   DOWNLOAD_DIR ${download_dir}

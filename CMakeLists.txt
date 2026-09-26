@@ -214,6 +214,19 @@ if(WIN32 OR APPLE)
   option(USE_3DCONNEXION "Enable support for the 3DConnexion devices" OFF)
 endif()
 
+# Crash reporting via sentry-native. This is off by default and only enabled
+# for the separate Windows diagnostic build, which ships its own installer.
+if(WIN32)
+  option(USE_SENTRY "Enable Sentry crash reporting (diagnostic builds)" OFF)
+  set(SENTRY_DSN "" CACHE STRING "Sentry DSN for crash reports")
+  set(SENTRY_ENVIRONMENT "nightly" CACHE STRING
+    "Sentry environment name reported with each event")
+elseif(USE_SENTRY)
+  message("Disabling USE_SENTRY - it is only supported on Windows.")
+  set(USE_SENTRY OFF CACHE BOOL
+    "Enable Sentry crash reporting (diagnostic builds)" FORCE)
+endif()
+
 if(USE_PYTHON)
   find_package(PythonInterp 3 REQUIRED)
   find_package(PythonLibs 3 REQUIRED)

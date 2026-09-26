@@ -1,0 +1,131 @@
+name: Update Dependencies
+
+# Checks the versions pinned in cmake/projects.cmake against upstream releases
+# and opens one pull request per available update. What gets tracked, and how
+# large a jump may be proposed, is configured in cmake/dependency-updates.json.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # Mondays, 06:00 UTC
+  workflow_dispatch:
+    inputs:
+      project:
+        description: 'Check only this project (blank = all)'
+        required: false
+        type: string
+      dry_run:
+        description: 'Report updates without opening pull requests'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    name: "Check for new releases"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          submodules: false
+
+      - name: Find available updates
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ONLY_PROJECT: ${{ inputs.project }}
+        run: |
+          set -euo pipefail
+          if [ -n "$ONLY_PROJECT" ]; then
+            python3 cmake/check_updates.py --list --project "$ONLY_PROJECT" > updates.json
+          else
+            python3 cmake/check_updates.py --list > updates.json
+          fi
+        shell: bash
+
+      - name: Summarise
+        run: |
+          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          updates = json.load(open("updates.json"))
+          if not updates:
+              print("No dependency updates available.")
+          else:
+              print("| Project | Current | Available | Flatpak manifest |")
+              print("|---|---|---|---|")
+              for u in updates:
+                  print("| %s | %s | %s | %s |" % (
+                      u["project"], u["current"], u["latest"],
+                      "yes" if u["flatpak"] else "-"))
+          PY
+
+      - name: Open pull requests
+        if: ${{ !inputs.dry_run }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          base="$(git rev-parse --abbrev-ref HEAD)"
+
+          # One PR per project so they can be reviewed, merged and reverted
+          # independently -- a bad Open Babel bump shouldn't block Eigen.
+          for row in $(python3 -c '
+          import json
+          for u in json.load(open("updates.json")):
+              print("%s@%s@%s" % (u["project"], u["latest"],
+                                  "flatpak" if u["flatpak"] else "-"))
+          '); do
+            project="${row%%@*}"
+            rest="${row#*@}"
+            version="${rest%%@*}"
+            flatpak="${rest##*@}"
+            branch="deps/${project}-${version}"
+
+            if git ls-remote --exit-code --heads origin "$branch" >/dev/null 2>&1; then
+              echo "$branch already exists upstream, skipping $project"
+              continue
+            fi
+
+            git checkout -B "$branch" "$base"
+            if ! python3 cmake/check_updates.py --apply "$project" "$version"; then
+              echo "::warning::could not apply $project $version, skipping"
+              git checkout -- cmake/projects.cmake
+              continue
+            fi
+
+            body="Upstream released \`${project}\` ${version}.
+
+          The pin and its sha256 in \`cmake/projects.cmake\` were updated
+          automatically; the sha256 was computed from the downloaded tarball.
+
+          Please confirm the build still succeeds before merging."
+
+            if [ "$flatpak" = "flatpak" ]; then
+              body="${body}
+
+          > [!IMPORTANT]
+          > \`${project}\` is pre-downloaded by the Flatpak manifest, which lives in the
+          > **avogadroapp** repo and cannot be changed from this PR. After merging this,
+          > regenerate and commit it there:
+          > \`\`\`
+          > cmake -DMANIFEST=avogadroapp/flatpak/org.openchemistry.Avogadro2.yaml \\
+          >       -P cmake/flatpak_sources.cmake
+          > \`\`\`
+          > The Flatpak CI will fail until that lands."
+            fi
+
+            git add cmake/projects.cmake
+            git commit -m "Update ${project} to ${version}"
+            git push --force-with-lease origin "$branch"
+            gh pr create --base "$base" --head "$branch" \
+              --title "Update ${project} to ${version}" --body "$body"
+            git checkout "$base"
+          done
+        shell: bash

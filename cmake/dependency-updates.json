@@ -1,0 +1,98 @@
+{
+  "_comment": [
+    "Upstream release tracking for the versions pinned in projects.cmake.",
+    "Used by cmake/check_updates.py and .github/workflows/update-dependencies.yml.",
+    "",
+    "  host     'github', or 'gitlab' with an explicit 'api' base URL",
+    "  repo     owner/name (URL-encoded automatically for GitLab)",
+    "  prefix   stripped from the upstream tag to give the projects.cmake version",
+    "           string, so it must preserve that project's own separator style",
+    "           (openbabel-3-2-1 -> 3-2-1, v3.8.9 -> 3.8.9)",
+    "  pattern  the resulting version must match this in full; filters out junk",
+    "           tags like 'nightly', 'starting_new_packmapcalculator' and rc's",
+    "  track    how large a jump may be proposed automatically:",
+    "             patch  only the last component may increase",
+    "             minor  anything within the current major (the default)",
+    "             major  any newer version",
+    "",
+    "Projects deliberately not tracked here are listed in 'untracked' below.",
+    "check_updates.py warns about anything in projects.cmake missing from both,",
+    "so a newly added dependency can't silently go unwatched."
+  ],
+
+  "projects": {
+    "eigen": {
+      "host": "gitlab",
+      "api": "https://gitlab.com/api/v4",
+      "repo": "libeigen/eigen",
+      "prefix": "",
+      "pattern": "^[0-9]+(\\.[0-9]+)+$",
+      "track": "minor"
+    },
+    "glew": {
+      "host": "github",
+      "repo": "nigels-com/glew",
+      "prefix": "glew-",
+      "pattern": "^[0-9]+(\\.[0-9]+)+$",
+      "track": "minor"
+    },
+    "gtest": {
+      "host": "github",
+      "repo": "google/googletest",
+      "prefix": "v",
+      "pattern": "^[0-9]+(\\.[0-9]+)+$",
+      "track": "minor"
+    },
+    "openbabel": {
+      "host": "github",
+      "repo": "openbabel/openbabel",
+      "prefix": "openbabel-",
+      "pattern": "^[0-9]+(-[0-9]+)+$",
+      "track": "minor"
+    },
+    "libxml2": {
+      "host": "gitlab",
+      "api": "https://gitlab.gnome.org/api/v4",
+      "repo": "GNOME/libxml2",
+      "prefix": "v",
+      "pattern": "^[0-9]+(\\.[0-9]+)+$",
+      "track": "minor"
+    },
+    "zlib": {
+      "host": "github",
+      "repo": "madler/zlib",
+      "prefix": "v",
+      "pattern": "^[0-9]+(\\.[0-9]+)+$",
+      "track": "minor"
+    },
+    "kdsoap": {
+      "host": "github",
+      "repo": "KDAB/KDSoap",
+      "prefix": "kdsoap-",
+      "pattern": "^[0-9]+(\\.[0-9]+)+$",
+      "track": "minor"
+    },
+    "spglib": {
+      "host": "github",
+      "repo": "spglib/spglib",
+      "prefix": "v",
+      "pattern": "^[0-9]+(\\.[0-9]+)+$",
+      "track": "minor"
+    },
+    "libarchive": {
+      "host": "github",
+      "repo": "libarchive/libarchive",
+      "prefix": "v",
+      "pattern": "^[0-9]+(\\.[0-9]+)+$",
+      "track": "minor"
+    }
+  },
+
+  "untracked": {
+    "pcre": "8.45 is the final PCRE1 release and it lives on SourceForge, which has no release API. Moving to PCRE2 is a manual port.",
+    "hdf5": "Upstream abandoned the hdf5-1_10_10 tag scheme; releases are now plain 2.x with a different tarball layout, so a bump needs the URL reworked by hand. USE_HDF5 is OFF by default.",
+    "libmsym": "Pinned to a commit rather than a release, and WIN32 uses a different commit from everything else."
+  },
+
+  "flatpak_projects": ["glew", "eigen", "spglib", "libarchive", "libmsym"]
+}
