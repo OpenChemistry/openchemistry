@@ -1,5 +1,5 @@
 # Pick out the modules used in MongoChem and AvogadroLibs only.
-set(_source "${CMAKE_CURRENT_SOURCE_DIR}/qttesting")
+set(_source "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/qttesting")
 set(_build "${CMAKE_CURRENT_BINARY_DIR}/qttesting")
 
 set(CMAKE_CXX_VISIBILITY_PRESET "default")
