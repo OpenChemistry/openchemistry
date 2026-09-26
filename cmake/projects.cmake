@@ -2,15 +2,15 @@ unset(projects)
 
 # Eigen
 list(APPEND projects eigen)
-set(eigen_version "3.4.0")
+set(eigen_version "5.0.1")
 set(eigen_url "https://gitlab.com/libeigen/eigen/-/archive/${eigen_version}/eigen-${eigen_version}.tar.gz")
-set(eigen_sha256 "8586084f71f9bde545ee7fa6d00288b264a2b7ac3607b974e54d13e7162c1c72")
+set(eigen_sha256 "e9c326dc8c05cd1e044c71f30f1b2e34a6161a3b6ecf445d56b53ff1669e3dec")
 
 # glew
 list(APPEND projects glew)
-set(glew_version "2.2.0")
+set(glew_version "2.3.1")
 set(glew_url "https://github.com/nigels-com/glew/releases/download/glew-${glew_version}/glew-${glew_version}.tgz")
-set(glew_sha256 "d4fc82893cfb00109578d0a1a2337fb8ca335b3ceccf97b97e5cc7f08e4353e1")
+set(glew_sha256 "b64790f94b926acd7e8f84c5d6000a86cb43967bd1e688b03089079799c9e889")
 
 # gtest
 list(APPEND projects gtest)
@@ -26,10 +26,10 @@ set(hdf5_sha256 "563940efec30ec027108bc425f45488ce98d356798bdf743441e574c2d52dd5
 
 # Open Babel
 list(APPEND projects openbabel)
-set(openbabel_version "3-2-0")
+set(openbabel_version "3-2-1")
 set(openbabel_url "https://github.com/openbabel/openbabel/archive/openbabel-${openbabel_version}.tar.gz")
 #set(openbabel_url "https://github.com/openbabel/openbabel/archive/32cf131444c1555c749b356dab44fb9fe275271f.tar.gz")
-set(openbabel_sha256 "9aadf9f01b3d0ff15d49fcd28d7d76b923218d70bf10f99ea4cc466607f4c7e2")
+set(openbabel_sha256 "e140c25480fe1678d00b9a52462368fa4e7805fba67b12ee496784437f3e239e")
 
 # PCRE
 list(APPEND projects pcre)
@@ -39,9 +39,9 @@ set(pcre_sha256 "4e6ce03e0336e8b4a3d6c2b70b1c5e18590a5673a98186da90d4f33c23defc0
 
 # libxml2
 list(APPEND projects libxml2)
-set(libxml2_version "2.15.3")
+set(libxml2_version "2.15.4")
 set(libxml2_url "https://gitlab.gnome.org/GNOME/libxml2/-/archive/v${libxml2_version}/libxml2-v${libxml2_version}.tar.gz")
-set(libxml2_sha256 "1aa47bd54f9e0245686d494fbbbfa4e3e77b6fc4f988708383de8a1033292e66")
+set(libxml2_sha256 "a569ee9c59eabb197a0d5047046d757ee14c86fb2d4a734555b633cb5584ad25")
 
 # Zlib
 list(APPEND projects zlib)
@@ -63,9 +63,9 @@ set(spglib_sha256 "b22fc9abae9716c574fbc6d55cfc53ed654a714fccc5657a26ff5d18114bd
 
 # libarchive
 list(APPEND projects libarchive)
-set(libarchive_version "3.8.7")
+set(libarchive_version "3.8.9")
 set(libarchive_url "https://github.com/libarchive/libarchive/archive/v${libarchive_version}.tar.gz")
-set(libarchive_sha256 "bc942030fe7cb30e04eed31bd5f63c38cdfd712315b303e91b64e58f05db2346")
+set(libarchive_sha256 "744346f6bca195c8f894f847bb32a16e9bcae6002624a58fadc81e80f595b3cb")
 
 # libmsym
 list(APPEND projects libmsym)
@@ -76,3 +76,11 @@ ELSE()
   set(libmsym_url "https://github.com/mcodev31/libmsym/archive/85e47232376a8e735c2a7b5283f40b59b3953db1.tar.gz")
   set(libmsym_sha256 "456e2c1e0c78e212115d4d332f557f108b6d41b730d5fd6639c2452df31b7096")
 ENDIF()
+
+# sentry-native (crash reporting, Windows diagnostic builds only)
+# NOTE: this must be the release asset, not the /archive/ tarball - only the
+# release asset vendors crashpad.
+list(APPEND projects sentry)
+set(sentry_version "0.16.3")
+set(sentry_url "https://github.com/getsentry/sentry-native/releases/download/${sentry_version}/sentry-native.zip")
+set(sentry_sha256 "21380c182dde677794a7b6c57e8d6e03d79ec5a03eec67514ffa7522f7e161b5")

@@ -12,7 +12,10 @@ string(REGEX REPLACE "^([0-9]+\\.[0-9]+)\\.[0-9]+$" "\\1"
 if(EMSCRIPTEN)
   set(platform_libs)
 elseif(APPLE)
-  set(platform_libs "-framework AGL" "-framework OpenGL")
+  # AGL was the Carbon-era OpenGL API; Apple removed the framework from the
+  # macOS SDK and GLEW has never needed it - the library uses CGL, which lives
+  # in OpenGL.framework. Upstream's own Makefile.darwin links OpenGL alone.
+  set(platform_libs "-framework OpenGL")
 elseif(WIN32)
   set(GLEW_NAME "glew32")
   set(platform_libs glu32 opengl32)
