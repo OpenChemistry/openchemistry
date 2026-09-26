@@ -4,7 +4,6 @@ set(libmsym_source  "${CMAKE_CURRENT_BINARY_DIR}/libmsym-0.2.3-paper")
 ExternalProject_Add(libmsym
   DOWNLOAD_DIR ${download_dir}
   SOURCE_DIR "${libmsym_source}"
-  INSTALL_DIR "${OpenChemistry_INSTALL_PREFIX}"
   URL ${libmsym_url}
   URL_HASH SHA256=${libmsym_sha256}
   CMAKE_CACHE_ARGS
