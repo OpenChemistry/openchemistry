@@ -9,9 +9,7 @@ string(REGEX REPLACE "^([0-9]+\\.[0-9]+)\\.[0-9]+$" "\\1"
   GLEW_SOVERSION "${GLEW_VERSION}")
 
 # Platform specific differences:
-if(EMSCRIPTEN)
-  set(platform_libs)
-elseif(APPLE)
+if(APPLE)
   # AGL was the Carbon-era OpenGL API; Apple removed the framework from the
   # macOS SDK and GLEW has never needed it - the library uses CGL, which lives
   # in OpenGL.framework. Upstream's own Makefile.darwin links OpenGL alone.
@@ -58,24 +56,23 @@ if(platform_libs)
   target_link_libraries(${GLEW_NAME}mx ${platform_libs})
 endif()
 
-if(NOT EMSCRIPTEN)
-  add_executable(glewinfo src/glewinfo.c)
-  set_property(TARGET glewinfo PROPERTY COMPILE_DEFINITIONS GLEW_NO_GLU)
-  if(NOT BUILD_SHARED_LIBS)
-    set_property(TARGET glewinfo APPEND PROPERTY COMPILE_DEFINITIONS GLEW_STATIC)
-  endif()
-  target_link_libraries(glewinfo ${GLEW_NAME})
-
-  add_executable(visualinfo src/visualinfo.c)
-  set_property(TARGET visualinfo PROPERTY COMPILE_DEFINITIONS GLEW_NO_GLU)
-  if(NOT BUILD_SHARED_LIBS)
-    set_property(TARGET visualinfo APPEND PROPERTY COMPILE_DEFINITIONS GLEW_STATIC)
-  endif()
-  target_link_libraries(visualinfo ${GLEW_NAME})
-
-  add_test(NAME glewinfo COMMAND glewinfo)
-  add_test(NAME visualinfo COMMAND visualinfo)
+add_executable(glewinfo src/glewinfo.c)
+set_property(TARGET glewinfo PROPERTY COMPILE_DEFINITIONS GLEW_NO_GLU)
+if(NOT BUILD_SHARED_LIBS)
+  set_property(TARGET glewinfo APPEND PROPERTY COMPILE_DEFINITIONS GLEW_STATIC)
 endif()
+target_link_libraries(glewinfo ${GLEW_NAME})
+
+add_executable(visualinfo src/visualinfo.c)
+set_property(TARGET visualinfo PROPERTY COMPILE_DEFINITIONS GLEW_NO_GLU)
+if(NOT BUILD_SHARED_LIBS)
+  set_property(TARGET visualinfo APPEND PROPERTY COMPILE_DEFINITIONS GLEW_STATIC)
+endif()
+target_link_libraries(visualinfo ${GLEW_NAME})
+
+
+add_test(NAME glewinfo COMMAND glewinfo)
+add_test(NAME visualinfo COMMAND visualinfo)
 
 
 install(FILES
@@ -101,10 +98,8 @@ install(TARGETS
   ARCHIVE DESTINATION lib
   )
 
-if(NOT EMSCRIPTEN)
-  install(TARGETS
-      glewinfo
-      visualinfo
-    RUNTIME DESTINATION bin
-    )
-endif()
+install(TARGETS
+    glewinfo
+    visualinfo
+  RUNTIME DESTINATION bin
+  )

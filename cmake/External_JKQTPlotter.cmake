@@ -1,5 +1,5 @@
 # Pick out the modules used in MongoChem and AvogadroLibs only.
-set(_source "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/jkqtplotter")
+set(_source "${CMAKE_CURRENT_SOURCE_DIR}/jkqtplotter")
 set(_build "${CMAKE_CURRENT_BINARY_DIR}/jkqtplotter")
 set(_install "${OpenChemistry_INSTALL_PREFIX}")
 
