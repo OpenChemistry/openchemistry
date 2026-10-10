@@ -136,8 +136,13 @@ add_subdirectory(thirdparty)
 
 option(BUILD_DOCUMENTATION "Build documentation (Doxygen)" OFF)
 option(ENABLE_TESTING "Enable testing for Open Chemistry projects" OFF)
+# Release builds keep the plain version number; other builds without git tags
+# (e.g. nightly CI) get a date suffix, such as 2.0.0-20261009
+option(AVOGADRO_RELEASE_BUILD
+  "Release build: no date or git suffix on the Avogadro version" OFF)
 list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DBUILD_DOCUMENTATION:BOOL=${BUILD_DOCUMENTATION}"
+  "-DAVOGADRO_RELEASE_BUILD:BOOL=${AVOGADRO_RELEASE_BUILD}"
   "-DENABLE_TESTING:BOOL=${ENABLE_TESTING}"
   "-DUSE_PYTHON:BOOL=${USE_PYTHON}")
 
