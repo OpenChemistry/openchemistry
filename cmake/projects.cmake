@@ -57,9 +57,9 @@ set(kdsoap_sha256 "0c606ecc434466dbadb2829820ca163af60cc7ca226f553b5d40321967373
 
 # spglib
 list(APPEND projects spglib)
-set(spglib_version "2.7.0")
+set(spglib_version "2.8.0")
 set(spglib_url "https://github.com/spglib/spglib/archive/v${spglib_version}.tar.gz")
-set(spglib_sha256 "b22fc9abae9716c574fbc6d55cfc53ed654a714fccc5657a26ff5d18114bd8bd")
+set(spglib_sha256 "161562fa082da85a8ecda0339ddaac3714470434de60eb67978a960872cacf78")
 
 # libarchive
 list(APPEND projects libarchive)
