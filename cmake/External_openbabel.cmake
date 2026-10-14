@@ -15,6 +15,8 @@ add_optional_deps(_deps "zlib" "libxml2")
 # Get_std_inchi_Input_FromAuxInfo, Free_inchi_Input, Free_std_inchi_Input. MSVC
 # fails to link the inchi DLL because of the unresolved externals; GCC/Clang
 # allow them through. Restore the upstream file until openbabel fixes this.
+# Also rewrite the absolute install RPATH to $ORIGIN-relative entries so
+# relocated installs (e.g. the AppImage) find libinchi etc.
 ExternalProject_Add(openbabel
   DOWNLOAD_DIR ${download_dir}
   BINARY_DIR ${_build}
@@ -39,4 +41,7 @@ ExternalProject_Add(openbabel
   PATCH_COMMAND ${CMAKE_COMMAND} -E copy_if_different
     "${_self_dir}/ichilnct.txt"
     "<SOURCE_DIR>/src/formats/libinchi/ichilnct.c"
+  COMMAND ${CMAKE_COMMAND}
+    -DOPENBABEL_SOURCE_DIR=<SOURCE_DIR>
+    -P "${_self_dir}/openbabel_relative_rpath.cmake"
   )
