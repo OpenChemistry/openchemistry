@@ -1,4 +1,4 @@
-set(_source "${CMAKE_CURRENT_SOURCE_DIR}/pybind11")
+set(_source "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/pybind11")
 set(_build "${CMAKE_CURRENT_BINARY_DIR}/pybind11")
 
 ExternalProject_Add(pybind11

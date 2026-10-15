@@ -54,6 +54,10 @@ class SuperbuildHelpersTest(unittest.TestCase):
         for name in ("openbabel", "zlib", "libxml2"):
             self.assertIn(name, targets)
 
+    def test_python_bindings_configure_with_bundled_pybind11(self):
+        _, targets = self.configure(USE_PYTHON="ON")
+        self.assertIn("pybind11", targets)
+
     def test_bundled_libxml2_with_system_zlib(self):
         _, targets = self.configure(USE_SYSTEM_ZLIB="ON", USE_SYSTEM_LIBXML2="OFF")
         self.assertIn("libxml2", targets)
