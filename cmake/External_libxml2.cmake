@@ -39,6 +39,9 @@ else()
   set(libxml2_install_command "")
 endif()
 
+unset(_libxml2_deps)
+add_optional_deps(_libxml2_deps "zlib")
+
 ExternalProject_Add(libxml2
   DOWNLOAD_DIR ${download_dir}
   SOURCE_DIR ${libxml2_source}
@@ -50,7 +53,7 @@ ExternalProject_Add(libxml2
   ${libxml2_config_command}
   ${libxml2_build_command}
   ${libxml2_install_command}
-  DEPENDS zlib)
+  DEPENDS ${_libxml2_deps})
 
 set(LIBXML2_INCLUDE_DIR "${libxml2_install}/include" CACHE INTERNAL "")
 set(LIBXML2_LIBRARIES "${libxml2_install}/lib/libxml2.${link_library_suffix}"

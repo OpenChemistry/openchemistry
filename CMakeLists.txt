@@ -236,8 +236,6 @@ if(USE_PYTHON)
     "-DPYTHON_LIBRARY:FILEPATH=${PYTHON_LIBRARY}")
 endif()
 
-#add_subdirectory(thirdparty)
-
 option(BUILD_DOCUMENTATION "Build documentation (Doxygen)" OFF)
 option(ENABLE_TESTING "Enable testing for Open Chemistry projects" OFF)
 # Release builds keep the plain version number; other builds without git tags
@@ -261,6 +259,32 @@ if(WIN32 OR APPLE)
 endif()  
 
 add_optional_deps(OpenChemistry_external_deps "eigen")
+
+# Desktop subprocess plugins need their helper executables in the install
+# prefix. Keep these dependencies out of the web and subprocess-free profiles.
+if(BUILD_AVOGADRO AND ENABLE_SUBPROCESS AND NOT AVOGADRO_WEB_EDITOR)
+  option(USE_SYSTEM_OPENBABEL "Use the system Open Babel executable" OFF)
+  # Retain the original misspelled setting as the default for existing builds.
+  option(USE_SYSTEM_YAEHMOP "Use the system Yaehmop executable" "${USE_SYSTEM_YAEMOP}")
+  if(NOT USE_SYSTEM_OPENBABEL)
+    option(USE_SYSTEM_ZLIB "Use the system zlib" ${UNIX})
+    option(USE_SYSTEM_LIBXML2 "Use the system libxml2" ${UNIX})
+    if(USE_SYSTEM_ZLIB)
+      find_package(ZLIB REQUIRED)
+      list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
+        "-DZLIB_INCLUDE_DIR:PATH=${ZLIB_INCLUDE_DIRS}"
+        "-DZLIB_LIBRARY:FILEPATH=${ZLIB_LIBRARIES}")
+    endif()
+    if(USE_SYSTEM_LIBXML2)
+      find_package(LibXml2 REQUIRED)
+    endif()
+    add_optional_deps(OpenChemistry_external_deps "zlib" "libxml2")
+    list(APPEND OpenChemistry_external_deps "openbabel")
+  endif()
+  if(USE_YAEHMOP)
+    add_optional_deps(OpenChemistry_external_deps "yaehmop")
+  endif()
+endif()
 
 if(USE_SPGLIB)
   add_optional_deps(OpenChemistry_external_deps "spglib")
