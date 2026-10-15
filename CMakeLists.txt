@@ -243,8 +243,6 @@ option(ENABLE_TESTING "Enable testing for Open Chemistry projects" OFF)
 list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DBUILD_DOCUMENTATION:BOOL=${BUILD_DOCUMENTATION}"
   "-DENABLE_TESTING:BOOL=${ENABLE_TESTING}"
-  "-DENABLE_SUBPROCESS:BOOL=${ENABLE_SUBPROCESS}"
-  "-DAVOGADRO_WEB_EDITOR:BOOL=${AVOGADRO_WEB_EDITOR}"
   "-DBUILD_STATIC_PLUGINS:BOOL=${BUILD_STATIC_PLUGINS}"
   "-DUSE_PYTHON:BOOL=${USE_PYTHON}"
   "-DUSE_OPENGL:BOOL=${USE_OPENGL}"
@@ -312,5 +310,9 @@ if(BUILD_MOLEQUEUE)
 endif()
 if(BUILD_AVOGADRO)
   include(External_avogadrolibs)
-  include(External_avogadroapp)
+  if(AVOGADRO_WEB_EDITOR)
+    include(External_avogadro-web)
+  else()
+    include(External_avogadroapp)
+  endif()
 endif()

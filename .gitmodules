@@ -54,3 +54,7 @@
 [submodule "thirdparty/jkqtplotter"]
 	path = thirdparty/jkqtplotter
 	url = https://github.com/jkriege2/JKQtPlotter.git
+[submodule "avogadro-web"]
+	path = avogadro-web
+	url = https://github.com/OpenChemistry/avogadro-web.git
+	branch = main
