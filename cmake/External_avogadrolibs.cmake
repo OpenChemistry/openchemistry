@@ -3,7 +3,9 @@ set(_build "${CMAKE_CURRENT_BINARY_DIR}/avogadrolibs")
 
 unset(_deps)
 
-list(APPEND _deps "spglib")
+if(USE_SPGLIB)
+  add_optional_deps(_deps "spglib")
+endif()
 
 if(BUILD_MOLEQUEUE)
   list(APPEND _deps "molequeue")
@@ -11,8 +13,17 @@ if(BUILD_MOLEQUEUE)
 else()
   set(_molequeue "OFF")
 endif()
-add_optional_deps(_deps "eigen" "glew" "libmsym")
-add_optional_deps(_deps "libarchive")
+add_optional_deps(_deps "eigen")
+foreach(_feature OPENGL LIBMSYM LIBARCHIVE)
+  if(USE_${_feature})
+    if(_feature STREQUAL "OPENGL")
+      add_optional_deps(_deps "glew")
+    else()
+      string(TOLOWER "${_feature}" _dep)
+      add_optional_deps(_deps "${_dep}")
+    endif()
+  endif()
+endforeach()
 
 if(USE_PLOTTER)
   add_optional_deps(_deps "jkqtplotter")
@@ -36,6 +47,7 @@ ExternalProject_Add(avogadrolibs
   CMAKE_CACHE_ARGS
     ${OpenChemistry_DEFAULT_ARGS}
     ${OpenChemistry_THIRDPARTYLIBS_ARGS}
+    -DUSE_SUBPROCESS:BOOL=${ENABLE_SUBPROCESS}
     -DUSE_PLOTTER:BOOL=${USE_PLOTTER}
     -DUSE_HDF5:BOOL=${USE_HDF5}
     -DBUILD_GPL_PLUGINS:BOOL=${BUILD_GPL_PLUGINS}
