@@ -260,6 +260,45 @@ if(WIN32 OR APPLE)
     "-DUSE_3DCONNEXION:BOOL=${USE_3DCONNEXION}")
 endif()  
 
+foreach(_dep EIGEN GLEW GTEST HDF5 LIBARCHIVE JKQTPLOTTER)
+  option(USE_SYSTEM_${_dep} "Use the system ${_dep} dependency" OFF)
+endforeach()
+if(USE_SYSTEM_EIGEN)
+  find_package(Eigen3 REQUIRED)
+  list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
+    "-DEigen3_DIR:PATH=${Eigen3_DIR}"
+    "-DEIGEN3_INCLUDE_DIR:PATH=${EIGEN3_INCLUDE_DIR}")
+endif()
+if(USE_OPENGL AND NOT EMSCRIPTEN AND USE_SYSTEM_GLEW)
+  find_package(GLEW REQUIRED)
+  list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
+    "-DGLEW_INCLUDE_DIRS:PATH=${GLEW_INCLUDE_DIRS}"
+    "-DGLEW_LIBRARY:FILEPATH=${GLEW_LIBRARY}")
+endif()
+if(ENABLE_TESTING AND USE_SYSTEM_GTEST)
+  find_package(GTest REQUIRED)
+  if(GTest_DIR)
+    list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS "-DGTest_DIR:PATH=${GTest_DIR}")
+  endif()
+endif()
+if(USE_HDF5 AND USE_SYSTEM_HDF5)
+  find_package(HDF5 REQUIRED COMPONENTS CXX)
+  if(HDF5_DIR)
+    list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS "-DHDF5_DIR:PATH=${HDF5_DIR}")
+  endif()
+endif()
+if(USE_LIBARCHIVE AND USE_SYSTEM_LIBARCHIVE)
+  find_package(LibArchive REQUIRED)
+  list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
+    "-DLibArchive_INCLUDE_DIR:PATH=${LibArchive_INCLUDE_DIRS}"
+    "-DLibArchive_LIBRARY:FILEPATH=${LibArchive_LIBRARIES}")
+endif()
+if(USE_PLOTTER AND USE_SYSTEM_JKQTPLOTTER)
+  find_package(JKQTPlotter6 REQUIRED)
+  list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
+    "-DJKQTPlotter6_DIR:PATH=${JKQTPlotter6_DIR}")
+endif()
+
 add_optional_deps(OpenChemistry_external_deps "eigen")
 
 # Desktop subprocess plugins need their helper executables in the install
