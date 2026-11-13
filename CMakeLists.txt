@@ -94,12 +94,16 @@ if(EMSCRIPTEN AND DEFINED ENV{EMSDK})
     list(APPEND OpenChemistry_DEFAULT_ARGS
       "-DQT_CHAINLOAD_TOOLCHAIN_FILE:FILEPATH=${_openchemistry_emscripten_toolchain}")
   endif()
-  list(APPEND OpenChemistry_DEFAULT_ARGS
-    "-DCMAKE_C_FLAGS:STRING=-pthread"
-    "-DCMAKE_CXX_FLAGS:STRING=-pthread"
-    "-DCMAKE_EXE_LINKER_FLAGS:STRING=-pthread")
   unset(_openchemistry_emscripten_toolchain)
 endif()
+
+# Preserve explicit user flags; Qt selects threading for its WASM kit.
+foreach(_flag CMAKE_C_FLAGS CMAKE_CXX_FLAGS CMAKE_EXE_LINKER_FLAGS
+              CMAKE_SHARED_LINKER_FLAGS CMAKE_MODULE_LINKER_FLAGS)
+  if(DEFINED ${_flag})
+    list(APPEND OpenChemistry_DEFAULT_ARGS "-D${_flag}:STRING=${${_flag}}")
+  endif()
+endforeach()
 
 # If there is a CMAKE_BUILD_TYPE it is important to ensure it is passed down.
 if(CMAKE_BUILD_TYPE)
