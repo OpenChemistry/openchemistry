@@ -45,9 +45,9 @@ set(libxml2_sha256 "a569ee9c59eabb197a0d5047046d757ee14c86fb2d4a734555b633cb5584
 
 # Zlib
 list(APPEND projects zlib)
-set(zlib_version "1.3.2")
+set(zlib_version "1.4")
 set(zlib_url "https://github.com/madler/zlib/archive/v${zlib_version}.tar.gz")
-set(zlib_sha256 "17e88863f3600672ab49182f217281b6fc4d3c762bde361935e436a95214d05c")
+set(zlib_sha256 "4331355048e286908260fdbeaa0b8cf75ceaf2907c75855a093a6487c7032aaa")
 
 # KDSoap
 list(APPEND projects kdsoap)
