@@ -50,15 +50,12 @@ endif()
 set(OpenChemistry_INSTALL_PREFIX "${OpenChemistry_BINARY_DIR}/prefix")
 set(OpenChemistry_DEFAULT_ARGS
   "-DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS}"
-  "-DCMAKE_PREFIX_PATH:PATH=${OpenChemistry_INSTALL_PREFIX};${CMAKE_PREFIX_PATH}"
   "-DCMAKE_INSTALL_PREFIX:PATH=${OpenChemistry_INSTALL_PREFIX}")
 
-if(CMAKE_FIND_ROOT_PATH)
+if(CMAKE_CROSSCOMPILING)
+  set(_find_roots "${OpenChemistry_INSTALL_PREFIX}" ${CMAKE_FIND_ROOT_PATH})
   list(APPEND OpenChemistry_DEFAULT_ARGS
-    "-DCMAKE_FIND_ROOT_PATH:PATH=${OpenChemistry_INSTALL_PREFIX};${CMAKE_FIND_ROOT_PATH}")
-else()
-  list(APPEND OpenChemistry_DEFAULT_ARGS
-    "-DCMAKE_FIND_ROOT_PATH:PATH=${OpenChemistry_INSTALL_PREFIX}")
+    "-DCMAKE_FIND_ROOT_PATH:PATH=${_find_roots}")
 endif()
 
 # Explicit archive hints are only needed by the static cross-compilation build.
