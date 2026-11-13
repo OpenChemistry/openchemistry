@@ -83,14 +83,6 @@ if(EMSCRIPTEN AND DEFINED ENV{EMSDK})
   unset(_openchemistry_emscripten_toolchain)
 endif()
 
-# Preserve explicit user flags; Qt selects threading for its WASM kit.
-foreach(_flag CMAKE_C_FLAGS CMAKE_CXX_FLAGS CMAKE_EXE_LINKER_FLAGS
-              CMAKE_SHARED_LINKER_FLAGS CMAKE_MODULE_LINKER_FLAGS)
-  if(DEFINED ${_flag})
-    list(APPEND OpenChemistry_DEFAULT_ARGS "-D${_flag}:STRING=${${_flag}}")
-  endif()
-endforeach()
-
 # If there is a CMAKE_BUILD_TYPE it is important to ensure it is passed down.
 if(CMAKE_BUILD_TYPE)
   list(APPEND OpenChemistry_DEFAULT_ARGS
@@ -142,6 +134,17 @@ else()
   list(APPEND OpenChemistry_DEFAULT_ARGS "-DQT_VERSION:STRING=${QT_VERSION}")
 endif()
 find_package(Qt6 COMPONENTS Widgets REQUIRED)
+# Static external libraries that do not link Qt must still match its WASM ABI.
+foreach(_flag CMAKE_C_FLAGS CMAKE_CXX_FLAGS CMAKE_EXE_LINKER_FLAGS
+              CMAKE_SHARED_LINKER_FLAGS CMAKE_MODULE_LINKER_FLAGS)
+  if(EMSCRIPTEN AND QT_FEATURE_thread)
+    string(STRIP "${${_flag}} -pthread" _external_flags)
+    list(APPEND OpenChemistry_DEFAULT_ARGS "-D${_flag}:STRING=${_external_flags}")
+  elseif(DEFINED ${_flag})
+    list(APPEND OpenChemistry_DEFAULT_ARGS "-D${_flag}:STRING=${${_flag}}")
+  endif()
+endforeach()
+
 get_filename_component(_qt_prefix "${Qt6_DIR}/../../.." ABSOLUTE)
 list(APPEND OpenChemistry_DEFAULT_ARGS
   "-DQt6_DIR:PATH=${Qt6_DIR}"
