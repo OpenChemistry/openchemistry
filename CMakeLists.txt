@@ -58,20 +58,6 @@ if(CMAKE_CROSSCOMPILING)
     "-DCMAKE_FIND_ROOT_PATH:PATH=${_find_roots}")
 endif()
 
-# Explicit archive hints are only needed by the static cross-compilation build.
-if(EMSCRIPTEN)
-  set(OpenChemistry_THIRDPARTYLIBS_ARGS
-    "-DEigen3_DIR:PATH=${OpenChemistry_INSTALL_PREFIX}/share/eigen3/cmake"
-    "-DSpglib_DIR:PATH=${OpenChemistry_INSTALL_PREFIX}/lib/cmake/Spglib"
-    "-DLIBMSYM_INCLUDE_DIR:PATH=${OpenChemistry_INSTALL_PREFIX}/include"
-    "-DLIBMSYM_LIBRARY:FILEPATH=${OpenChemistry_INSTALL_PREFIX}/lib/libmsym.a"
-    "-DGLEW_INCLUDE_DIR:PATH=${OpenChemistry_INSTALL_PREFIX}/include"
-    "-DGLEW_USE_STATIC_LIBS:BOOL=ON"
-    "-DGLEW_LIBRARY:FILEPATH=${OpenChemistry_INSTALL_PREFIX}/lib/libGLEW.a"
-    "-DGLEW_LIBRARIES:FILEPATH=${OpenChemistry_INSTALL_PREFIX}/lib/libGLEW.a"
-    "-DGLEW_STATIC_LIBRARY_RELEASE:FILEPATH=${OpenChemistry_INSTALL_PREFIX}/lib/libGLEW.a")
-endif()
-
 foreach(_var
     CMAKE_TOOLCHAIN_FILE
     CMAKE_SYSROOT
@@ -183,6 +169,21 @@ option(USE_LIBARCHIVE "Enable optional Libarchive features" ${_desktop_features_
 option(USE_LIBMSYM "Enable optional features using libmsym" ON)
 option(USE_SPGLIB "Enable optional features using spglib" ON)
 
+# Explicit archive hints are needed only for enabled WASM dependencies.
+if(EMSCRIPTEN)
+  list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
+    "-DEigen3_DIR:PATH=${OpenChemistry_INSTALL_PREFIX}/share/eigen3/cmake")
+  if(USE_SPGLIB)
+    list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
+      "-DSpglib_DIR:PATH=${OpenChemistry_INSTALL_PREFIX}/lib/cmake/Spglib")
+  endif()
+  if(USE_LIBMSYM)
+    list(APPEND OpenChemistry_THIRDPARTYLIBS_ARGS
+      "-DLIBMSYM_INCLUDE_DIR:PATH=${OpenChemistry_INSTALL_PREFIX}/include"
+      "-DLIBMSYM_LIBRARY:FILEPATH=${OpenChemistry_INSTALL_PREFIX}/lib/libmsym.a")
+  endif()
+endif()
+
 if(EMSCRIPTEN AND (ENABLE_SUBPROCESS OR USE_LIBARCHIVE OR USE_PYTHON))
   message(FATAL_ERROR "WASM requires ENABLE_SUBPROCESS=OFF, USE_LIBARCHIVE=OFF and USE_PYTHON=OFF. Configure a fresh build directory with these options.")
 endif()
@@ -291,7 +292,7 @@ if(USE_SPGLIB)
   add_optional_deps(OpenChemistry_external_deps "spglib")
 endif()
 
-if(USE_OPENGL)
+if(USE_OPENGL AND NOT EMSCRIPTEN)
   add_optional_deps(OpenChemistry_external_deps "glew")
 endif()
 
