@@ -12,14 +12,13 @@ if(USE_SENTRY)
   list(APPEND _deps "sentry")
 endif()
 
-# Enable RPC by default
-set(ENABLE_RPC "ON")
+option(Avogadro_ENABLE_RPC "Enable the desktop RPC server" ON)
 
 ExternalProject_Add(avogadroapp
   SOURCE_DIR ${_source}
   BINARY_DIR ${_build}
   CMAKE_CACHE_ARGS
-    -DAvogadro_ENABLE_RPC:BOOL=${ENABLE_RPC}
+    -DAvogadro_ENABLE_RPC:BOOL=${Avogadro_ENABLE_RPC}
     -DUSE_PLOTTER:BOOL=${USE_PLOTTER}
     -DUSE_SENTRY:BOOL=${USE_SENTRY}
     -DSENTRY_DSN:STRING=${SENTRY_DSN}
